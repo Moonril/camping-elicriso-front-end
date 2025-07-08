@@ -17,6 +17,7 @@ const MyNavBar = function (){
                 <Link to={"/news"} className="hover:opacity-80">News</Link>
                 <Link to={"/restaurant"} className="hover:opacity-80">Ristorante</Link>
                 <Link to={"/contact"} className="hover:opacity-80">Contattaci</Link>
+                <Link to={"/login"} className="hover:opacity-80 text-xs">Admin</Link>
             
             </nav>
             {/* aggiungi cerca */}

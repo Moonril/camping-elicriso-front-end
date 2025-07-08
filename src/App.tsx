@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import './App.css'
 import HomePage from './components/HomePage'
 import MyNavBar from './components/MyNavBar'
+import LogIn from './components/LogIn'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         </header>
         <Routes>
           <Route path='/' element={<HomePage />} /> {/* main */}
+          <Route path='/login' element={<LogIn />} /> {/* main */}
           <Route path='*' element={<div>404 - NOT FOUND</div> } /> {/* main */}
         </Routes>
       </div>
