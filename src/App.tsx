@@ -5,6 +5,7 @@ import HomePage from './components/HomePage'
 import MyNavBar from './components/MyNavBar'
 import LogIn from './components/LogIn'
 import Accomodation from './components/Accomodation'
+import MyBookings from './components/MyBookings'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path='/' element={<HomePage />} /> {/* main */}
           <Route path='/login' element={<LogIn />} /> 
           <Route path='/accomodation' element={<Accomodation />} />
+          <Route path='/bookings' element={<MyBookings />} />
           <Route path='*' element={<div>404 - NOT FOUND</div> } />
         </Routes>
       </div>

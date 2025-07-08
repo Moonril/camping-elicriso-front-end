@@ -16,7 +16,7 @@ const MyNavBar = function (){
                 <Link to={"/news"} className="hover:opacity-80">News</Link>
                 <Link to={"/restaurant"} className="hover:opacity-80">Restaurant</Link>
                 <Link to={"/contact"} className="hover:opacity-80">Contattaci</Link>
-                <Link to={"/myBookings"} className="hover:opacity-80 text-xs">My reservations</Link>
+                <Link to={"/bookings"} className="hover:opacity-80 text-xs">My reservations</Link>
                 <Link to={"/login"} className="hover:opacity-80 text-xs">Admin</Link>
             
             </nav>
