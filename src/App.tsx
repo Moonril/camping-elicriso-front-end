@@ -4,6 +4,7 @@ import './App.css'
 import HomePage from './components/HomePage'
 import MyNavBar from './components/MyNavBar'
 import LogIn from './components/LogIn'
+import Accomodation from './components/Accomodation'
 
 function App() {
 
@@ -16,8 +17,9 @@ function App() {
         </header>
         <Routes>
           <Route path='/' element={<HomePage />} /> {/* main */}
-          <Route path='/login' element={<LogIn />} /> {/* main */}
-          <Route path='*' element={<div>404 - NOT FOUND</div> } /> {/* main */}
+          <Route path='/login' element={<LogIn />} /> 
+          <Route path='/accomodation' element={<Accomodation />} />
+          <Route path='*' element={<div>404 - NOT FOUND</div> } />
         </Routes>
       </div>
     </>
