@@ -61,7 +61,7 @@ const MyBookings = function (){
 
     return(
         <section className="bg-gray-50 dark:bg-gray-900">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
             
             <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -96,7 +96,7 @@ const MyBookings = function (){
 
         {/* prenotazione */}
                     {booking && (
-                        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+                        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
                             
                             <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -104,10 +104,18 @@ const MyBookings = function (){
                                         La tua prenotazione:
                                     </h1>
                                         <div>
-                                            <p>Booking ID: {booking.id}, creata il: {booking.bookingCreationDate}</p>
+                                            <p>Booking ID: {booking.id}, creata il: Check-In: {new Date(booking.bookingCreationDate).toLocaleString('it-IT', {
+                                                                                                                                        day: '2-digit',
+                                                                                                                                        month: '2-digit',
+                                                                                                                                        year: 'numeric',
+                                                                                                                                        hour: '2-digit',
+                                                                                                                                        minute: '2-digit'
+                                                                                                                                    })}</p>
                                             <p>Nome e Cognome: {booking.customer.name} {booking.customer.surname}</p>
                                             <p>Numero di persone: {booking.numberOfCustomers}</p>
                                             <p>Preferenze: {booking.preference}</p>
+                                            <p>Check-In: {new Date(booking.checkInDate).toLocaleDateString('it-IT')}, 12:00</p>
+                                            <p>Check-Out: {new Date(booking.checkOutDate).toLocaleDateString('it-IT')}, 11:00</p>
                                             <p>Stato prenotazione: {booking.bookingStatus}</p>
                                             <p>Numero di contatto: {booking.customer.phoneNumber}</p>
                                             <p>Email di contatto: {booking.customer.email}</p>

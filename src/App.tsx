@@ -6,6 +6,7 @@ import MyNavBar from './components/MyNavBar'
 import LogIn from './components/LogIn'
 import Accomodation from './components/Accomodation'
 import MyBookings from './components/MyBookings'
+import Restaurant from './components/Restaurant'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path='/' element={<HomePage />} /> {/* main */}
           <Route path='/login' element={<LogIn />} /> 
           <Route path='/accomodation' element={<Accomodation />} />
+          <Route path='/restaurant' element={<Restaurant />} />
           <Route path='/bookings' element={<MyBookings />} />
           <Route path='*' element={<div>404 - NOT FOUND</div> } />
         </Routes>
