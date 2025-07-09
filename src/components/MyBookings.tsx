@@ -1,4 +1,23 @@
+import axios from "axios";
 import { useEffect, useState } from "react"
+import React from "react";
+
+interface Booking {
+    id: number,
+    bookingCreationDate: string,
+    checkInDate: string,
+    checkOutDate: string,
+    numberOfCustomers: number,
+    preference: string,
+    bookingStatus: string,
+    customer: {
+        id: number,
+        name: string,
+        surname: string,
+        email: string,
+        phoneNumber: string
+    }
+}
 
 const MyBookings = function (){
 
@@ -7,9 +26,9 @@ const MyBookings = function (){
      const [inputValues, setInputValues] = useState({
             bookingNumber: ''
         })
-    const [booking, setBooking] = useState([])
+    const [booking, setBooking] = useState<Booking | null>(null)
 
-    const getBooking = () => {
+    /* const getBooking = () => {
         fetch(APIUrl + '/' + inputValues.bookingNumber)
         .then(response => {
             if(response.ok){
@@ -24,13 +43,20 @@ const MyBookings = function (){
         .catch((err=>{
             console.log(err)
         }))
+    } */
+
+    function getBooking(){
+        axios.get(`${APIUrl}/${inputValues.bookingNumber}`).then((response) =>{
+            setBooking(response.data)
+            console.log(response.data)
+        })
     }
 
 
 
-    useEffect(()=>{
+    /* useEffect(()=>{
         //getBooking()
-    }, [])
+    }, []) */
 
 
     return(
@@ -67,6 +93,32 @@ const MyBookings = function (){
                 </div>
             </div>
         </div>
+
+        {/* prenotazione */}
+                    {booking && (
+                        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+                            
+                            <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                                <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                                    <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                                        La tua prenotazione:
+                                    </h1>
+                                        <div>
+                                            <p>Booking ID: {booking.id}, creata il: {booking.bookingCreationDate}</p>
+                                            <p>Nome e Cognome: {booking.customer.name} {booking.customer.surname}</p>
+                                            <p>Numero di persone: {booking.numberOfCustomers}</p>
+                                            <p>Preferenze: {booking.preference}</p>
+                                            <p>Stato prenotazione: {booking.bookingStatus}</p>
+                                            <p>Numero di contatto: {booking.customer.phoneNumber}</p>
+                                            <p>Email di contatto: {booking.customer.email}</p>
+                                            
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                   
+                    
         </section>
     )
 }
