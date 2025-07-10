@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 const LogIn = function (){
@@ -9,6 +10,23 @@ const LogIn = function (){
         password: ''
     })
 
+    const logIn = ()=>{
+        axios
+        .post(APIUrl, inputValues)
+        .then((response) => {
+            setInputValues({
+                username: '',
+                password: ''
+            })
+            console.log("Login completed", response.data)
+            const token = response.data
+            localStorage.setItem("token", token)
+            //window.location.href = "home.html"
+        })
+        .catch((err) => {
+            console.log("Errore nel login: ", err)
+        })
+    }
 
     return(
                 <section className="bg-gray-50 dark:bg-gray-900">
@@ -22,6 +40,7 @@ const LogIn = function (){
                     <form className="space-y-4 md:space-y-6" action="#" onSubmit={(e)=>{
                         e.preventDefault() //ma sto prevent default mi serve?
                         //fetch
+                        logIn()
                     }} >
                         <div>
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your username</label>
