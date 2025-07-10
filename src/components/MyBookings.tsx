@@ -69,7 +69,7 @@ const MyBookings = function (){
                         Cerca prenotazione
                     </h1>
                     <form className="space-y-4 md:space-y-6" action="#" onSubmit={(e)=>{
-                        e.preventDefault() //ma sto prevent default mi serve?
+                        e.preventDefault() 
                         //fetch
                         getBooking()
                     }} >
@@ -104,7 +104,7 @@ const MyBookings = function (){
                                         La tua prenotazione:
                                     </h1>
                                         <div>
-                                            <p>Booking ID: {booking.id}, creata il: Check-In: {new Date(booking.bookingCreationDate).toLocaleString('it-IT', {
+                                            <p>Booking ID: {booking.id}, creata il: {new Date(booking.bookingCreationDate).toLocaleString('it-IT', {
                                                                                                                                         day: '2-digit',
                                                                                                                                         month: '2-digit',
                                                                                                                                         year: 'numeric',
