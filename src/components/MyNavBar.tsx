@@ -15,7 +15,7 @@ const MyNavBar = function (){
               <Link to={"/"}><img src="tent-night-.svg" alt="" className="w-10"/> </Link>
             </h1>
             <div>
-              <nav className="hidden md:block space-x-8 text-xl" aria-label="main">
+              <nav className="hidden md:block space-x-4 text-xl" aria-label="main">
                   <Link to={"/accomodation"} className="hover:opacity-80 text-green-700">Alloggi</Link>
                   <Link to={"/bookings"} className="hover:opacity-90 text-green-700">Prenota</Link>
                   <Link to={"/news"} className="hover:opacity-80 text-green-700">News</Link>
@@ -26,29 +26,30 @@ const MyNavBar = function (){
               {/* aggiungi cerca */}
             </div>
             <div className="hidden md:block">
-                  <Link to={"/myBookings"} className="hover:opacity-80 text-xs text-green-700">My reservations</Link>
+                  <Link to={"/myBookings"} className="hover:opacity-80 text-xs text-green-700 pr-2">My bookings</Link>
                   <Link to={"/login"} className="hover:opacity-80 text-xs text-green-700">Admin</Link>
             </div>
               <button id="hamburger-button" onClick={toggleDropdown} className="text-3xl text-green-700 md:hidden cursor-pointer">
                 &#9776;
               </button>
           </section>
-          <img src="https://cdn.prod.website-files.com/5c0db0b58da8f065edfa6d46/5c0dbc7736137d1606dd867d_painted%20edge.png" className="absolute inset-0 w-full  z-[-10] -bottom-16" alt="paint-banner" />
+          <img src="https://cdn.prod.website-files.com/5c0db0b58da8f065edfa6d46/5c0dbc7736137d1606dd867d_painted%20edge.png" className="absolute inset-9 md:inset-0 w-full  z-[-10] -bottom-16 " alt="paint-banner" />
 
           {/* dropdown menu */}
           
             {isOpen && (
               <section id="mobile-menu" className={`fixed top-0 left-0 h-screen w-full bg-green-950 opacity-90 text-5xl text-white transform transition-transform duration-300 ease-in-put z-20 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                <button onClick={toggleDropdown} className="text-8xl self-end px-6">&times;</button>
-                  <nav className="flex flex-col items-center justify-center gap-6 h-full" aria-label="mobile">
-                    <Link to={"/accomodation"} className="hover:opacity-80 text-green-700">Alloggi</Link>
+                <button onClick={toggleDropdown} className="text-4xl self-end px-6">&times;</button>
+                  <nav className="flex flex-col items-center justify-center gap-6 h-full text-3xl" aria-label="mobile">
+                        <Link to={"/"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">Home</Link>
+                        <Link to={"/accomodation"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">Alloggi</Link>
                         <Link to={"/bookings"} onClick={() => setIsOpen(false)} className="hover:opacity-90 text-green-700">Prenota</Link>
                         <Link to={"/news"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">News</Link>
                         <Link to={"/restaurant"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">Restaurant</Link>
                         <Link to={"/contact"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">Contattaci</Link>
                         <br />
-                        <Link to={"/myBookings"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-xs text-green-700">My reservations</Link>
-                        <Link to={"/login"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-xs text-green-700">Admin</Link>
+                        <Link to={"/myBookings"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-sm text-green-700">My reservations</Link>
+                        <Link to={"/login"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-sm text-green-700">Admin</Link>
                   </nav>
               </section>
             )}

@@ -1,10 +1,17 @@
 @import "tailwindcss";
 
-:root {
-
-
-
-
-
+.delius-regular {
+  font-family: "Delius", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
+
+
+.quicksand-titles {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+/*   font-weight: 400; */
+  font-style: normal;
+}
+
 
