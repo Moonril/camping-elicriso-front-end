@@ -14,9 +14,9 @@ function App() {
     <>
       <div className='min-h-screen'>
         {/* header fuori dalle routes */}
-        <header className='bg-teal-700 text-white sticky top-0 z-10'>
-            <MyNavBar />
-        </header>
+        
+        <MyNavBar />
+        
         <Routes>
           <Route path='/' element={<HomePage />} /> {/* main */}
           <Route path='/login' element={<LogIn />} /> 
