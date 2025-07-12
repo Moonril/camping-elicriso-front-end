@@ -9,6 +9,8 @@ import Accomodation from './components/Accomodation'
 import MyBookings from './components/MyBookings'
 import Restaurant from './components/Restaurant'
 import PageNotFound from './components/PageNotFound'
+import Footer from './components/Footer'
+import ContactUs from './components/ContactUs'
 
 function App() {
 
@@ -26,8 +28,10 @@ function App() {
           <Route path='/restaurant' element={<Restaurant />} />
           {/* <Route path='/bookings' element={<MyBookings />} /> */}
           <Route path='/myBookings' element={<MyBookings />} />
+          <Route path='/contact' element={<ContactUs />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
+        <Footer />
       </div>
     </>
   )
