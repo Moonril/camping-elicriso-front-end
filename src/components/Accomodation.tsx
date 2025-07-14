@@ -74,7 +74,7 @@ const Accomodation = function (){
     return (
       <div>
         {/* First section with 3 accomodation types */}
-        <section className="p-6 my-12">
+        <section className="items-center justify-content p-6 "> {/* h-screen */}
             <h2 className="text-4xl font-bold text-center sm:text-5xl mb-6 text-slate-900 dark:text-white">
             Our Accomodations
           </h2>

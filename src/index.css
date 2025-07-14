@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+* {
+  font-family: "Quicksand", sans-serif;
+}
+
 .delius-regular {
   font-family: "Delius", cursive;
   font-weight: 400;

@@ -18,9 +18,9 @@ const MyNavBar = function (){
               <nav className="hidden md:block space-x-4 text-xl" aria-label="main">
                   <Link to={"/accomodation"} className="hover:opacity-80 text-green-700">Alloggi</Link>
                   <Link to={"/bookings"} className="hover:opacity-90 text-green-700">Prenota</Link>
-                  <Link to={"/news"} className="hover:opacity-80 text-green-700">News</Link>
-                  <Link to={"/restaurant"} className="hover:opacity-80 text-green-700">Restaurant</Link>
-                  <Link to={"/contact"} className="hover:opacity-80 text-green-700">Contattaci</Link>
+                  <Link to={"/restaurant"} className="hover:opacity-80 text-green-700">Ristorante</Link>
+                  <Link to={"/surroundings"} className="hover:opacity-80 text-green-700">Dintorni</Link>
+                  <Link to={"/contact"} className="hover:opacity-80 text-green-700">Info & Contatti</Link>
               
               </nav>
               {/* aggiungi cerca */}
@@ -33,7 +33,8 @@ const MyNavBar = function (){
                 &#9776;
               </button>
           </section>
-          <img src="https://cdn.prod.website-files.com/5c0db0b58da8f065edfa6d46/5c0dbc7736137d1606dd867d_painted%20edge.png" className="absolute inset-9 md:inset-0 w-full  z-[-10] -bottom-16 " alt="paint-banner" />
+          {/* <img src="https://cdn.prod.website-files.com/5c0db0b58da8f065edfa6d46/5c0dbc7736137d1606dd867d_painted%20edge.png" className="absolute inset-9 md:inset-0 w-full  z-[-10] -bottom-16" alt="paint-banner" /> */}
+          <img src="https://cdn.prod.website-files.com/5c0db0b58da8f065edfa6d46/5c0dbc7736137d1606dd867d_painted%20edge.png" className="absolute inset-9 md:inset-0 w-full  z-[-10] -bottom-16 left-0 right-0" alt="paint-banner" />
 
           {/* dropdown menu */}
           
@@ -46,7 +47,7 @@ const MyNavBar = function (){
                         <Link to={"/bookings"} onClick={() => setIsOpen(false)} className="hover:opacity-90 text-green-700">Prenota</Link>
                         <Link to={"/news"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">News</Link>
                         <Link to={"/restaurant"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">Restaurant</Link>
-                        <Link to={"/contact"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">Contattaci</Link>
+                        <Link to={"/contact"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">Info & Contatti</Link>
                         <br />
                         <Link to={"/myBookings"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-sm text-green-700">My reservations</Link>
                         <Link to={"/login"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-sm text-green-700">Admin</Link>
