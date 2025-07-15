@@ -9,7 +9,7 @@ const MyNavBar = function (){
   const toggleDropdown = () => setIsOpen(prev => !prev);
 
     return(
-      <header className='relative bg-transparent px-5 py-2 absolute top-0 left-0 right-0 z-10 font-sans'>          
+      <header className='relative bg-transparent px-5 py-2 absolute top-0 left-0 right-0 z-10 font-sans bg-white'>          
         <section className="flex items-center justify-between ">
             <h1 className="text-3xl font-medium">
               <Link to={"/"}><img src="tent-night-.svg" alt="" className="w-10"/> </Link>
