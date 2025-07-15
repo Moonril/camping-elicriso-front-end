@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
+import { useParams } from "react-router-dom"
 
 interface NewBookingObject {
   checkInDate: string,
@@ -20,6 +21,8 @@ const Booking = function () {
     
     const APIUrl = 'http://localhost:8080/camping/bookings'
 
+    const { type } = useParams()
+
 
 
   const [newBooking, setNewBooking] = useState<NewBookingObject>({
@@ -34,7 +37,7 @@ const Booking = function () {
   phoneNumber: '',
 },
   accommodationId: 1,
-  accommodationType: ''
+  accommodationType: type ? type.toUpperCase() : ''
 })
 
   
@@ -63,11 +66,11 @@ const Booking = function () {
     })
     .catch((err) => {
       console.error("errore nella fecth", err)
-      console.log(newBooking)
+      console.log(newBooking, 'value tendina')
     })
 
   }
-
+ console.log(newBooking.accommodationType)
 
     return(
         

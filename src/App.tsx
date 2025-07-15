@@ -28,6 +28,7 @@ function App() {
           <Route path='/accomodation' element={<Accomodation />} />
           <Route path='/restaurant' element={<Restaurant />} />
           <Route path='/bookings' element={<Booking />} />
+          <Route path='/bookings/:type' element={<Booking />} />
           <Route path='/myBookings' element={<MyBookings />} />
           <Route path='/contact' element={<ContactUs />} />
           <Route path='*' element={<PageNotFound />} />

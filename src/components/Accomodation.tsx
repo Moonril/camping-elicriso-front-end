@@ -1,5 +1,10 @@
 import axios from "axios"
 import { useState } from "react"
+import { FaPerson } from "react-icons/fa6"
+import { IoIosResize } from "react-icons/io"
+import { IoBedOutline } from "react-icons/io5"
+import { MdOutlineBedroomParent } from "react-icons/md"
+import { PiFanLight } from "react-icons/pi"
 import { Link } from "react-router-dom"
 
 /* accomodation types */
@@ -104,7 +109,7 @@ const accommodations: Accommodation[] = [
         images: ['https://images.pexels.com/photos/17396037/pexels-photo-17396037.jpeg', 'url2', 'url3'],
         description: 'Tenda glamour immersa nel verde...',
         size: "10m",
-        bedrooms: 3,
+        bedrooms: 0,
         beds: 1,
         guests: 2,
         airCon: false
@@ -115,7 +120,7 @@ const accommodations: Accommodation[] = [
         images: ['https://images.pexels.com/photos/17396037/pexels-photo-17396037.jpeg', 'url2', 'url3'],
         description: 'Tenda glamour immersa nel verde...',
         size: "15m",
-        bedrooms: 3,
+        bedrooms: 0,
         beds: 2,
         guests: 3,
         airCon: true
@@ -137,6 +142,7 @@ const Accomodation = function (){
   const currentType = currentAccommodation?.types.find((t) => t.id === selectedType);
   
 
+  console.log(selectedAccommodation, 'selected accomdation')
 
     return (
       <section className="bg-green-950 p-10 md:px-20" >
@@ -163,6 +169,7 @@ const Accomodation = function (){
         </div>
 
 
+
         {/* accommodation details */}
 
         {selectedAccommodation && (
@@ -175,50 +182,56 @@ const Accomodation = function (){
               {currentAccommodation?.types.map((type) => (
                 <div key={type.id} className="flex-1" onClick={() => setSelectedType(type.id)}>
                   <img src={type.images[0]} alt={type.title} className="aspect-3/2 object-cover object-bottom rounded-2xl border border-solid border-slate-900 dark:border-gray-100 bg-white dark:bg-black opacity-85 cursor-pointer" />
-                  <div className="p-5">
-                    <h5 className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white text-center">{type.title}</h5>
-                  </div>                 
-                </div>
-              ))
 
-              }
-            </div>
-          </div>
+                  <div className="p-5 flex flex-col gap-3">
+                    {/* titolo */}
+                    <h5 className="mb-2 text-lg tracking-tight text-gray-900 dark:text-white text-center">{type.title}</h5>
+                    {/* dettagli */}
+                    <div className="flex flex-col gap-2 text-sm">
+                      <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
+                        <p><FaPerson /></p>
+                        <p>Max. {type.guests} persone</p> 
+                      </div>
+                      <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
+                        <p><IoIosResize /></p>
+                        <p>Size {type.size}</p> 
+                      </div>
+                      {type.bedrooms != 0 && (
+                        <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
+                        <p><MdOutlineBedroomParent /></p>
+                        <p>{type.bedrooms} bedrooms</p> 
+                      </div>
+                      )}
+                      {type.beds != 0 && (
+                        <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
+                        <p><IoBedOutline /></p>
+                        <p>{type.beds} beds</p> 
+                      </div>
+                      )}
+                      
+                        <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
+                        <p><PiFanLight /></p>
+                        <p>{type.airCon} {type.airCon && ("Air Conditioning") || "Ventilated"}</p> 
+                      </div>
+                     
+                    </div>
 
-        )
-
-        }
-
-
-        {/* dettagli accommodation nello specifico */}
-
-        {selectedAccommodation && selectedType && currentType && (
-          <div className="flex flex-col justify-center items-center gap-8 py-5">
-            <h2 className="text-4xl text-center sm:text-5xl text-slate-900 dark:text-white">{currentType.title}</h2>
-            <p className="text-white text-center mb-8">{currentType.description}</p>
-
-
-            <div className="flex flex-col sm:flex-row">
-              {currentType.images.map((img, index) =>(
-                <div key={index} className="flex-1">
-                  <img src={img} alt={`${currentType.title}-${index}`} className="aspect-3/2 object-cover object-bottom  bg-white dark:bg-black opacity-85" />
-                  <div className="p-5">
-                    <h5 className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white text-center">img1</h5>
+                    {/* descrizione */}
+                    <div><p className="text-sm">{type.description}</p></div>
+                      {/* prenota */}
+                    <Link to={`/bookings/${selectedAccommodation}`} className="bg-green-500 self-center p-1 px-4 rounded-xl">Prenota! &#129125;</Link>    
                   </div>
                 </div>
               ))
 
               }
             </div>
-            <p>Ti piace questo alloggio?</p>
-            <button>Prenota ora!</button>
-
           </div>
-
 
         )
 
         }
+
 
 
         
