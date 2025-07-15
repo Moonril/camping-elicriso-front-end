@@ -72,9 +72,9 @@ const Accomodation = function (){
 
 
     return (
-      <div>
+      <section>
         {/* First section with 3 accomodation types */}
-        <section className="items-center justify-content p-6 "> {/* h-screen */}
+        <div className="flex flex-col justify-center items-center gap-8 pt-20 lg:pt-25 px-10  md:px-20 bg-green-950"> {/* h-screen */}
             <h2 className="text-4xl font-bold text-center sm:text-5xl mb-6 text-slate-900 dark:text-white">
             Our Accomodations
           </h2>
@@ -89,11 +89,13 @@ const Accomodation = function (){
               <h3 className="text-3xl text-center text-slate-900 dark:text-white">Glamping</h3>
             </li>
           </ul>
-        </section>
+        </div>
+
+
 
 
         {/* reservations */}
-        <section className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
           <form className="max-w-md mx-auto" onSubmit={(e)=>{
                         e.preventDefault()
                         //fetch
@@ -230,10 +232,10 @@ const Accomodation = function (){
             
             <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
             </form>
-        </section>
+        </div>
 
       
-      </div>  
+      </section>  
     )
 
 }
