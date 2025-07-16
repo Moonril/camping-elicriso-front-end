@@ -1,10 +1,29 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react"
 import axios from "axios"
 import { useRef, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
+import { FaPerson } from "react-icons/fa6"
+import { IoIosResize } from "react-icons/io"
 
+/* available accommodation */
+
+
+interface availableAccommodation {
+  id: number,
+  name: string,
+  maxNumberOfPeople: number,
+  dimentions: string,
+  price: number,
+  accomodationStatus: string,
+  plotType?: string,
+  numberOfBeds?: number,
+  numberOfBedrooms?: number,
+  airConditioning?: boolean,
+  mobileType?: string,
+  glampingType?: string
+}
 
 /* new booking */
 
@@ -33,10 +52,19 @@ const Booking = function () {
     
     const APIUrlNewBooking = 'http://localhost:8080/camping/bookings'
     const APIUrlAccommodations = 'http://localhost:8080/accommodations'
+    /* GET http://localhost:8080/accommodations/plots/available?type=PLOT&guests=3&checkInDate=2025-07-20&checkOutDate=2025-07-25 */
+
+    const accommodationPathMap: Record<string, string> = {
+        PLOT: 'plots',
+        MOBILEHOME: 'mobilehomes',
+        GLAMPING: 'glampings',
+    };
 
     
 
     const { type } = useParams()
+
+    const [availableAccommodations, setAvailableAccommodations] = useState<availableAccommodation[] | null>(null)
 
 
     const [newBooking, setNewBooking] = useState<NewBookingObject>({
@@ -56,22 +84,34 @@ const Booking = function () {
 
     /* get */
 
-    function getAvailableAccommodations(){
+    function getAvailableAccommodations() {
+  const typePath = accommodationPathMap[newBooking.accommodationType];
 
-const type = newBooking.accommodationType.toLowerCase();
+  if (!typePath) {
+    console.warn("Tipo di alloggio non valido o non selezionato");
+    return;
+  }
 
+  if (!newBooking.checkInDate || !newBooking.checkOutDate || !newBooking.numberOfCustomers) {
+    console.warn("Dati incomplete: date o numero persone mancanti");
+    return;
+  }
 
-          /*   axios.get(`${APIUrlAccommodations}${newBooking.accommodationType.toLowerCase()}s`).then */
-            axios.get('http://localhost:8080/accommodations/glampings').then
-            ((response) =>{
-                
-                console.log(response.data)
-                
-            })
-            .catch((error) => {
-            console.error("GET failed:", error);
-            })
-        }
+  axios.get(`${APIUrlAccommodations}/${typePath}/available`, {
+    params: {
+      guests: newBooking.numberOfCustomers,
+      checkInDate: newBooking.checkInDate,
+      checkOutDate: newBooking.checkOutDate,
+    },
+  })
+    .then((response) => {
+      console.log("Alloggi disponibili:", response.data);
+      setAvailableAccommodations(response.data)
+    })
+    .catch((error) => {
+      console.error("Errore nel fetch disponibili:", error);
+    });
+}
 
 
     /* post */
@@ -103,10 +143,8 @@ const type = newBooking.accommodationType.toLowerCase();
         })
 
     }
-    console.log(newBooking.accommodationType)
-    console.log(APIUrlAccommodations)
-    console.log('Accommodation type:', newBooking.accommodationType)
-    console.log('URL:', `${APIUrlAccommodations}/${newBooking.accommodationType.toLowerCase()}s`)
+
+
 
     return(
         
@@ -122,7 +160,7 @@ const type = newBooking.accommodationType.toLowerCase();
                         <MenuButton className="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 flex flex-row items-center">
                             Tipi di alloggio
                             <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
                             </svg>
                         </MenuButton>
                         <MenuItems anchor="bottom" className="absolute mt-2 w-44 bg-white dark:bg-slate-800 dark:text-white shadow-md rounded-lg z-10">
@@ -159,7 +197,7 @@ const type = newBooking.accommodationType.toLowerCase();
                         <MenuButton className="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 flex flex-row items-center">
                             Numero di persone
                             <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
                             </svg>
                         </MenuButton>
                         <MenuItems anchor="bottom" className="absolute mt-2 w-44 bg-white dark:bg-slate-800 dark:text-white shadow-md rounded-lg z-10">
@@ -291,14 +329,93 @@ const type = newBooking.accommodationType.toLowerCase();
                 </div>
 
                 {/* available accommodations - risultato fetch */}
-                <div >
+                    {availableAccommodations && (
+                        
+                        <div className="flex flex-col justify-center items-center gap-8 py-5">
+                            <h2 className="text-4xl text-center sm:text-5xl text-slate-900 dark:text-white">
+                                {availableAccommodations[0].name}
+                            </h2>
+
+                            <div className="flex flex-col sm:flex-row gap-8">
+
+                            {availableAccommodations?.map((acc) => (                                
+                                
+                                    <div key={acc.id} className="p-5 flex flex-col gap-3">
+                                        <h4>
+                                            {acc.name}
+                                        </h4>
+                                        <img src="https://images.pexels.com/photos/2123285/pexels-photo-2123285.jpeg" alt="" />
+                                        {/* dettagli */}
+                                        <div className="flex flex-col gap-2 text-sm">
+                                            <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
+                                                <p><FaPerson /></p>
+                                                <p>Max. {acc.maxNumberOfPeople} persone</p> 
+                                            </div>
+                                            <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
+                                                <p><IoIosResize /></p>
+                                                <p>Size {acc.dimentions}</p> 
+                                            </div>
+                                            {acc.plotType && (
+                                                <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
+                                                    <p>Tipo piazzola: {acc.plotType.toLowerCase()}</p>
+                                                </div>
+                                            )}
+                                            {acc.mobileType && (
+                                                <div className=" flex flex-col items-center bg-gray-200 text-black rounded p-1 gap-2">
+                                                    <p>Tipo Bungalow: {acc.mobileType.toLowerCase()}</p>
+                                                    <p>Camere: {acc.numberOfBedrooms}</p>
+                                                    <p>Letti: {acc.numberOfBeds}</p>
+                                                    {acc.airConditioning &&(
+                                                        <p>AirCon: si</p>
+                                                    )}
+                                                </div>
+                                            )}
+                                            {acc.glampingType && (
+                                                <div className=" flex flex-col items-center bg-gray-200 text-black rounded p-1 gap-2">
+                                                    <p>Tipo Bungalow: {acc.glampingType.toLowerCase()}</p>
+                                                    <p>Letti: {acc.numberOfBeds}</p>
+                                                    {acc.airConditioning &&(
+                                                        <p>AirCon: si</p>
+                                                    )}
+                                                </div>
+                                            )}
+                                            <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
+                                                <p><IoIosResize /></p>
+                                                <p>Prezzo gg/pp {acc.price}</p> 
+                                            </div>
+                                            <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
+                                                <p><IoIosResize /></p>
+                                                <p>id: {acc.id}</p> 
+                                            </div>
+                                        </div>
+                                        {/* prenota */}
+                                        <button className="bg-green-500 self-center p-1 px-4 rounded-xl" onClick={() => {
+                                            setNewBooking((prev) => {
+                                            const updated = {
+                                                ...prev,
+                                                accommodationId: acc.id,
+                                            };
+                                            console.log("ID selezionato:", acc.id);
+                                            console.log("newBooking aggiornato:", updated);
+                                            return updated;
+                                            });
+                                        }}>
+                                            seleziona &#129125;
+                                        </button>   
+                                    </div>                            
+                            ))}
+                            </div>
+                        </div>
+                    )}
+
+
+
+
+
+
+                    {newBooking.accommodationId !== 0 && (
+
                     
-
-                </div>
-
-
-
-
 
             <form className="flex flex-col" onSubmit={(e)=>{
                                 e.preventDefault()
@@ -307,7 +424,6 @@ const type = newBooking.accommodationType.toLowerCase();
                             }}>
                 {/* reservation form*/}
             
-                
                     <div className="relative z-0 w-full mb-5 group">
                         <input type="text" name="floating_name" id="floating_name" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value={newBooking.customer.name} required onChange={(e) => {
                         
@@ -405,19 +521,6 @@ const type = newBooking.accommodationType.toLowerCase();
                         </select>
                         <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Accomodation Type</label>
 
-
-                        <select name="floating_accomodation_type" id="floating_accomodation_type" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" value={newBooking.accommodationType} onChange={(e) => {
-                            
-                            setNewBooking({
-                            ...newBooking,
-                            accommodationId: Number(e.target.value),
-                            })
-                        }}>
-                            <option value="52">52</option>
-                            <option value="53">53</option>
-                            <option value="54">54</option>
-                        </select>
-                        <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Accomodation number</label>
                     </div>
 
                     <div className="relative z-0 w-full mb-5 group">
@@ -441,6 +544,7 @@ const type = newBooking.accommodationType.toLowerCase();
             
             
             </form>
+            )}
             
         </section>
     )
