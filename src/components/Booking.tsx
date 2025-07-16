@@ -4,11 +4,9 @@ import { useRef, useState } from "react"
 import { useParams } from "react-router-dom"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
-import Calendar from "react-calendar"
-import "react-calendar/dist/Calendar.css"
 
 
-
+/* new booking */
 
 interface NewBookingObject {
   checkInDate: string,
@@ -27,16 +25,18 @@ interface NewBookingObject {
 
 const Booking = function () {
 
-    /* dropdown */
-
+    /* date */
+    const formatDate = (iso: string) => iso ? new Date(iso).toLocaleDateString("it-IT") : "...";
 
 
     /* fetch */
     
-    const APIUrl = 'http://localhost:8080/camping/bookings'
+    const APIUrlNewBooking = 'http://localhost:8080/camping/bookings'
+    const APIUrlAccommodations = 'http://localhost:8080/accommodations'
+
+    
 
     const { type } = useParams()
-
 
 
     const [newBooking, setNewBooking] = useState<NewBookingObject>({
@@ -54,11 +54,31 @@ const Booking = function () {
         accommodationType: type ? type.toUpperCase() : ''
     })
 
-    
+    /* get */
+
+    function getAvailableAccommodations(){
+
+const type = newBooking.accommodationType.toLowerCase();
+
+
+          /*   axios.get(`${APIUrlAccommodations}${newBooking.accommodationType.toLowerCase()}s`).then */
+            axios.get('http://localhost:8080/accommodations/glampings').then
+            ((response) =>{
+                
+                console.log(response.data)
+                
+            })
+            .catch((error) => {
+            console.error("GET failed:", error);
+            })
+        }
+
+
+    /* post */
     
     const postNewBooking = ()=>{
         axios
-        .post<NewBookingObject>(APIUrl, newBooking)
+        .post<NewBookingObject>(APIUrlNewBooking, newBooking)
         .then((response) => {
         setNewBooking({
         checkInDate: '',
@@ -84,19 +104,17 @@ const Booking = function () {
 
     }
     console.log(newBooking.accommodationType)
+    console.log(APIUrlAccommodations)
+    console.log('Accommodation type:', newBooking.accommodationType)
+    console.log('URL:', `${APIUrlAccommodations}/${newBooking.accommodationType.toLowerCase()}s`)
 
     return(
         
         <section className="flex flex-col bg-white-300 dark:bg-green-950 py-50 items-center justify-content text-black dark:text-gray-200 p-6 gap-8">
             {/* cerca prenotazione */}
 
-            {/* form completo parte da qua */}
             
-            <form className="flex flex-col" onSubmit={(e)=>{
-                                e.preventDefault()
-                                //fetch
-                                postNewBooking()
-                            }}>
+            
 
                 {/* tasti accomadion type + number of guests */}
                 <div className="flex flex-row">
@@ -109,19 +127,31 @@ const Booking = function () {
                         </MenuButton>
                         <MenuItems anchor="bottom" className="absolute mt-2 w-44 bg-white dark:bg-slate-800 dark:text-white shadow-md rounded-lg z-10">
                             <MenuItem>
-                                <a className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" href="/settings">
+                                <button className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900 p-2" value={newBooking.accommodationType} onClick={() =>
+                                        setNewBooking((prev) => ({
+                                            ...prev,
+                                            accommodationType: "PLOT",
+                                        }))} >
                                     Piazzole
-                                </a>
+                                </button>
                             </MenuItem>
                             <MenuItem>
-                                <a className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" href="/support">
+                                <button className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900 p-2" onClick={() =>
+                                        setNewBooking((prev) => ({
+                                            ...prev,
+                                            accommodationType: "MOBILEHOME",
+                                        }))} >
                                     Bungalows
-                                </a>
+                                </button>
                             </MenuItem>
                             <MenuItem>
-                                <a className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" href="/license">
+                                <button className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900 p-2" onClick={() =>
+                                        setNewBooking((prev) => ({
+                                            ...prev,
+                                            accommodationType: "GLAMPING",
+                                        }))} >
                                     Glamping
-                                </a>
+                                </button>
                             </MenuItem>
                         </MenuItems>
                     </Menu>
@@ -134,49 +164,82 @@ const Booking = function () {
                         </MenuButton>
                         <MenuItems anchor="bottom" className="absolute mt-2 w-44 bg-white dark:bg-slate-800 dark:text-white shadow-md rounded-lg z-10">
                             <MenuItem>
-                                <a className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" href="/settings">
+                                <button className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" onClick={() =>
+                                        setNewBooking((prev) => ({
+                                            ...prev,
+                                            numberOfCustomers: 1,
+                                        }))}>
                                     1
-                                </a>
+                                </button>
                             </MenuItem>
                             <MenuItem>
-                                <a className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" href="/support">
+                                <button className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" onClick={() =>
+                                        setNewBooking((prev) => ({
+                                            ...prev,
+                                            numberOfCustomers: 2,
+                                        }))}>
                                     2
-                                </a>
+                                </button>
                             </MenuItem>
                             <MenuItem>
-                                <a className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" href="/license">
+                                <button className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" onClick={() =>
+                                        setNewBooking((prev) => ({
+                                            ...prev,
+                                            numberOfCustomers: 3,
+                                        }))}>
                                     3
-                                </a>
+                                </button>
                             </MenuItem>
                             <MenuItem>
-                                <a className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" href="/license">
+                                <button className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" onClick={() =>
+                                        setNewBooking((prev) => ({
+                                            ...prev,
+                                            numberOfCustomers: 4,
+                                        }))}>
                                     4
-                                </a>
+                                </button>
                             </MenuItem>
                             <MenuItem>
-                                <a className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" href="/license">
+                                <button className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" onClick={() =>
+                                        setNewBooking((prev) => ({
+                                            ...prev,
+                                            numberOfCustomers: 5,
+                                        }))}>
                                     5
-                                </a>
+                                </button>
                             </MenuItem>
                             <MenuItem>
-                                <a className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" href="/license">
+                                <button className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" onClick={() =>
+                                        setNewBooking((prev) => ({
+                                            ...prev,
+                                            numberOfCustomers: 6,
+                                        }))}>
                                     6
-                                </a>
+                                </button>
                             </MenuItem>
                             <MenuItem>
-                                <a className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" href="/license">
+                                <button className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" onClick={() =>
+                                        setNewBooking((prev) => ({
+                                            ...prev,
+                                            numberOfCustomers: 7,
+                                        }))}>
                                     7
-                                </a>
+                                </button>
                             </MenuItem>
                             <MenuItem>
-                                <a className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" href="/license">
+                                <button className="block data-focus:bg-blue-300 dark:data-focus:bg-blue-900  p-2" onClick={() =>
+                                        setNewBooking((prev) => ({
+                                            ...prev,
+                                            numberOfCustomers: 8,
+                                        }))}>
                                     8
-                                </a>
+                                </button>
                             </MenuItem>
                         </MenuItems>
                     </Menu>
                     
                 </div>
+                    
 
 
                 {/* calendario */}
@@ -218,8 +281,18 @@ const Booking = function () {
                     </div>
                 </div>
 
-                {/* available accommodations? */}
+                <p className="mt-2 text-sm text-gray-600">
+                    Hai selezionato: <strong>{newBooking.accommodationType}</strong> per <strong>{newBooking.numberOfCustomers}</strong> persona{newBooking.numberOfCustomers > 1 ? 'e' : ''} dal dal <strong>{formatDate(newBooking.checkInDate)}</strong> al <strong>{formatDate(newBooking.checkOutDate)}</strong>
+                </p>
+
+                {/* submit fetch */}
+                <div>
+                    <button onClick={getAvailableAccommodations}>cerca</button>
+                </div>
+
+                {/* available accommodations - risultato fetch */}
                 <div >
+                    
 
                 </div>
 
@@ -227,9 +300,13 @@ const Booking = function () {
 
 
 
-
+            <form className="flex flex-col" onSubmit={(e)=>{
+                                e.preventDefault()
+                                //fetch
+                                postNewBooking()
+                            }}>
                 {/* reservation form*/}
-                <div>
+            
                 
                     <div className="relative z-0 w-full mb-5 group">
                         <input type="text" name="floating_name" id="floating_name" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value={newBooking.customer.name} required onChange={(e) => {
@@ -361,7 +438,7 @@ const Booking = function () {
                     
                     
                     <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-                </div>
+            
             
             </form>
             
