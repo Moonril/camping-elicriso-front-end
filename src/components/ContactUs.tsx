@@ -1,8 +1,14 @@
+import { useState } from "react"
 import { CiFacebook, CiLinkedin, CiTwitter } from "react-icons/ci"
 import { FaInstagram } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
 const ContactUs = function () {
+
+    const [newMessage, setNewMessage] = useState() /* aggiungere use params */  
+
+
+
     return(
         <section className="flex flex-col bg-white-300 dark:bg-green-950 py-50 items-center justify-content text-black dark:text-gray-200 p-6 gap-8">
             {/* title */}

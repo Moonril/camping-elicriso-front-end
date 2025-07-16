@@ -31,6 +31,7 @@ function App() {
           <Route path='/bookings/:type' element={<Booking />} />
           <Route path='/myBookings' element={<MyBookings />} />
           <Route path='/contact' element={<ContactUs />} />
+          <Route path='/contact/:bookingId' element={<ContactUs />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
         <Footer />

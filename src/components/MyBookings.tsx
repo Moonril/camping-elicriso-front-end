@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Booking {
     id: number,
@@ -121,6 +122,7 @@ const MyBookings = function (){
                                             <p>Email di contatto: {booking.customer.email}</p>
                                             
                                         </div>
+                                        <p>c'è qualcosa che non va nella tua prenotazione? <Link to={`/bookings/${booking.id}`} className="text-blue-600" >contattaci!</Link> </p>
                                 </div>
                             </div>
                         </div>
