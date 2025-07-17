@@ -36,7 +36,7 @@ const MyNavBar = function (){
                   {isLoggedIn ? (
                           <div className="text-xs text-green-700">
                             <span>- Ciao, {user?.name}! -</span>
-                            <Link to={"/backOffice"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-xs text-green-700"> Back office </Link>
+                            <Link to={"/backoffice"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-xs text-green-700"> Backoffice </Link>
                             <button onClick={logout} className="hover:opacity-80">Logout</button>
                           </div>
                         ) : (
