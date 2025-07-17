@@ -72,7 +72,7 @@ const Restaurant = function(){
 
     return (
         /* form prenotazioni ristorante */
-        <section className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 h-screen bg-[url(https://images.pexels.com/photos/1237073/pexels-photo-1237073.jpeg)] bg-cover gap-8 dark:text-white ">
+        <section className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 bg-[url(https://images.pexels.com/photos/1237073/pexels-photo-1237073.jpeg)] bg-cover gap-8 dark:text-white ">
             <h1 className=" text-9xl">Ristorante Rosmarino</h1>
 
             <p>Pranzo: 12:00 - 15:00</p>

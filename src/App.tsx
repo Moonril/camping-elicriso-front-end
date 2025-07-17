@@ -14,6 +14,7 @@ import ContactUs from './components/ContactUs'
 import Booking from './components/Booking'
 import Backoffice from './components/Backoffice'
 import { AuthProvider } from './context/AuthContext'
+import HandleBookings from './components/HandleBookings'
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
           <Route path='/contact' element={<ContactUs />} />
           <Route path='/contact/:bookingId' element={<ContactUs />} />
           <Route path='/backoffice' element={<Backoffice />} />
+          <Route path='/handleBookings' element={<HandleBookings />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
         <Footer />
