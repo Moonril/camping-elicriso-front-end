@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { useAuth } from "../context/AuthContext";
 
 
@@ -11,36 +11,42 @@ const MyNavBar = function (){
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => setIsOpen(prev => !prev);
 
+  const location = useLocation()
+
 
   console.log("Navbar render:", isLoggedIn, user);
     return(
       <header className='relative bg-transparent px-5 py-2 absolute top-0 left-0 right-0 z-10 font-sans bg-white'>          
         <section className="flex items-center justify-between ">
             <h1 className="text-3xl font-medium">
-              <Link to={"/"}><img src="tent-night-.svg" alt="" className="w-10"/> </Link>
+              <Link to={"/"} className={location.pathname === '/accommodations' ? 'underline' : ''}><img src="tent-night-.svg" alt="" className="w-10"/> </Link>
             </h1>
             <div>
               <nav className="hidden md:block space-x-4 text-xl" aria-label="main">
-                  <Link to={"/accomodation"} className="hover:opacity-80 text-green-700">Alloggi</Link>
-                  <Link to={"/bookings"} className="hover:opacity-90 text-green-700">Prenota</Link>
-                  <Link to={"/restaurant"} className="hover:opacity-80 text-green-700">Ristorante</Link>
-                  <Link to={"/surroundings"} className="hover:opacity-80 text-green-700">Dintorni</Link>
-                  <Link to={"/contact"} className="hover:opacity-80 text-green-700">Info & Contatti</Link>
-              
+                  <Link to={"/accommodations"} className={`hover:opacity-80 text-green-700 ${location.pathname === '/accommodations' ? 'underline' : ''}`}>Alloggi</Link>
+
+                  <Link to={"/bookings"} className={`hover:opacity-80 text-green-700 ${location.pathname === '/bookings' ? 'underline' : ''}`}>Prenota</Link>
+
+                  <Link to={"/restaurant"} className={`hover:opacity-80 text-green-700 ${location.pathname === '/restaurant' ? 'underline' : ''}`}>Ristorante</Link>
+
+                  <Link to={"/surroundings"} className={`hover:opacity-80 text-green-700 ${location.pathname === '/surroundings' ? 'underline' : ''}`}>Dintorni</Link>
+
+                  <Link to={"/contact"} className={`hover:opacity-80 text-green-700 ${location.pathname === '/contact' ? 'underline' : ''}`}>Info & Contatti</Link>
+              {/* {`hover:opacity-80 text-green-700 text-xs pr-2 ${location.pathname === '/contact' ? 'underline' : ''}`} */}
               </nav>
               {/* aggiungi cerca */}
             </div>
             <div className="hidden md:block flex-row">
-                  <Link to={"/myBookings"} className="hover:opacity-80 text-xs text-green-700 pr-2">My bookings</Link>
+                  <Link to={"/myBookings"} className={`hover:opacity-80 text-green-700 text-xs pr-2 ${location.pathname === '/myBookings' ? 'underline' : ''}`}>My bookings</Link>
                   <div className="inline-block">
                   {isLoggedIn ? (
                           <div className="text-xs text-green-700">
                             <span>- Ciao, {user?.name}! -</span>
-                            <Link to={"/backoffice"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-xs text-green-700"> Backoffice </Link>
+                            <Link to={"/backoffice"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 text-green-700 text-xs pr-2 ${location.pathname === '/backoffice' ? 'underline' : ''}`}> Backoffice </Link>
                             <button onClick={logout} className="hover:opacity-80">Logout</button>
                           </div>
                         ) : (
-                          <Link to={"/login"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-sm text-green-700">Admin</Link>
+                          <Link to={"/login"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 text-green-700 text-sm pr-2 ${location.pathname === '/login' ? 'underline' : ''}`}>Admin</Link>
                         )
 
                         }
@@ -50,30 +56,30 @@ const MyNavBar = function (){
                 &#9776;
               </button>
           </section>
-          {/* <img src="https://cdn.prod.website-files.com/5c0db0b58da8f065edfa6d46/5c0dbc7736137d1606dd867d_painted%20edge.png" className="absolute inset-9 md:inset-0 w-full  z-[-10] -bottom-16" alt="paint-banner" /> */}
+
           <img src="https://cdn.prod.website-files.com/5c0db0b58da8f065edfa6d46/5c0dbc7736137d1606dd867d_painted%20edge.png" className="absolute inset-9 md:inset-0 w-full  z-[-10] -bottom-16 left-0 right-0" alt="paint-banner" />
 
-          {/* dropdown menu */}
+          {/* dropdown menu mobile */}
           
             {isOpen && (
               <section id="mobile-menu" className={`fixed top-0 left-0 h-screen w-full bg-green-950 opacity-90 text-5xl text-white transform transition-transform duration-300 ease-in-put z-20 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 <button onClick={toggleDropdown} className="text-4xl self-end px-6">&times;</button>
                   <nav className="flex flex-col items-center justify-center gap-6 h-full text-3xl" aria-label="mobile">
-                        <Link to={"/"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">Home</Link>
-                        <Link to={"/accomodation"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">Alloggi</Link>
-                        <Link to={"/bookings"} onClick={() => setIsOpen(false)} className="hover:opacity-90 text-green-700">Prenota</Link>
-                        <Link to={"/news"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">News</Link>
-                        <Link to={"/restaurant"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">Restaurant</Link>
-                        <Link to={"/contact"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">Info & Contatti</Link>
+                        <Link to={"/"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 text-green-700 ${location.pathname === '/' ? 'underline' : ''}`}>Home</Link>
+                        <Link to={"/accommodations"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 text-green-700 ${location.pathname === '/accommodations' ? 'underline' : ''}`}>Alloggi</Link>
+                        <Link to={"/bookings"} onClick={() => setIsOpen(false)} className={`hover:opacity-90 text-green-700 ${location.pathname === '/bookings' ? 'underline' : ''}`}>Prenota</Link>
+                        <Link to={"/news"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 text-green-700 ${location.pathname === '/news' ? 'underline' : ''}`}>News</Link>
+                        <Link to={"/restaurant"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 text-green-700 ${location.pathname === '/restaurant' ? 'underline' : ''}`}>Restaurant</Link>
+                        <Link to={"/contact"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 text-green-700 ${location.pathname === '/contact' ? 'underline' : ''}`}>Info & Contatti</Link>
                         <br />
-                        <Link to={"/myBookings"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-sm text-green-700">My reservations</Link>
+                        <Link to={"/myBookings"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 text-sm text-green-700 ${location.pathname === '/myBookings' ? 'underline' : ''}`}>My reservations</Link>
                         {isLoggedIn ? (
                           <div>
                             <span>Ciao, {user?.name}</span>
                             <button onClick={logout}>Logout</button>
                           </div>
                         ) : (
-                          <Link to={"/login"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-sm text-green-700">Admin</Link>
+                          <Link to={"/login"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 text-sm text-green-700 ${location.pathname === '/myBookings' ? 'underline' : ''}`}>Admin</Link>
                         )
 
                         }

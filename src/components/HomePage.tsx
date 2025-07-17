@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HomePage = function (){
     return(
 
@@ -13,7 +15,7 @@ const HomePage = function (){
                 <div className="flex flex-col justify-center items-center gap-8 py-20 px-10 md:px-20"> {/* big container */}
                     
                     {/* about us */}
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-8 pb-15">
 
                         <h2 className="text-4xl quicksand-titles font-medium md:self-start text-center flex-1">About Us</h2>
 
@@ -27,29 +29,38 @@ const HomePage = function (){
 
                     {/* Explore */}
                     
-                        <div className="flex flex-col justify-between items-center gap-8 center">
+                        <div className="flex flex-col justify-between items-center gap-8 center px-10 pb-15">
 
                         
-                            <h2 className="text-3xl quicksand-titles font-medium">Explore &#9978;</h2>
+                            <h2 className="text-3xl quicksand-titles font-medium">Esplora &#9978;</h2>
                             
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed vel recusandae corrupti natus distinctio amet velit accusamus numquam adipisci dicta, nisi voluptatibus corporis, obcaecati, explicabo officia nobis illo? Sit, dolores.</p>
                             <div className="flex flex-col sm:flex-row gap-8">
                                 <div className="flex-1">
-                                    <img src="https://images.pexels.com/photos/2123285/pexels-photo-2123285.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl" />
+                                    <Link to={'/accommodations'}>
+                                        <img src="https://images.pexels.com/photos/2123285/pexels-photo-2123285.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl" />
+                                    </Link>
                                     <div className="p-5">
-                                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Our Tents</h5>
+                                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Le nostre piazzole</h5>
+                                        <p>piccola descrizione sulle nostre piazzole situate nel centro del bosco</p>
                                     </div>
                                 </div>
                                 <div className="flex-1">
-                                    <img src="https://images.pexels.com/photos/2174992/pexels-photo-2174992.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl" />
+                                    <Link to={'/accommodations'}>
+                                        <img src="https://images.pexels.com/photos/2174992/pexels-photo-2174992.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl" />
+                                    </Link>
                                     <div className="p-5">
-                                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Mobile Homes</h5>
+                                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">I nostri bungalows</h5>
+                                        <p>piccola descrizione sui nostri situate sulla collina vista mare</p>
                                     </div>
                                 </div>
                                 <div className="flex-1">
-                                    <img src="https://images.pexels.com/photos/17396037/pexels-photo-17396037.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl" />
+                                    <Link to={'/accommodations'}>
+                                        <img src="https://images.pexels.com/photos/17396037/pexels-photo-17396037.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl" />
+                                    </Link>
                                     <div className="p-5">
-                                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Glamping</h5>
+                                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Le nostre tende lussuose</h5>
+                                        <p>piccola descrizione sulle nostre tende lussuose all'ultima moda</p>
                                     </div>
                                 </div>
                             
@@ -58,10 +69,11 @@ const HomePage = function (){
 
 
                         {/* facilities */}
-                        <div className="w-full max-w-screen-xl mx-auto flex flex-col items-center justify-content gap-8 ">
+                        <div className="w-full max-w-screen-xl mx-auto flex flex-col items-center justify-content gap-8 px-10">
 
                             
-                            <h3 className="text-3xl quicksand-titles font-medium">Our facilities &#128703;</h3>
+                            <h3 className="text-3xl quicksand-titles font-medium">Le strutture &#128703;</h3>
+                            <p>Goditi una mattina rinfrescante in piscina, un bel pranzo nel nostro ristorante e un dopo pranzo relax nelle nostre amache</p>
 
                             <div className="w-full max-w-screen-xl mx-auto">
                                 <div className="w-full h-[200px]">
@@ -71,10 +83,12 @@ const HomePage = function (){
                                     className="w-full h-full object-cover object-[25%_70%] rounded-2xl"
                                     />
                                 </div>
-                                <div className="p-5">
-                                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Swimming Pool</h5>
+                                <div className="py-2">
+                                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Piscina</h5>
                                 </div>
                             </div>
+
+                            
                             <div className="w-full max-w-screen-xl mx-auto">
                                 <div className="w-full h-[200px]">
                                     <img
@@ -83,7 +97,7 @@ const HomePage = function (){
                                     className="w-full h-full object-cover object-[25%_70%] rounded-2xl"
                                     />
                                 </div>
-                                <div className="p-5">
+                                <div className="py-2">
                                         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Relax</h5>
                                 </div>
                             </div>
@@ -95,8 +109,8 @@ const HomePage = function (){
                                     className="w-full h-full object-cover object-[25%_70%] rounded-2xl"
                                     />
                                 </div>
-                                <div className="p-5">
-                                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Restaurant</h5>
+                                <div className="py-2">
+                                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Ristorante</h5>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +118,7 @@ const HomePage = function (){
                         {/* amenities */}
 
                         <div className="flex flex-col justify-between items-center gap-8">
-                            <h3 className="text-3xl quicksand-titles font-medium">Our facilities &#128703;</h3>
+                            <h3 className="text-3xl quicksand-titles font-medium">I servizi &#128703;</h3>
 
                             <div className="flex flex-col gap-8">
                                 <div className="flex flex-col sm:flex-row gap-8">
@@ -173,12 +187,12 @@ const HomePage = function (){
 
             </div>
             {/* find us */}
-                        <div className="flex flex-col bg-gray-300 items-center  gap-8 p-6">
+                        <div className="flex flex-col bg-gray-300 items-center gap-8 p-6">
                             <h3 className="text-3xl">Dove siamo</h3>
                             
-                            <div className="flex flex-col md:flex-row flex-grow gap-20">
+                            <div className="flex flex-col md:flex-row w-full gap-20">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5790.225290108554!2d10.32744894740432!3d43.47911951957426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d5e61e2519c089%3A0x70bfd41bcbc381dd!2sCalafuria%20Province%20of%20Livorno%2C%20Italy!5e0!3m2!1sen!2ses!4v1752496589592!5m2!1sen!2ses" width="600" height="450" loading="lazy" className="w-full flex-2"></iframe>
-                                <div className="flex-1 w-full text-center">
+                                <div className="flex flex-col items-center justify-center flex-1 w-full text-center">
                                     <p>descrizione strada</p>
                                     <p>Via aereo:</p>
                                     <p>Aeroporto di pisa</p>

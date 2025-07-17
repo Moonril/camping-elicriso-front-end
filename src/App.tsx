@@ -5,7 +5,7 @@ import './index.css'
 import HomePage from './components/HomePage'
 import MyNavBar from './components/MyNavBar'
 import LogIn from './components/LogIn'
-import Accomodation from './components/Accomodation'
+import Accomodation from './components/Accommodation'
 import MyBookings from './components/MyBookings'
 import Restaurant from './components/Restaurant'
 import PageNotFound from './components/PageNotFound'
@@ -28,7 +28,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} /> {/* main */}
           <Route path='/login' element={<LogIn />} /> 
-          <Route path='/accomodation' element={<Accomodation />} />
+          <Route path='/accommodations' element={<Accomodation />} />
           <Route path='/restaurant' element={<Restaurant />} />
           <Route path='/bookings' element={<Booking />} />
           <Route path='/bookings/:type' element={<Booking />} />
