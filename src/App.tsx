@@ -12,11 +12,12 @@ import PageNotFound from './components/PageNotFound'
 import Footer from './components/Footer'
 import ContactUs from './components/ContactUs'
 import Booking from './components/Booking'
+import { AuthProvider } from './context/AuthContext'
 
 function App() {
 
   return (
-    <>
+    <AuthProvider>
       <div className='min-h-screen'>
         {/* header fuori dalle routes */}
         
@@ -36,7 +37,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
-    </>
+    </AuthProvider>
   )
 }
 

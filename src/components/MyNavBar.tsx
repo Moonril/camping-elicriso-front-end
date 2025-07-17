@@ -1,13 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
+import { useAuth } from "../context/AuthContext";
 
 
 const MyNavBar = function (){
 
+  /* log in check */
+  const { user, logout, isLoggedIn } = useAuth();
 
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => setIsOpen(prev => !prev);
 
+
+  console.log("Navbar render:", isLoggedIn, user);
     return(
       <header className='relative bg-transparent px-5 py-2 absolute top-0 left-0 right-0 z-10 font-sans bg-white'>          
         <section className="flex items-center justify-between ">
@@ -25,9 +30,21 @@ const MyNavBar = function (){
               </nav>
               {/* aggiungi cerca */}
             </div>
-            <div className="hidden md:block">
+            <div className="hidden md:block flex-row">
                   <Link to={"/myBookings"} className="hover:opacity-80 text-xs text-green-700 pr-2">My bookings</Link>
-                  <Link to={"/login"} className="hover:opacity-80 text-xs text-green-700">Admin</Link>
+                  <div className="inline-block">
+                  {isLoggedIn ? (
+                          <div className="text-xs text-green-700">
+                            <span>- Ciao, {user?.name}! -</span>
+                            <Link to={"/backOffice"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-xs text-green-700"> Back office </Link>
+                            <button onClick={logout} className="hover:opacity-80">Logout</button>
+                          </div>
+                        ) : (
+                          <Link to={"/login"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-sm text-green-700">Admin</Link>
+                        )
+
+                        }
+                  </div>      
             </div>
               <button id="hamburger-button" onClick={toggleDropdown} className="text-3xl text-green-700 md:hidden cursor-pointer">
                 &#9776;
@@ -50,7 +67,16 @@ const MyNavBar = function (){
                         <Link to={"/contact"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-green-700">Info & Contatti</Link>
                         <br />
                         <Link to={"/myBookings"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-sm text-green-700">My reservations</Link>
-                        <Link to={"/login"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-sm text-green-700">Admin</Link>
+                        {isLoggedIn ? (
+                          <div>
+                            <span>Ciao, {user?.name}</span>
+                            <button onClick={logout}>Logout</button>
+                          </div>
+                        ) : (
+                          <Link to={"/login"} onClick={() => setIsOpen(false)} className="hover:opacity-80 text-sm text-green-700">Admin</Link>
+                        )
+
+                        }
                   </nav>
               </section>
             )}
@@ -61,4 +87,3 @@ const MyNavBar = function (){
 
 export default MyNavBar;
 
-/* className="absolute top-0 bg-green-950 w-full text-5xl flex flex-col justify-content-center text-white" */

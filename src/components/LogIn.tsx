@@ -1,9 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const LogIn = function (){
 
     const APIUrl = 'http://localhost:8080/auth/login'
+
+    const navigate = useNavigate()
 
     const [inputValues, setInputValues] = useState({
         username: '',
@@ -21,12 +25,22 @@ const LogIn = function (){
             console.log("Login completed", response.data)
             const token = response.data
             localStorage.setItem("token", token)
-            //window.location.href = "home.html"
+            login(token)
+            navigate("/")
+            
         })
         .catch((err) => {
             console.log("Errore nel login: ", err)
         })
     }
+
+    const { login } = useAuth();
+
+    /* axios.post("http://localhost:8080/auth/login", inputValues)
+    .then((res) => {
+        const token = res.data; // oppure res.data.token se è dentro un oggetto
+        login(token); // ✅ questo è fondamentale
+    }); */
 
     return(
                 <section className="bg-gray-50 dark:bg-gray-900">
