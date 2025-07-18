@@ -82,17 +82,21 @@ const Restaurant = function(){
 
     return (
         /* form prenotazioni ristorante */
-        <section className="bg-orange-50 bg-green-950 flex flex-col items-center justify-center px-6 py-20 lg:py-30 xl:py-50 mx-auto lg:py-0 gap-8 text-black ">
-            <div className=" w-full p-10 rounded-2xl text-center">
+        <section className="bg-orange-50 bg-green-950 flex flex-col items-center justify-center px-6 py-20 lg:py-30 xl:py-20 mx-auto gap-8 text-black ">
+            <div className="w-full p-10 rounded-2xl text-center">
+                <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg" alt="dishes" className="rounded-2xl h-[250px] w-full object-cover object-top my-5" />
                 <h1 className=" text-6xl text-shadow-md/30 pb-10">Ristorante Rosmarino</h1>
-                <p>vieni a trovarci nel nostro ristorante, pizzeria e bar situato vicino alla piscina. altre brevi desscrizioni Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis qui quos, quis quibusdam, non culpa alias eaque numquam nesciunt ex voluptatem officia adipisci officiis reprehenderit. Illum fugit laborum dignissimos pariatur!</p>
+                <p>Vieni a trovarci nel nostro ristorante, pizzeria e bar situato vicino alla piscina. altre brevi desscrizioni Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis qui quos, quis quibusdam, non culpa alias eaque numquam nesciunt ex voluptatem officia adipisci officiis reprehenderit. Illum fugit laborum dignissimos pariatur!</p>
+                <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg" alt="dishes" className="rounded-2xl h-[250px] w-full object-cover object-[25%_70%] my-5" />
             </div>
 
+            <h1 className=" text-6xl text-shadow-md/30">Menù</h1>
+            
             <div className="flex flex-col w-full lg:flex-row gap-8">
 
                 <div className=" text-black flex-1 rounded-2xl p-10"> {/* bg-red-300/75 */}
 
-                    <ul className="flex text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+                    <ul className="flex text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-500 dark:text-gray-400 bg-red-100 rounded-t-2xl">
                         {tabs.map((tab) => (
                         <li key={tab.id} className="me-2">
                             <button
@@ -109,7 +113,7 @@ const Restaurant = function(){
                         ))}
                     </ul>
 
-                    <div className="p-4">
+                    <div className="p-4 playfair-font bg-red-200 rounded-b-2xl shadow-2xl">
                         {activeTab === "daily" && (
                         <div> 
 

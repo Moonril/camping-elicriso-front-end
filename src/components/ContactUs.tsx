@@ -13,10 +13,10 @@ const ContactUs = function () {
         <section className="flex flex-col bg-white-300 dark:bg-green-950 py-20 lg:py-30 xl:py-50 items-center justify-content text-black dark:text-gray-200 p-6 gap-8">
             {/* title */}
             <div>
-                <h1 className=" text-4xl">CONTATTACI</h1>
+                <h1 className=" text-4xl">CONTATTI</h1>
             </div>
             {/* details */}
-            <div className="flex flex-col w-full md:flex-row gap-8 md:gap-50 items-center justify-between lg:p-10">
+            <div className="flex flex-col w-full md:flex-row gap-8 md:gap-50 items-center justify-between lg:p-10 px-10">
                 {/* form */}
 
                 <div className="flex flex-col w-full items-center justify-content">

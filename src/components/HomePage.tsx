@@ -39,7 +39,7 @@ const HomePage = function (){
                             <div className="flex flex-col sm:flex-row gap-8">
                                 <div className="flex-1">
                                     <Link to={'/accommodations'}>
-                                        <img src="https://images.pexels.com/photos/2123285/pexels-photo-2123285.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
+                                        <img src="https://images.pexels.com/photos/2123285/pexels-photo-2123285.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
                                     </Link>
                                     <div className="p-5">
                                         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Le nostre piazzole</h5>
@@ -48,7 +48,7 @@ const HomePage = function (){
                                 </div>
                                 <div className="flex-1">
                                     <Link to={'/accommodations'}>
-                                        <img src="https://images.pexels.com/photos/2174992/pexels-photo-2174992.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
+                                        <img src="https://images.pexels.com/photos/2174992/pexels-photo-2174992.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
                                     </Link>
                                     <div className="p-5">
                                         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">I nostri bungalows</h5>
@@ -57,7 +57,7 @@ const HomePage = function (){
                                 </div>
                                 <div className="flex-1">
                                     <Link to={'/accommodations'}>
-                                        <img src="https://images.pexels.com/photos/17396037/pexels-photo-17396037.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
+                                        <img src="https://images.pexels.com/photos/17396037/pexels-photo-17396037.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
                                     </Link>
                                     <div className="p-5">
                                         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Le nostre tende lussuose</h5>
@@ -163,7 +163,7 @@ const HomePage = function (){
                             <div className="flex flex-col sm:flex-row gap-8">
                                 <div className="flex-1">
                                     <Link to={'/surroundings'}>
-                                        <img src="https://images.pexels.com/photos/2049422/pexels-photo-2049422.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
+                                        <img src="https://images.pexels.com/photos/2049422/pexels-photo-2049422.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
                                     </Link>
                                         <div className="p-2">
                                             <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Mare</h5>
@@ -172,7 +172,7 @@ const HomePage = function (){
                                 </div>
                                 <div className="flex-1">
                                     <Link to={'/surroundings'}>
-                                        <img src="https://images.pexels.com/photos/2629233/pexels-photo-2629233.jpeg" alt="" className="aspect-3/2 object-cover object-center rounded-2xl shadow-lg/30 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
+                                        <img src="https://images.pexels.com/photos/2629233/pexels-photo-2629233.jpeg" alt="" className="aspect-3/2 object-cover object-center rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
                                     </Link>
                                         <div className="p-2">
                                             <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Trekking</h5>
@@ -181,7 +181,7 @@ const HomePage = function (){
                                 </div>
                                 <div className="flex-1">
                                     <Link to={'/surroundings'}>
-                                        <img src="https://images.pexels.com/photos/4430307/pexels-photo-4430307.jpeg" alt="" className="aspect-3/2 object-cover object-center rounded-2xl shadow-lg/30 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
+                                        <img src="https://images.pexels.com/photos/4430307/pexels-photo-4430307.jpeg" alt="" className="aspect-3/2 object-cover object-center rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
                                     </Link>
                                         <div className="p-2">
                                             <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Vita notturna</h5>

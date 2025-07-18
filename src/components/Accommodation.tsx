@@ -145,7 +145,7 @@ const Accomodation = function (){
   console.log(selectedAccommodation, 'selected accomdation')
 
     return (
-      <section className="bg-green-950 p-10 md:px-20" >
+      <section className="bg-green-950 p-10 md:px-20 min-h-screen" >
         {/* First section with 3 accomodation types */}
         <div className="flex flex-col justify-center items-center gap-8 pt-10 lg:pt-15">
             <h2 className="text-4xl text-center sm:text-5xl mb-6 text-slate-900 dark:text-white">
@@ -155,7 +155,7 @@ const Accomodation = function (){
               {accommodations.map((acc) => (
                 <div key={acc.id} className="flex-1 cursor-pointer">
                  
-                    <img src={acc.image} alt={acc.title} className="aspect-3/2 object-cover object-bottom rounded-2xl border border-solid border-slate-900 dark:border-gray-100 bg-white dark:bg-black opacity-85" onClick={() => setSelectedAccommodation(acc.id)} />
+                    <img src={acc.image} alt={acc.title} className="aspect-3/2 object-cover object-bottom rounded-2xl border border-solid border-slate-900 dark:border-gray-100 bg-white dark:bg-black opacity-85 shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={() => setSelectedAccommodation(acc.id)} />
                    <div className="p-5">
                         <h5 className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white text-center">{acc.title}</h5>
                     </div>
@@ -181,7 +181,7 @@ const Accomodation = function (){
             <div className="flex flex-col sm:flex-row gap-8">
               {currentAccommodation?.types.map((type) => (
                 <div key={type.id} className="flex-1" onClick={() => setSelectedType(type.id)}>
-                  <img src={type.images[0]} alt={type.title} className="aspect-3/2 object-cover object-bottom rounded-2xl border border-solid border-slate-900 dark:border-gray-100 bg-white dark:bg-black opacity-85 cursor-pointer" />
+                  <img src={type.images[0]} alt={type.title} className="aspect-3/2 object-cover object-bottom rounded-2xl border border-solid border-slate-900 dark:border-gray-100 bg-white dark:bg-black opacity-85 cursor-pointer shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105" />
 
                   <div className="p-5 flex flex-col gap-3">
                     {/* titolo */}
