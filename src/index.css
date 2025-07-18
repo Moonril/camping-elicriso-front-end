@@ -18,23 +18,11 @@
   font-style: normal;
 }
 
+/* bg-restaurant */
 
-.maremmina {
-  background-color: blue;
+.bg-restaurant {
+  background-image: url(https://images.pexels.com/photos/1237073/pexels-photo-1237073.jpeg);
+  background-size: cover;
+  background-color: rgba(161, 84, 84, 0.315);
+  background-blend-mode: lighten;
 }
-
-.react-calendar {
-  background-color: black;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-family: 'Delius', cursive;
-}
-
-.react-calendar__tile--active {
-
-}
-
-.react-calendar__tile--now {
-
-}
-

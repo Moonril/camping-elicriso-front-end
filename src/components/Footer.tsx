@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Footer = function(){
     return (
         <div className="p-4 dark:text-black flex flex-col items-center gap-2 sticky top-[100vh] text-sm bg-orange-50">
-            <div className="flex flex-row sm:flex-row gap-8 md:gap-20">
+            <div className="flex flex-row gap-8 md:gap-20">
                 <div className="flex flex-col items-center">
                     {/* logo */}
                     <p><FaTent /> logo <GiFlowers /></p>

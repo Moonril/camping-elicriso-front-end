@@ -36,7 +36,7 @@ function App() {
           <Route path='/contact' element={<ContactUs />} />
           <Route path='/contact/:bookingId' element={<ContactUs />} />
           <Route path='/backoffice' element={<Backoffice />} />
-          <Route path='/handleBookings' element={<HandleBookings />} />
+          <Route path='/handle-bookings' element={<HandleBookings />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
         <Footer />
