@@ -13,7 +13,6 @@ const BookingsNavbar = function () {
 
     const tabs = [
         { id: "elenco", label: "Elenco Prenotazioni" },
-        { id: "filtri", label: "Filtro avanzato" },
         { id: "nuova", label: "Nuova Prenotazione" },
         { id: "check-in", label: "Check-in/out" }
     ]
@@ -22,18 +21,18 @@ const BookingsNavbar = function () {
     
 
     return (
-        <section className="flex flex-col bg-white-300 dark:bg-green-950  text-black dark:text-gray-200">
+        <section className="flex flex-col  text-black">
                     
                     {/* top bar + tabs */}
-                     <ul className="flex text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-500 dark:text-gray-400 bg-red-100">
+                     <ul className="flex text-sm font-medium text-center">
                         {tabs.map((tab) => (
-                        <li key={tab.id} className="me-2">
+                        <li key={tab.id} className="">
                             <button
                             onClick={() => setActiveTab(tab.id)}
-                            className={`inline-block p-4 ${
+                            className={`inline-block py-4 px-2 md:p-4 ${
                                 activeTab === tab.id
-                                ? "text-black bg-gray-100 dark:bg-red-300 dark:text-black"
-                                : "hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-red-200 dark:hover:text-black"
+                                ? "underline underline-offset-8 decoration-[#31572C] decoration-3"
+                                : "hover:text-gray-600 hover:bg-gray-5"
                             }`}
                             >
                             {tab.label}
