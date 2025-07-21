@@ -22,7 +22,7 @@ const MyNavBar = function (){
   console.log("Navbar render:", isLoggedIn, user);
     return(
       <header className='relative px-5 py-2 absolute top-0 left-0 right-0 z-101 font-sans bg-orange-50'>          
-        <section className="flex items-center justify-between ">
+        <section className="flex items-center justify-between xl:py-3">
             <h1 className="text-3xl font-medium">
               <Link to={"/"} className={location.pathname === '/accommodations' ? 'underline' : ''}><img src="tent-night-.svg" alt="" className="w-10"/> </Link>
             </h1>
@@ -62,7 +62,8 @@ const MyNavBar = function (){
               </button>
           </section>
 
-          <img src="painted-edge-cream.png" className="absolute inset-9 md:inset-0 w-full  z-[-10] -bottom-16 left-0 right-0" alt="paint-banner" />
+          <img src="painted-edge-cream.png" className="absolute inset-9 md:inset-0 w-full  z-[-10] -bottom-16 left-0 right-0" alt="paint-banner" /> 
+
 
           {/* dropdown menu mobile */}
           

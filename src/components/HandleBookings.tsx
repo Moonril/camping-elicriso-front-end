@@ -47,6 +47,18 @@ interface PatchBooking {
 
 const HandleBookings = function () {
 
+    /* tabs */
+
+    const [activeTab, setActiveTab] = useState("elenco")
+
+    const tabs = [
+        { id: "elenco", label: "Elenco Prenotazioni" },
+        { id: "filtri", label: "Filtro avanzato" },
+        { id: "nuova", label: "Nuova Prenotazione" },
+        { id: "check-in", label: "Check-in/out" }
+    ]
+
+
     /* modal */
 
 
