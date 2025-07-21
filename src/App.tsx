@@ -12,9 +12,9 @@ import PageNotFound from './components/PageNotFound'
 import Footer from './components/Footer'
 import ContactUs from './components/ContactUs'
 import Booking from './components/Booking'
-import Backoffice from './components/Backoffice'
+import Backoffice from './components/backoffice/Backoffice'
 import { AuthProvider } from './context/AuthContext'
-import HandleBookings from './components/HandleBookings'
+import HandleBookings from './components/backoffice/BookingsNavbar'
 
 function App() {
 
