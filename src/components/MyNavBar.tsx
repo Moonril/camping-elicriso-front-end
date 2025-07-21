@@ -42,7 +42,7 @@ const MyNavBar = function (){
               {/* aggiungi cerca */}
             </div>
             <div className="hidden md:block flex-row">
-                  <Link to={"/myBookings"} className={`hover:opacity-80 text-green-700 text-xs pr-2 ${location.pathname === '/myBookings' ? 'underline' : ''}`}>My bookings</Link>
+                  <Link to={"/myBookings"} className={`hover:opacity-80 text-green-700 text-xs pr-2 ${location.pathname === '/myBookings' ? 'underline' : ''}`}>Le mie prenotazioni</Link>
                   <div className="inline-block">
                   {isLoggedIn ? (
                           <div className="text-xs text-green-700">
