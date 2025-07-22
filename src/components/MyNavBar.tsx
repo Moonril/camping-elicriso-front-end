@@ -78,10 +78,13 @@ const MyNavBar = function (){
                         <Link to={"/surroundings"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 flex flex-row gap-2 ${location.pathname === '/restaurant' ? 'underline text-green-100' : 'text-green-300'}`}><BiWorld /> Dintorni</Link>
                         <Link to={"/contact"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 flex flex-row gap-2 ${location.pathname === '/contact' ? 'underline text-green-100' : 'text-green-300'}`}><MdPermDeviceInformation /> Info & Contatti</Link>
                         <br />
-                        <Link to={"/myBookings"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 flex flex-row gap-2 text-sm ${location.pathname === '/myBookings' ? 'underline text-green-100' : 'text-green-300'}`}>Le mie prenotazioni</Link>
+                        <Link to={"/myBookings"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 flex flex-row gap-2 text-md ${location.pathname === '/myBookings' ? 'underline text-green-100' : 'text-green-300'}`}>Le mie prenotazioni</Link>
                         {isLoggedIn ? (
-                          <div>
-                            <span>Ciao, {user?.name}</span>
+                          <div className="text-green-300 text-md">
+                            <span>Ciao, {user?.name}!</span>
+                            <br />
+                            <Link to={"/backoffice"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 text-green-700 text-md pr-2 ${location.pathname === '/backoffice' ? 'underline' : ''}`}> Backoffice </Link>
+                            <br />
                             <button onClick={logout}>Logout</button>
                           </div>
                         ) : (

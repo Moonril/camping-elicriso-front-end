@@ -36,11 +36,6 @@ const LogIn = function (){
 
     const { login } = useAuth();
 
-    /* axios.post("http://localhost:8080/auth/login", inputValues)
-    .then((res) => {
-        const token = res.data; // oppure res.data.token se è dentro un oggetto
-        login(token); // ✅ questo è fondamentale
-    }); */
 
     return(
                 <section className="bg-gray-50 dark:bg-gray-900">

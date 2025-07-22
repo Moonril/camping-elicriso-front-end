@@ -16,7 +16,7 @@ const ContactUs = function () {
                 <h1 className=" text-4xl">CONTATTI</h1>
             </div>
             {/* details */}
-            <div className="flex flex-col w-full md:flex-row gap-8 md:gap-50 items-center justify-center lg:p-10 px-10">
+            <div className="flex flex-col w-full md:flex-row gap-8 items-center justify-center lg:p-10 px-10">
                 {/* form */}
 
                 <div className="flex flex-col w-full items-center justify-center">
@@ -52,7 +52,7 @@ const ContactUs = function () {
 
 
                 {/* details */}
-                <div className="flex flex-col items-center justify-center gap-4">
+                <div className="flex flex-col w-full items-center justify-center gap-4">
                     <div className="flex flex-col items-center justify-content">
                         <h5 className="font-bold">Email:</h5>
                         <p>email@email.it</p>

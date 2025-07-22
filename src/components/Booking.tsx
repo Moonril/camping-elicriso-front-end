@@ -8,7 +8,7 @@ import { FaPerson } from "react-icons/fa6"
 import { IoIosResize } from "react-icons/io"
 import { LuTent } from "react-icons/lu"
 import { IoPricetagOutline } from "react-icons/io5"
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'
 
 /* available accommodation */
 
