@@ -15,6 +15,7 @@ import Booking from './components/Booking'
 import Backoffice from './components/backoffice/Backoffice'
 import { AuthProvider } from './context/AuthContext'
 import HandleBookings from './components/backoffice/BookingsNavbar'
+import BookingsTest from './components/backoffice/BookingsTest'
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
           <Route path='/login' element={<LogIn />} /> 
           <Route path='/accommodations' element={<Accomodation />} />
           <Route path='/restaurant' element={<Restaurant />} />
+          <Route path='/bookingstest' element={<BookingsTest />} />
           <Route path='/bookings' element={<Booking />} />
           <Route path='/bookings/:type' element={<Booking />} />
           <Route path='/myBookings' element={<MyBookings />} />

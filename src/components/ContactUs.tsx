@@ -16,10 +16,10 @@ const ContactUs = function () {
                 <h1 className=" text-4xl">CONTATTI</h1>
             </div>
             {/* details */}
-            <div className="flex flex-col w-full md:flex-row gap-8 md:gap-50 items-center justify-between lg:p-10 px-10">
+            <div className="flex flex-col w-full md:flex-row gap-8 md:gap-50 items-center justify-center lg:p-10 px-10">
                 {/* form */}
 
-                <div className="flex flex-col w-full items-center justify-content">
+                <div className="flex flex-col w-full items-center justify-center">
                     <h3>Mandaci un messaggio!</h3>
                     {/* form */}
                     <form className="max-w-md mx-auto w-full px-10 md:px-0" onSubmit={(e)=>{
@@ -52,7 +52,7 @@ const ContactUs = function () {
 
 
                 {/* details */}
-                <div className="flex flex-col items-center justify-content gap-4">
+                <div className="flex flex-col items-center justify-center gap-4">
                     <div className="flex flex-col items-center justify-content">
                         <h5 className="font-bold">Email:</h5>
                         <p>email@email.it</p>
@@ -86,7 +86,7 @@ const ContactUs = function () {
             </div>
             {/* where + map */}
 
-            <div className="flex flex-col w-full items-center justify-content gap-8 p-6">
+            <div className="flex flex-col w-full items-center justify-center gap-8 p-6">
                 <h3 className="text-3xl">Come trovarci:</h3>
                 <p>piccola descrizione su quale strada/autostrada/aeroporto</p>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5790.225290108554!2d10.32744894740432!3d43.47911951957426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d5e61e2519c089%3A0x70bfd41bcbc381dd!2sCalafuria%20Province%20of%20Livorno%2C%20Italy!5e0!3m2!1sen!2ses!4v1752496589592!5m2!1sen!2ses" width="600" height="450" loading="lazy" className="w-full"></iframe>
