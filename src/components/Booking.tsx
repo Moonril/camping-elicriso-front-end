@@ -166,7 +166,7 @@ const Booking = function () {
         <section className="bg-orange-50 dark:bg-green-950 text-black dark:text-white min-h-screen">
             {/* cerca prenotazione */}
             <div id="hero" className="flex flex-col justify-center items-center pt-50 pb-80 bg-[url(tree-near-the-ocean.jpg)] bg-cover  text-shadow-md/80 bg-orange-50 dark:bg-green-950">
-                <h1 className="text-3xl md:text-5xl text-white0 text-shadow-md/100 font-bold">Prenota il tuo soggiorno</h1>
+                <h1 className="text-3xl md:text-5xl text-white text-shadow-md/100 font-bold">Prenota il tuo soggiorno</h1>
                 <h1 className="text-2xl md:text-5xl font-bold drop-shadow-lg">immerso nella natura</h1>
             </div>
 

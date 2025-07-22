@@ -10,7 +10,7 @@ const ContactUs = function () {
 
 
     return(
-        <section className="flex flex-col bg-white-300 dark:bg-green-950 py-20 lg:py-30 xl:py-50 items-center justify-content text-black dark:text-gray-200 p-6 gap-8">
+        <section className="flex flex-col bg-orange-50 dark:bg-green-950 py-20 lg:py-30 xl:py-50 items-center justify-content text-black dark:text-gray-200 p-6 gap-8">
             {/* title */}
             <div>
                 <h1 className=" text-4xl">CONTATTI</h1>

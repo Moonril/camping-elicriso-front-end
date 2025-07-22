@@ -61,14 +61,20 @@ const MyBookings = function (){
 
 
     return(
-        <section className="bg-gray-50 dark:bg-orange-50 bg-[url(https://images.pexels.com/photos/388303/pexels-photo-388303.jpeg)] bg-cover min-h-screen flex flex-col py-20 lg:py-30 items-center px-20">
+        <section className="bg-orange-50 dark:bg-green-950 text-black min-h-screen">
+
+            <div id="hero" className="flex flex-col justify-center items-center pt-50 pb-80 bg-[url(https://images.pexels.com/photos/388303/pexels-photo-388303.jpeg)] bg-cover  text-shadow-md/80 bg-orange-50 dark:bg-green-950">
+                <h1 className="text-3xl md:text-5xl text-white text-shadow-md/100 font-bold">Hai già una prenotazione? controlla i dettagli!</h1>
+            </div>
+            
             {/* search section */}
-            <div className="bg-green-950 w-full p-5 rounded-2xl">
+            <div className="bg-orange-50 dark:bg-green-950 py-[500px] md:py-[450px] px-[20px] md:px-30 xl:px-50 relative">
                 
-                <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center mb-3">
-                            Cerca prenotazione
-                </h1>
-                <div className="flex flex-row items-center justify-center gap-5">
+                <div className="w-full max-w-xs md:max-w-md lg:max-w-xl bg-orange-50 flex flex-col items-center justify-center self-center p-5 md:p-15 text-black absolute left-1/2 -top-20 transform -translate-x-1/2 rounded-2xl shadow-xl5">
+                    <h4 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl  text-center mb-3">
+                                Cerca prenotazione
+                    </h4>
+                    <p className="mb-5">Inserisci il numero prenotazione riportato nell'email ricevuta alla conferma</p>
                     
                     <form className="flex flex-row items-center justify-center gap-5" action="#" onSubmit={(e)=>{
                             e.preventDefault() 
@@ -76,7 +82,7 @@ const MyBookings = function (){
                             getBooking()
                         }} >
                             
-                                <input type="text" name="username" id="username" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Numero prenotazione" required value={inputValues.bookingNumber} onChange={(e) => {
+                                <input type="text" name="username" id="username" className=" border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Numero prenotazione" required value={inputValues.bookingNumber} onChange={(e) => {
                                     setInputValues({
                                         ...inputValues,
                                         bookingNumber: e.target.value,

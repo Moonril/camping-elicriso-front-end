@@ -37,7 +37,7 @@ const accommodations: Accommodation[] = [
       {
         id: 'standard',
         title: 'Standard Plot',
-        images: ['https://images.pexels.com/photos/2123285/pexels-photo-2123285.jpeg', 'url2', 'url3'],
+        images: ['https://images.pexels.com/photos/2582818/pexels-photo-2582818.jpeg', 'url2', 'url3'],
         description: 'Piazzola standard in mezzo alla natura...',
         size: "75m-80m",
         guests: 6,
@@ -48,7 +48,7 @@ const accommodations: Accommodation[] = [
       {
         id: 'deluxe',
         title: 'Deluxe Plot',
-        images: ['https://images.pexels.com/photos/2123285/pexels-photo-2123285.jpeg', 'url2', 'url3'],
+        images: ['https://plus.unsplash.com/premium_photo-1682500051076-9b4119f644b1?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'url2', 'url3'],
         description: 'Piazzola deluxe con più spazio e ombra e bagno privato...',
         size: "100m-120m",
         guests: 8,
@@ -66,7 +66,7 @@ const accommodations: Accommodation[] = [
       {
         id: 'small',
         title: 'Small Bungalow',
-        images: ['https://images.pexels.com/photos/2174992/pexels-photo-2174992.jpeg', 'url2'],
+        images: ['https://images.pexels.com/photos/749231/pexels-photo-749231.jpeg', 'https://images.pexels.com/photos/751546/pexels-photo-751546.jpeg'],
         description: 'Perfetto per famiglie, con angolo cottura...',
         size: "20m",
         bedrooms: 1,
@@ -77,7 +77,7 @@ const accommodations: Accommodation[] = [
       {
         id: 'medium',
         title: 'Medium Bungalow',
-        images: ['https://images.pexels.com/photos/2174992/pexels-photo-2174992.jpeg', 'url2'],
+        images: ['https://images.unsplash.com/photo-1582719388123-e03e25d06d51?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'https://images.pexels.com/photos/1144694/pexels-photo-1144694.jpeg'],
         description: 'Con patio e comfort moderni...',
         size: "25m",
         bedrooms: 2,
@@ -88,7 +88,7 @@ const accommodations: Accommodation[] = [
       {
         id: 'deluxe',
         title: 'Deluxe Bungalow',
-        images: ['https://images.pexels.com/photos/2174992/pexels-photo-2174992.jpeg', 'url2'],
+        images: ['https://images.unsplash.com/photo-1642612374066-afa81e251991?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'https://plus.unsplash.com/premium_photo-1686090450488-48ce19426bbe?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
         description: 'Con patio, comfort moderni e giardino personale...',
         size: "30m",
         bedrooms: 3,
@@ -106,18 +106,18 @@ const accommodations: Accommodation[] = [
       {
         id: 'medium',
         title: 'Medium Tent',
-        images: ['https://images.pexels.com/photos/17396037/pexels-photo-17396037.jpeg', 'url2', 'url3'],
+        images: ['https://images.pexels.com/photos/2376989/pexels-photo-2376989.jpeg', 'https://images.unsplash.com/photo-1638939674892-5c6d84eec463?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'url3'],
         description: 'Tenda glamour immersa nel verde...',
         size: "10m",
         bedrooms: 0,
         beds: 1,
         guests: 2,
-        airCon: false
+        airCon: true
       },
       {
         id: 'deluxe',
         title: 'Luxury Tent',
-        images: ['https://images.pexels.com/photos/17396037/pexels-photo-17396037.jpeg', 'url2', 'url3'],
+        images: ['https://images.unsplash.com/photo-1624254495476-db6cc8b77e98?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'url2', 'url3'],
         description: 'Tenda glamour immersa nel verde...',
         size: "15m",
         bedrooms: 0,
@@ -145,98 +145,117 @@ const Accomodation = function (){
   console.log(selectedAccommodation, 'selected accomdation')
 
     return (
-      <section className="bg-green-950 p-10 md:px-20 min-h-screen" >
-        {/* First section with 3 accomodation types */}
-        <div className="flex flex-col justify-center items-center gap-8 pt-10 lg:pt-15">
-            <h2 className="text-4xl text-center sm:text-5xl mb-6 text-slate-900 dark:text-white">
-            I nostri alloggi
-          </h2>
-           <div className="flex flex-col sm:flex-row gap-8">
-              {accommodations.map((acc) => (
-                <div key={acc.id} className="flex-1 cursor-pointer">
-                 
-                    <img src={acc.image} alt={acc.title} className="aspect-3/2 object-cover object-bottom rounded-2xl border border-solid border-slate-900 dark:border-gray-100 bg-white dark:bg-black opacity-85 shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={() => setSelectedAccommodation(acc.id)} />
-                   <div className="p-5">
-                        <h5 className="mb-2 text-xl tracking-tight text-gray-900 dark:text-white text-center">{acc.title}</h5>
-                    </div>
-                </div>
+      <section className="bg-orange-50 dark:bg-green-950 text-black dark:text-white min-h-screen" >
 
-              ))
+        {/* hero section */}
 
-              }
-                
-           </div>
+        <div id="hero" className="flex flex-col justify-center items-center pt-50 pb-80 bg-[url(glamping-banner.jpg)] bg-cover  text-shadow-md/80 bg-orange-50 dark:bg-green-950">
+          <h1 className="text-3xl md:text-5xl text-white0 text-shadow-md/100 font-bold">Scopri i nostri alloggi</h1>
         </div>
 
+        <div className="bg-orange-50 pt-[1050px] md:pt-[450px] xl:pt-[550px] pb-[250px] px-[20px] lg:px-[80px] xl:px-[150px] relative">
 
-
-        {/* accommodation details */}
-
-        {selectedAccommodation && (
-          <div className="flex flex-col justify-center items-center gap-8 py-5">
-            <h2 className="text-4xl text-center sm:text-5xl text-slate-900 dark:text-white">
-                  {currentAccommodation?.title}
-            </h2>
-
-            <div className="flex flex-col sm:flex-row gap-8">
-              {currentAccommodation?.types.map((type) => (
-                <div key={type.id} className="flex-1" onClick={() => setSelectedType(type.id)}>
-                  <img src={type.images[0]} alt={type.title} className="aspect-3/2 object-cover object-bottom rounded-2xl border border-solid border-slate-900 dark:border-gray-100 bg-white dark:bg-black opacity-85 cursor-pointer shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105" />
-
-                  <div className="p-5 flex flex-col gap-3">
-                    {/* titolo */}
-                    <h5 className="mb-2 text-lg tracking-tight text-gray-900 dark:text-white text-center">{type.title}</h5>
-                    {/* dettagli */}
-                    <div className="flex flex-col gap-2 text-sm">
-                      <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
-                        <p><FaPerson /></p>
-                        <p>Max. {type.guests} persone</p> 
-                      </div>
-                      <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
-                        <p><IoIosResize /></p>
-                        <p>Size {type.size}</p> 
-                      </div>
-                      {type.bedrooms != 0 && (
-                        <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
-                        <p><MdOutlineBedroomParent /></p>
-                        <p>{type.bedrooms} bedrooms</p> 
-                      </div>
-                      )}
-                      {type.beds != 0 && (
-                        <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
-                        <p><IoBedOutline /></p>
-                        <p>{type.beds} beds</p> 
-                      </div>
-                      )}
+          {/* First section with 3 accomodation types */}
+          
+            <div className="w-full max-w-xs md:max-w-2xl lg:max-w-4xl xl:max-w-7xl bg-[#f3f4f6] flex flex-col items-center justify-center self-center p-5 md:p-15 text-black absolute left-1/2 -top-20 transform -translate-x-1/2 rounded-2xl shadow-xl">
+                  <h2 className="text-3xl md:text-4xl text-center sm:text-5xl mb-6 text-black font-semibold">
+                  Dove il tuo viaggio trova casa
+                </h2>
+                <p className="mb-5 text-xl">Scopri di più, clicca sugli alloggi per vedere più info</p>
+                <div className="flex flex-col sm:flex-row gap-8">
+                    {accommodations.map((acc) => (
+                      <div key={acc.id} className="flex-1 cursor-pointer">
                       
-                        <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
-                        <p><PiFanLight /></p>
-                        <p>{type.airCon} {type.airCon && ("Air Conditioning") || "Ventilated"}</p> 
+                          <img src={acc.image} alt={acc.title} className="aspect-3/2 object-cover object-bottom rounded-2xl border border-solid border-slate-900 dark:border-gray-100 bg-white dark:bg-black opacity-85 shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={() => setSelectedAccommodation(acc.id)} />
+                        <div className="p-5">
+                              <h5 className="mb-2 text-xl tracking-tight text-gray-900 text-center">{acc.title}</h5>
+                          </div>
                       </div>
-                     
-                    </div>
 
-                    {/* descrizione */}
-                    <div><p className="text-sm">{type.description}</p></div>
-                      {/* prenota */}
-                    <Link to={`/bookings/${selectedAccommodation}`} className="bg-green-500 self-center p-1 px-4 rounded-xl">Prenota! &#129125;</Link>    
-                  </div>
+                    ))
+
+                    }
+                      
                 </div>
-              ))
-
-              }
             </div>
-          </div>
 
-        )
 
-        }
+
+          {/* accommodation details */}
+
+          {selectedAccommodation && (
+            <div className="flex flex-col justify-center items-center gap-8 py-5 px-5 md:px-10 bg-[#f3f4f6] rounded-2xl shadow-xl">
+              <h2 className="text-4xl text-center sm:text-5xl text-black">
+                    {currentAccommodation?.title}
+              </h2>
+
+              <div className="flex flex-col sm:flex-row gap-8">
+                {currentAccommodation?.types.map((type) => (
+                  <div key={type.id} className="flex-1" onClick={() => setSelectedType(type.id)}>
+                    <img src={type.images[0]} alt={type.title} className="aspect-3/2 object-cover object- rounded-2xl border border-solid border-slate-900 dark:border-gray-100 bg-white dark:bg-black opacity-85 shadow-lg/30 " />
+
+                    <div className="p-5 flex flex-col gap-3">
+                      {/* titolo */}
+                      <h5 className="mb-2 text-xl font-semibold tracking-tight text-black text-center">{type.title}</h5>
+                      
+                      <div><p className="text-sm text-black">{type.description}</p></div>
+                      
+                      {/* dettagli */}
+
+                      <div className="flex flex-col gap-2 text-sm">
+                        <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-3 gap-2">
+                            <p><FaPerson /></p>
+                            <p>Max. {type.guests} persone</p> 
+                        </div>
+                        <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-3 gap-2">
+                            <p><IoIosResize /></p>
+                            <p>Misure {type.size}</p> 
+                        </div>
+                        {type.bedrooms != 0 && (
+                          <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-3 gap-2">
+                            <p><MdOutlineBedroomParent /></p>
+                            <p>{type.bedrooms} stanze</p> 
+                        </div>
+                        )}
+                        {type.beds != 0 && (
+                          <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-3 gap-2">
+                            <p><IoBedOutline /></p>
+                            <p>{type.beds} letti</p> 
+                        </div>
+                        )}
+                        {type.airCon &&(
+                          <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-3 gap-2">
+                            <p><PiFanLight /></p>
+                            <p>{type.airCon} {type.airCon && ("Aia Condizionata") || "Ventilato"}</p> 
+                          </div>
+
+                        )
+
+                        }
+                      
+                      </div>
+
+                      {/* descrizione */}
+                      
+                        {/* prenota */}
+                      <Link to={`/bookings/${selectedAccommodation}`} className="bg-green-700 self-center p-1 px-4 rounded">Prenota! &#129125;</Link>    
+                    </div>
+                  </div>
+                ))
+
+                }
+              </div>
+            </div>
+
+          )
+
+          }
 
 
 
         
 
-      
+        </div>
       </section>  
     )
 
