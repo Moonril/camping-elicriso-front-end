@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import React from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 interface Booking {
     id: number,
@@ -24,40 +25,30 @@ const MyBookings = function (){
 
     const APIUrl = 'http://localhost:8080/camping/bookings'
 
-     const [inputValues, setInputValues] = useState({
-            bookingNumber: ''
-        })
+    const [inputValues, setInputValues] = useState({bookingNumber: ''})
     const [booking, setBooking] = useState<Booking | null>(null)
 
-    /* const getBooking = () => {
-        fetch(APIUrl + '/' + inputValues.bookingNumber)
-        .then(response => {
-            if(response.ok){
-                return response.json()
-            } else {
-                throw new Error('Fetch unsuccessful')
-            }
-        })
-        .then(singleBooking => {
-            console.log(singleBooking)
-        })
-        .catch((err=>{
-            console.log(err)
-        }))
-    } */
+
 
     function getBooking(){
         axios.get(`${APIUrl}/${inputValues.bookingNumber}`).then((response) =>{
             setBooking(response.data)
             console.log(response.data)
         })
+        .catch((error) => {
+            console.error("Errore nella get:", error)
+            Swal.fire({
+                    title: 'Errore nella richiesta',
+                    text: 'Controlla il numero di prenotazione o riprova più tardi.',
+                    icon: 'error',
+                    confirmButtonText: 'Riprova',
+            })
+            
+        })
     }
 
 
 
-    /* useEffect(()=>{
-        //getBooking()
-    }, []) */
 
 
     return(

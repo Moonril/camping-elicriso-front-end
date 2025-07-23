@@ -29,7 +29,7 @@ const RestaurantNavbar = function () {
                         <li key={tab.id} className="">
                             <button
                             onClick={() => setActiveTab(tab.id)}
-                            className={`inline-block py-4 px-2 md:p-4 ${
+                            className={`inline-block py-4 px-2 md:p-4 cursor-pointer ${
                                 activeTab === tab.id
                                 ? "underline underline-offset-8 decoration-[#31572C] decoration-3"
                                 : "hover:text-gray-600 hover:bg-gray-5"

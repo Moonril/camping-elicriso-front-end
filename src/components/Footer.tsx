@@ -5,19 +5,34 @@ import { GiFlowers } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
 const Footer = function(){
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
+
+
+
     return (
         <div className="p-4 dark:text-black flex flex-col items-center gap-2 sticky top-[100vh] text-sm bg-orange-50">
             <div className="flex flex-row gap-8 md:gap-20">
                 <div className="flex flex-col items-center">
                     {/* logo */}
                     <p><FaTent /> logo <GiFlowers /></p>
-                <div className="flex flex-row">
-                    {/* link to social media */}
-                    <Link to={''}><FaInstagram /></Link>
-                    <Link to={''}><CiFacebook /></Link>
-                    <Link to={''}><CiTwitter /></Link>
-                    <Link to={''}><CiLinkedin /></Link>
-                </div>
+                    <div className="flex flex-row">
+                        {/* link to social media */}
+                        <Link to={''}><FaInstagram /></Link>
+                        <Link to={''}><CiFacebook /></Link>
+                        <Link to={''}><CiTwitter /></Link>
+                        <Link to={''}><CiLinkedin /></Link>
+                    </div>
+                    <a href="#top" className="pt-5" onClick={(e)=>{
+                                e.preventDefault()
+                                scrollToTop()
+                                
+                            }}>Torna su &#8593;</a>
                 </div>
                 <div className="flex flex-col">
                     {/* mappa sito */}

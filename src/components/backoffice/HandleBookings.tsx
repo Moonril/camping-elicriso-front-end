@@ -1,7 +1,9 @@
 import axios from "axios"
 import React, { useState } from "react"
-import { FaEye } from "react-icons/fa6"
+import { FaEye, FaMagnifyingGlass } from "react-icons/fa6"
+import { GoDotFill } from "react-icons/go"
 import Modal from "react-modal"
+import Swal from "sweetalert2"
 Modal.setAppElement("#root")
 
 interface Booking {
@@ -94,6 +96,63 @@ const HandleBookings = function() {
         })
 
     }
+    
+    /* get by id */
+    const [inputValues, setInputValues] = useState({bookingNumber: ''})
+    
+    const getBookingsById = () => {
+        axios.get(`${APIUrl}/${inputValues.bookingNumber}`)
+        .then((response) => {
+        const booking = response.data
+
+        setBookings([booking])
+
+        setPagination({
+            totalPages: 1,
+            currentPage: 1,
+        })
+
+        console.log(response.data);
+        })
+        .catch((error) => {
+            console.error("Errore nella get:", error)
+            Swal.fire({
+                    title: 'Errore nella richiesta',
+                    text: 'Controlla il numero di prenotazione o riprova più tardi.',
+                    icon: 'error',
+                    confirmButtonText: 'Riprova',
+            })
+        })
+    }
+
+    /* get by customer name */
+
+    /* const [nameValue, setNameValue] = useState({name: ''})
+    
+    const getBookingsByName = () => {
+        axios.get(`${APIUrl}/${nameValue.name}`)
+        .then((response) => {
+        const booking = response.data
+
+        setBookings([booking])
+
+        setPagination({
+            totalPages: 1,
+            currentPage: 1,
+        })
+
+        console.log(response.data);
+        })
+        .catch((error) => {
+            console.error("Errore nella get:", error)
+            Swal.fire({
+                    title: 'Errore nella richiesta',
+                    text: 'Controlla il numero di prenotazione o riprova più tardi.',
+                    icon: 'error',
+                    confirmButtonText: 'Riprova',
+            })
+        })
+    } */
 
     /* patch booking status */
 
@@ -134,12 +193,96 @@ const HandleBookings = function() {
         })
     }
 
+    /* sorting */
+    /* by name */
+    const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
+
+    const sortByName = () => {
+        if (!bookings) return
+
+
+        const sorted = [...bookings].sort((a, b) => {
+            const nameA = `${a.customer.name} ${a.customer.surname}`.toLowerCase()
+            const nameB = `${b.customer.name} ${b.customer.surname}`.toLowerCase()
+            if (nameA < nameB) return sortOrder === 'asc' ? -1 : 1
+            if (nameA > nameB) return sortOrder === 'asc' ? 1 : -1
+            return 0
+        })
+        setBookings(sorted)
+        setSortOrder((prevOrder) => (prevOrder === 'asc' ? 'desc' : 'asc'))
+    }
+
+    /* by date  */
+
+    const sortByDate = () => {
+        if (!bookings) return;
+
+        const sorted = [...bookings].sort((a, b) => {
+            const dateA = new Date(a.bookingCreationDate).getTime()
+            const dateB = new Date(b.bookingCreationDate).getTime()
+            return sortOrder === 'asc' ? dateA - dateB : dateB - dateA
+        })
+
+        setBookings(sorted)
+        setSortOrder(prev => (prev === 'asc' ? 'desc' : 'asc'))
+    }
+
+    /* by status */
+
+    const sortByStatus = () => {
+        if (!bookings) return
+
+
+        const sorted = [...bookings].sort((a, b) => {
+            const nameA = `${a.bookingStatus}`.toLowerCase()
+            const nameB = `${b.bookingStatus}`.toLowerCase()
+            if (nameA < nameB) return sortOrder === 'asc' ? -1 : 1
+            if (nameA > nameB) return sortOrder === 'asc' ? 1 : -1
+            return 0
+        })
+        setBookings(sorted)
+        setSortOrder((prevOrder) => (prevOrder === 'asc' ? 'desc' : 'asc'))
+    }
 
 
     return(
         <section className="py-5 gap-5">
-            <div className="ps-1 mb-3">
-                <button type="submit" className="w-50 text-white bg-teal-700 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={getBookings}>Cerca prenotazioni</button>
+            <div className="ps-1 mb-3 flex flex-row gap-3">
+                <button type="submit" className="w-50 text-white bg-teal-700 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:hover:bg-primary-700 dark:focus:ring-primary-800 cursor-pointer" onClick={getBookings}>Cerca prenotazioni</button>
+                <p className="flex items-center justify-center"><GoDotFill /></p>
+                <form className="flex flex-row items-center justify-center gap-2" action="#" onSubmit={(e)=>{
+                        e.preventDefault() 
+                        //fetch
+                        getBookingsById()
+                    }} >
+                        
+                    <input type="text" name="bookingNumber" id="bookingNumber" className=" border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Numero prenotazione" required value={inputValues.bookingNumber} onChange={(e) => {
+                        setInputValues({
+                            ...inputValues,
+                            bookingNumber: e.target.value,
+                        })
+                    }} />
+                        
+      
+                    <button type="submit" className=" text-white bg-teal-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"><FaMagnifyingGlass /></button>
+                </form>
+                {/* <p className="flex items-center justify-center"><GoDotFill /></p>
+                <form className="flex flex-row items-center justify-center gap-2" action="#" onSubmit={(e)=>{
+                        e.preventDefault() 
+                        //fetch
+                        getBookingsByName()
+                    }} >
+                        
+                    <input type="text" name="bookingNumber" id="bookingNumber" className=" border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nome Cliente" required value={nameValue.name} onChange={(e) => {
+                        setNameValue({
+                            ...nameValue,
+                            name: e.target.value,
+                        })
+                    }} />
+                        
+      
+                    <button type="submit" className=" text-white bg-teal-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"><FaMagnifyingGlass /></button>
+                </form> */}
 
             </div>
             {/* booking list */}
@@ -155,12 +298,12 @@ const HandleBookings = function() {
                                         <tr>
                                             <th></th>
                                             <th>Id</th>
-                                            <th>Creata il</th>
-                                            <th>Nome</th>
+                                            <th className="cursor-pointer" onClick={sortByDate}>Creata il {sortOrder === 'asc' ? '↑' : '↓'}</th>
+                                            <th className="cursor-pointer" onClick={sortByName}>Nome {sortOrder === 'asc' ? '↑' : '↓'}</th>
                                             <th>Persone</th>
-                                            <th>Check-in</th>
+                                            <th className="cursor-pointer" onClick={sortByDate}>Check-in {sortOrder === 'asc' ? '↑' : '↓'}</th>
                                             <th>Check-Out</th>
-                                            <th>Stato</th>
+                                            <th className="cursor-pointer" onClick={sortByStatus}>Stato {sortOrder === 'asc' ? '↑' : '↓'}</th>
                                         </tr>
                                     </thead>
                                     <tbody>

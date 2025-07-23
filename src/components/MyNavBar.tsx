@@ -25,6 +25,7 @@ const MyNavBar = function (){
         <section className="flex items-center justify-between xl:py-3">
             <h1 className="text-3xl font-medium">
               <Link to={"/"} className={location.pathname === '/accommodations' ? 'underline' : ''}><img src="tent-night-.svg" alt="" className="w-10"/> </Link>
+              <a id="top"></a>
             </h1>
             <div>
               <nav className="hidden md:block space-x-4 text-xl" aria-label="main">

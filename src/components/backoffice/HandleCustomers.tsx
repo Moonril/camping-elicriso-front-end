@@ -1,7 +1,9 @@
 import axios from "axios"
 import React, { useState } from "react"
-import { FaEye } from "react-icons/fa6"
+import { FaEye, FaMagnifyingGlass } from "react-icons/fa6"
+import { GoDotFill } from "react-icons/go"
 import Modal from "react-modal"
+import Swal from "sweetalert2"
 Modal.setAppElement("#root")
 
 interface Customer {
@@ -52,7 +54,7 @@ const HandleCustomers = function () {
     })
 
     const getCustomers = () => {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("token")
         axios.get(APIUrl, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -71,6 +73,39 @@ const HandleCustomers = function () {
         })
 
     }
+
+    /* get by name */
+
+    const [nameValue, setNameValue] = useState({name: ''})
+    
+    const getCustomersByName = () => {
+        const token = localStorage.getItem("token")
+        axios.get(`${APIUrl}/search?name=${encodeURIComponent(nameValue.name)}`,{
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            }
+        })
+        .then((response) => {
+        setCustomers(response.data)
+
+        setPagination({
+            totalPages: 1,
+            currentPage: 1,
+        })
+
+        console.log(response.data);
+        })
+        .catch((error) => {
+            console.error("Errore nella get:", error)
+            Swal.fire({
+                    title: 'Errore nella richiesta',
+                    text: 'Controlla il numero di prenotazione o riprova più tardi.',
+                    icon: 'error',
+                    confirmButtonText: 'Riprova',
+            })
+        })
+    } 
 
     /* put booking */
 
@@ -94,11 +129,49 @@ const HandleCustomers = function () {
     };
 
 
+    /* sorting */
+    /* by name */
+    const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
+
+    const sortByName = () => {
+        if (!customers) return
+
+
+        const sorted = [...customers].sort((a, b) => {
+            const nameA = `${a.name} ${a.surname}`.toLowerCase()
+            const nameB = `${b.name} ${b.surname}`.toLowerCase()
+            if (nameA < nameB) return sortOrder === 'asc' ? -1 : 1
+            if (nameA > nameB) return sortOrder === 'asc' ? 1 : -1
+            return 0
+        })
+        setCustomers(sorted)
+        setSortOrder((prevOrder) => (prevOrder === 'asc' ? 'desc' : 'asc'))
+    }
+
+
 
     return(
         <section className="py-5 gap-5">
-            <div className="ps-1 mb-3">
-                <button type="submit" className="w-50 text-white bg-teal-700 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={getCustomers}>Cerca Clienti</button> 
+            <div className="ps-1 mb-3 flex flex-row gap-3">
+                <button type="submit" className="w-50 text-white bg-teal-700 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:hover:bg-primary-700 dark:focus:ring-primary-800 cursor-pointer" onClick={getCustomers}>Cerca Clienti</button>
+
+                <p className="flex items-center justify-center"><GoDotFill /></p>
+                <form className="flex flex-row items-center justify-center gap-2" action="#" onSubmit={(e)=>{
+                        e.preventDefault() 
+                        //fetch
+                        getCustomersByName()
+                    }} >
+                        
+                    <input type="text" name="bookingNumber" id="bookingNumber" className=" border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nome Cliente" required value={nameValue.name} onChange={(e) => {
+                        setNameValue({
+                            ...nameValue,
+                            name: e.target.value,
+                        })
+                    }} />
+                        
+        
+                    <button type="submit" className=" text-white bg-teal-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"><FaMagnifyingGlass /></button>
+                </form>
             </div>
 
             {/* Customers' list */}
@@ -114,8 +187,8 @@ const HandleCustomers = function () {
                                           <tr>
                                               <th></th>
                                               <th>Id</th>
-                                              <th>Nome</th>
-                                                <th>Cognome</th>
+                                              <th className="cursor-pointer" onClick={sortByName}>Nome {sortOrder === 'asc' ? '↑' : '↓'}</th>
+                                                <th className="cursor-pointer" onClick={sortByName}>Cognome {sortOrder === 'asc' ? '↑' : '↓'}</th>
                                               <th>Email</th>
                                                <th>Numero di telefono</th>
                                           </tr>

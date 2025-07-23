@@ -35,7 +35,7 @@ const Backoffice = function(){
                         <li key={tab.id} className="">
                             <button
                             onClick={() => setActiveTab(tab.id)}
-                            className={`inline-block p-3 w-full text-start ps-5 ${
+                            className={`inline-block p-3 w-full text-start ps-5 cursor-pointer ${
                                 activeTab === tab.id
                                 ? "text-white bg-[#31572c] dark:text-white"
                                 : "hover:bg-[#4f772d]"

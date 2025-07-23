@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
 const HomePage = function (){
+
+
     return(
 
         <section className="min-h-screen bg-slate-50 dark:bg-black dark:text-white ">
@@ -210,6 +212,8 @@ const HomePage = function (){
                                     <p>Autostrada</p>
                                 </div>
                             </div>
+
+                            
 
                         </div>
 
