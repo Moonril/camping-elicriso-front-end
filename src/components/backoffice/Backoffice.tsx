@@ -3,6 +3,7 @@ import BookingsNavbar from "./BookingsNavbar"
 import { FiSidebar } from "react-icons/fi";
 import CustomersNavbar from "./CustomersNavbar";
 import RestaurantNavbar from "./RestaurantNavbar";
+import ComingSoon from "../ComingSoon";
 
 
 
@@ -61,18 +62,43 @@ const Backoffice = function(){
                     )}
                     {activeTab === "ristorante" && (
                     <div className="flex flex-col py-30 px-2">
-                            <h1 className="font-bold text-4xl pb-3">Prenotazioni</h1>
+                            <h1 className="font-bold text-4xl pb-3">Ristorante</h1>
                             <RestaurantNavbar />
                         </div>
                     )}
                     {activeTab === "clienti" && (
                         <div className="flex flex-col py-30 px-2">
-                            <h1 className="font-bold text-4xl pb-3">Prenotazioni</h1>
+                            <h1 className="font-bold text-4xl pb-3">Clienti</h1>
                             <CustomersNavbar />
                         </div>
                     )}
                     {activeTab === "alloggi" && (
-                    <div> Elenco Alloggi disponibili o prenotati</div>
+                        <div className="flex flex-col py-30 px-2">
+                            <h1 className="font-bold text-4xl pb-3">Alloggi</h1>
+                            <ComingSoon />
+                        </div>
+                        
+                    )}
+                    {activeTab === "pagamenti" && (
+                        <div className="flex flex-col py-30 px-2">
+                            <h1 className="font-bold text-4xl pb-3">Pagamenti</h1>
+                            <ComingSoon />
+                        </div>
+                        
+                    )}
+                    {activeTab === "comunicazioni" && (
+                        <div className="flex flex-col py-30 px-2">
+                            <h1 className="font-bold text-4xl pb-3">Comunicazioni</h1>
+                            <ComingSoon />
+                        </div>
+                        
+                    )}
+                    {activeTab === "sicurezza" && (
+                        <div className="flex flex-col py-30 px-2">
+                            <h1 className="font-bold text-4xl pb-3">Sicurezza</h1>
+                            <ComingSoon />
+                        </div>
+                        
                     )}
                 </div>     
 

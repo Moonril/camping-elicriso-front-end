@@ -1,6 +1,7 @@
 
 import { useState } from "react"
 import HandleBookings from "./HandleBookings"
+import ComingSoon from "../ComingSoon"
 
 
 
@@ -47,10 +48,10 @@ const BookingsNavbar = function () {
                         <HandleBookings />
                     )}
                     {activeTab === "nuova" && (
-                    <div> nuova prenotazione</div>
+                        <ComingSoon />
                     )}
                     {activeTab === "check-in" && (
-                    <div> checkin</div>
+                        <ComingSoon />
                     )}
                 </div> 
 

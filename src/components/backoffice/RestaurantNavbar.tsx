@@ -1,7 +1,7 @@
-
 import { useState } from "react"
-import HandleBookings from "./HandleBookings"
 import HandleCustomers from "./HandleCustomers"
+import HandleRestaurant from "./HandleRestaurant"
+import ComingSoon from "../ComingSoon"
 
 
 
@@ -13,8 +13,8 @@ const RestaurantNavbar = function () {
     const [activeTab, setActiveTab] = useState("elenco")
 
     const tabs = [
-        { id: "elenco", label: "Elenco Clienti" },
-        { id: "nuova", label: "Nuovo Cliente" }
+        { id: "elenco", label: "Elenco Prenotazioni" },
+        { id: "nuova", label: "Nuova Prenotazione" }
     ]
 
 
@@ -44,10 +44,10 @@ const RestaurantNavbar = function () {
 
                 <div className="">
                     {activeTab === "elenco" && (
-                        <HandleCustomers />
+                        <HandleRestaurant />
                     )}
                     {activeTab === "nuova" && (
-                    <div> nuovo cliente</div>
+                        <ComingSoon />
                     )}
                 </div> 
 
