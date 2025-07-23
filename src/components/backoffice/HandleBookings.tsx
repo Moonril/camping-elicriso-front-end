@@ -1,8 +1,8 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { FaEye } from "react-icons/fa6";
+import axios from "axios"
+import React, { useState } from "react"
+import { FaEye } from "react-icons/fa6"
 import Modal from "react-modal"
-Modal.setAppElement("#root");
+Modal.setAppElement("#root")
 
 interface Booking {
   id: number,
@@ -63,9 +63,9 @@ const HandleBookings = function() {
         customerId: 0
     })
 
-    const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
+    const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null)
 
-    const [selectedBookingId, setSelectedBookingId] = useState<number | null>(null);
+    const [selectedBookingId, setSelectedBookingId] = useState<number | null>(null)
 
 
 
@@ -78,7 +78,7 @@ const HandleBookings = function() {
         currentPage: 0,
     })
 
-    /* get booking */
+    /* get bookings */
 
     const getBookings = () => {
         axios.get(APIUrl).then((response) =>{
@@ -86,8 +86,11 @@ const HandleBookings = function() {
             setPagination({
                 totalPages: response.data.totalPages,
                 currentPage: response.data.pageable.pageNumber,
-            });
+            })
             console.log(response.data)
+        })
+        .catch((error) => {
+            console.error("Errore nella get:", error)
         })
 
     }
@@ -114,7 +117,7 @@ const HandleBookings = function() {
 
     const updateBooking = (id: number, data: any) => {
         const token = localStorage.getItem("token");
-        console.log("Token:", token);
+        console.log("Token:", token)
 
         axios.put(`http://localhost:8080/camping/bookings/${id}`, data, {
             headers: {
@@ -128,8 +131,8 @@ const HandleBookings = function() {
         })
         .catch((error) => {
             console.error("Errore nella modifica:", error);
-        });
-    };
+        })
+    }
 
 
 
@@ -188,7 +191,8 @@ const HandleBookings = function() {
                                                 <tr>
                                                 <td colSpan={8}>
                                                     <div className="p-4 bg-[#31572C] rounded-md text-white">
-                                                        <p><strong>Booking ID:</strong>  {booking.id}, creata il: {new Date(booking.bookingCreationDate).toLocaleString('it-IT', {
+                                                        <p><strong>Booking ID:</strong> {booking.id}</p>
+                                                        <p><strong>Creata il:</strong> {new Date(booking.bookingCreationDate).toLocaleString('it-IT', {
                                                             day: '2-digit',
                                                             month: '2-digit',
                                                             year: 'numeric',
@@ -207,15 +211,15 @@ const HandleBookings = function() {
                                                         
                                                         <button className="mt-2 px-4 py-1 bg-orange-600 text-white rounded me-1 hover:bg-orange-500" onClick={() => updateBookingStatus(booking.id, "CANCELLED")}>Annulla</button>
                                                         <button className="mt-2 px-4 py-1 bg-yellow-500 text-white rounded me-1 hover:bg-yellow-300"onClick={() => {
-                                                        setSelectedBooking(booking);
+                                                        setSelectedBooking(booking)
                                                         setFormData({
                                                         checkInDate: booking.checkInDate,
                                                         checkOutDate: booking.checkOutDate,
                                                         numberOfCustomers: booking.numberOfCustomers,
                                                         preference: booking.preference,
                                                         customerId: booking.customer.id
-                                                        });
-                                                        setOpen(true);
+                                                        })
+                                                        setOpen(true)
                                                         }} >Modifica</button>
 
                                                         <button className="mt-2 px-4 py-1 bg-blue-400 text-white rounded me-1 hover:bg-blue-300" onClick={() => updateBookingStatus(booking.id, "CONFIRMED")}>Cliente</button>
@@ -269,7 +273,7 @@ const HandleBookings = function() {
                                                     }} className="w-full border p-2 rounded" />
                                                     </div>
                                                     <div>
-                                                    <label className="block text-sm font-medium">Preferenza</label>
+                                                    <label className="block text-sm font-medium">Preferenze</label>
                                                     <input type="text" name="preference" value={formData?.preference} onChange={(e)=>{
                                                         setFormData({
                                                             ...formData,

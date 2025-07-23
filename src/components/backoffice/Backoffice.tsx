@@ -1,6 +1,8 @@
 import { useState } from "react"
 import BookingsNavbar from "./BookingsNavbar"
 import { FiSidebar } from "react-icons/fi";
+import CustomersNavbar from "./CustomersNavbar";
+import RestaurantNavbar from "./RestaurantNavbar";
 
 
 
@@ -15,6 +17,7 @@ const Backoffice = function(){
         { id: "ristorante", label: "Prenotazioni Ristorante" },
         { id: "alloggi", label: "Alloggi" },
         { id: "pagamenti", label: "Pagamenti" },
+        { id: "comunicazioni", label: "Comunicazioni" },
         { id: "sicurezza", label: "Sicurezza" }
     ]
 
@@ -57,10 +60,16 @@ const Backoffice = function(){
 
                     )}
                     {activeTab === "ristorante" && (
-                    <div> prenotazioni ristorante</div>
+                    <div className="flex flex-col py-30 px-2">
+                            <h1 className="font-bold text-4xl pb-3">Prenotazioni</h1>
+                            <RestaurantNavbar />
+                        </div>
                     )}
                     {activeTab === "clienti" && (
-                    <div> Lista Clienti / Dettagli anagrafica</div>
+                        <div className="flex flex-col py-30 px-2">
+                            <h1 className="font-bold text-4xl pb-3">Prenotazioni</h1>
+                            <CustomersNavbar />
+                        </div>
                     )}
                     {activeTab === "alloggi" && (
                     <div> Elenco Alloggi disponibili o prenotati</div>
