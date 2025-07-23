@@ -64,11 +64,11 @@ const MyBookings = function (){
         <section className="bg-orange-50 dark:bg-green-950 text-black min-h-screen">
 
             <div id="hero" className="flex flex-col justify-center items-center pt-50 pb-80 bg-[url(https://images.pexels.com/photos/388303/pexels-photo-388303.jpeg)] bg-cover  text-shadow-md/80 bg-orange-50 dark:bg-green-950">
-                <h1 className="text-3xl md:text-5xl text-white text-shadow-md/100 font-bold">Hai già una prenotazione? controlla i dettagli!</h1>
+                <h1 className="text-2xl md:text-5xl text-white text-shadow-md/100 font-bold text-center">Hai già una prenotazione? controlla i dettagli!</h1>
             </div>
             
             {/* search section */}
-            <div className="bg-orange-50 dark:bg-green-950 py-[500px] md:py-[450px] px-[20px] md:px-30 xl:px-50 relative">
+            <div className="bg-orange-50 dark:bg-green-950 py-[160px] md:py-[200px] px-[20px] md:px-30 xl:px-50 relative">
                 
                 <div className="w-full max-w-xs md:max-w-md lg:max-w-xl bg-orange-50 flex flex-col items-center justify-center self-center p-5 md:p-15 text-black absolute left-1/2 -top-20 transform -translate-x-1/2 rounded-2xl shadow-xl5">
                     <h4 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl  text-center mb-3">
@@ -100,11 +100,11 @@ const MyBookings = function (){
 
                     {/* prenotazione */}
                     {booking && (
-                        <div className="flex flex-col items-center justify-center p-8 mx-auto text-white">
+                        <div className="flex flex-col items-center justify-center p-8 mx-auto text-black ">
                             
-                            <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-700 dark:border-gray-700">
+                            <div className="w-full bg-orange-50 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0  dark:border-gray-700">
                                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                                    <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                                    <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl ">
                                         La tua prenotazione:
                                     </h1>
                                         <div>

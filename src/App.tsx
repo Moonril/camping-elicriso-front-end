@@ -16,6 +16,7 @@ import Backoffice from './components/backoffice/Backoffice'
 import { AuthProvider } from './context/AuthContext'
 import HandleBookings from './components/backoffice/BookingsNavbar'
 import BookingsTest from './components/backoffice/BookingsTest'
+import ComingSoon from './components/ComingSoon'
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
           <Route path='/myBookings' element={<MyBookings />} />
           <Route path='/contact' element={<ContactUs />} />
           <Route path='/contact/:bookingId' element={<ContactUs />} />
+          <Route path='/surroundings' element={<ComingSoon />} />
           <Route path='/backoffice' element={<Backoffice />} />
           <Route path='/handle-bookings' element={<HandleBookings />} />
           <Route path='*' element={<PageNotFound />} />
