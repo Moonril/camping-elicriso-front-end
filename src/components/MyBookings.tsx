@@ -99,21 +99,21 @@ const MyBookings = function (){
                                         La tua prenotazione:
                                     </h1>
                                         <div>
-                                            <p>Booking ID: {booking.id}, creata il: {new Date(booking.bookingCreationDate).toLocaleString('it-IT', {
+                                            <p><strong>Booking ID:</strong> {booking.id}, creata il: {new Date(booking.bookingCreationDate).toLocaleString('it-IT', {
                                                                                                                                         day: '2-digit',
                                                                                                                                         month: '2-digit',
                                                                                                                                         year: 'numeric',
                                                                                                                                         hour: '2-digit',
                                                                                                                                         minute: '2-digit'
                                                                                                                                     })}</p>
-                                            <p>Nome e Cognome: {booking.customer.name} {booking.customer.surname}</p>
-                                            <p>Numero di persone: {booking.numberOfCustomers}</p>
-                                            <p>Preferenze: {booking.preference}</p>
-                                            <p>Check-In: {new Date(booking.checkInDate).toLocaleDateString('it-IT')}, 12:00</p>
-                                            <p>Check-Out: {new Date(booking.checkOutDate).toLocaleDateString('it-IT')}, 11:00</p>
-                                            <p>Stato prenotazione: {booking.bookingStatus}</p>
-                                            <p>Numero di contatto: {booking.customer.phoneNumber}</p>
-                                            <p>Email di contatto: {booking.customer.email}</p>
+                                            <p><strong>Nome e Cognome:</strong> {booking.customer.name} {booking.customer.surname}</p>
+                                            <p><strong>Numero di persone:</strong> {booking.numberOfCustomers}</p>
+                                            <p><strong>Preferenze:</strong> {booking.preference}</p>
+                                            <p><strong>Check-In:</strong> {new Date(booking.checkInDate).toLocaleDateString('it-IT')}, 12:00</p>
+                                            <p><strong>Check-Out:</strong> {new Date(booking.checkOutDate).toLocaleDateString('it-IT')}, 11:00</p>
+                                            <p><strong>Stato prenotazione:</strong> {booking.bookingStatus}</p>
+                                            <p><strong>Numero di contatto:</strong> {booking.customer.phoneNumber}</p>
+                                            <p><strong>Email di contatto:</strong> {booking.customer.email}</p>
                                             
                                         </div>
                                         <p>C'è qualcosa che non va nella tua prenotazione? <Link to={`/contact/${booking.id}`} className="text-blue-600" >contattaci!</Link> </p>
