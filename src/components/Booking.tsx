@@ -1,7 +1,7 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react"
 import axios from "axios"
 import { useRef, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import { FaPerson } from "react-icons/fa6"
@@ -118,6 +118,8 @@ const Booking = function () {
 
 
     /* post */
+
+    const navigate = useNavigate()
     
     const postNewBooking = ()=>{
         axios
@@ -140,10 +142,10 @@ const Booking = function () {
         console.log("Prenotazione salvata: ", response.data)
         Swal.fire({
             title: 'Prenotazione riuscita!',
-            text: 'La tua prenotazione è stata salvata con successo.',
+            text: 'La tua prenotazione è stata salvata con successo!',
             icon: 'success',
-            confirmButtonText: 'OK',
-        })
+            confirmButtonText: 'Effettua il pagamento',
+        })/* .then(function(){navigate("/bookings/checkout")}) */
 
         })
         .catch((err) => {
@@ -183,7 +185,7 @@ const Booking = function () {
 
                             
                             <MenuButton className="text-black p-1 md:px-4 md:py-2 text-sm rounded-md hover:bg-slate-800 hover:text-white flex flex-row items-center border border-black m-0">
-                                Tipi di alloggio
+                                Tipo di alloggio
                                 <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
                                 </svg>
@@ -315,7 +317,8 @@ const Booking = function () {
                             onChange={(date) =>
                                     setNewBooking(prev => ({
                                         ...prev,
-                                        checkInDate: date?.toISOString().split("T")[0] || ""
+                                        checkInDate: date ? date.toLocaleDateString("en-CA")
+                                        : ""
                                     }))}
                             selectsStart
                             startDate={newBooking.checkInDate ? new Date(newBooking.checkInDate) : null}
@@ -350,7 +353,7 @@ const Booking = function () {
 
                     {/* submit fetch */}
                     <div className="py-4">
-                        <button className="bg-[#e77c29] p-2 px-4 text-white rounded-2xl" onClick={getAvailableAccommodations}>Continua</button>
+                        <button className="bg-[#e77c29] p-2 px-4 text-white rounded-2xl hover:bg-[#e77b29b2]" onClick={getAvailableAccommodations}>Continua</button>
                     </div>
 
                 </div>
@@ -421,9 +424,10 @@ const Booking = function () {
                                                     <p><IoPricetagOutline /></p>
                                                     <p>Prezzo gg/pp {acc.price}€</p> 
                                                 </div>
+                                                <p className="font-medium">Totale per le date scelte: {acc.price}€</p>
                                             </div>
                                             {/* prenota */}
-                                            <button className="bg-[#e77c29] p-2 px-4 text-white rounded-xl self-center" onClick={() => {
+                                            <button className="bg-[#e77c29] p-2 px-4 text-white rounded-xl self-center hover:bg-[#e77b29b2]" onClick={() => {
                                                 setNewBooking((prev) => {
                                                 const updated = {
                                                     ...prev,

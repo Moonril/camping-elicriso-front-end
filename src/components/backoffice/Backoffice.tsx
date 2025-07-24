@@ -4,13 +4,16 @@ import { FiSidebar } from "react-icons/fi";
 import CustomersNavbar from "./CustomersNavbar";
 import RestaurantNavbar from "./RestaurantNavbar";
 import ComingSoon from "../ComingSoon";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Backoffice = function(){
 
+
     const [activeTab, setActiveTab] = useState("campeggio")
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
     const tabs = [
         { id: "campeggio", label: "Prenotazioni Campeggio" },
@@ -24,11 +27,10 @@ const Backoffice = function(){
 
     
 
-
     return(
         <section className="bg-[#ecf39f] text-black min-h-screen flex flex-row">
             {/* left side */}
-            <div className="hidden md:block bg-[#90a955] flex-1 flex flex-col py-30 ">
+            <div className="hidden md:block bg-[#90a955] flex-1 flex flex-col py-40 ">
                 
                 <ul className="flex flex-col text-sm font-medium text-center">
                         {tabs.map((tab) => (
@@ -54,47 +56,47 @@ const Backoffice = function(){
                 
                 <div className="">
                     {activeTab === "campeggio" && (
-                        <div className="flex flex-col py-30 px-2">
+                        <div className="flex flex-col py-40 px-2">
                             <h1 className="font-bold text-4xl pb-3">Prenotazioni</h1>
                             <BookingsNavbar />
                         </div>
 
                     )}
                     {activeTab === "ristorante" && (
-                    <div className="flex flex-col py-30 px-2">
+                    <div className="flex flex-col py-40 px-2">
                             <h1 className="font-bold text-4xl pb-3">Ristorante</h1>
                             <RestaurantNavbar />
                         </div>
                     )}
                     {activeTab === "clienti" && (
-                        <div className="flex flex-col py-30 px-2">
+                        <div className="flex flex-col py-40 px-2">
                             <h1 className="font-bold text-4xl pb-3">Clienti</h1>
                             <CustomersNavbar />
                         </div>
                     )}
                     {activeTab === "alloggi" && (
-                        <div className="flex flex-col py-30 px-2">
+                        <div className="flex flex-col py-40 px-2">
                             <h1 className="font-bold text-4xl pb-3">Alloggi</h1>
                             <ComingSoon />
                         </div>
                         
                     )}
                     {activeTab === "pagamenti" && (
-                        <div className="flex flex-col py-30 px-2">
+                        <div className="flex flex-col py-40 px-2">
                             <h1 className="font-bold text-4xl pb-3">Pagamenti</h1>
                             <ComingSoon />
                         </div>
                         
                     )}
                     {activeTab === "comunicazioni" && (
-                        <div className="flex flex-col py-30 px-2">
+                        <div className="flex flex-col py-40 px-2">
                             <h1 className="font-bold text-4xl pb-3">Comunicazioni</h1>
                             <ComingSoon />
                         </div>
                         
                     )}
                     {activeTab === "sicurezza" && (
-                        <div className="flex flex-col py-30 px-2">
+                        <div className="flex flex-col py-40 px-2">
                             <h1 className="font-bold text-4xl pb-3">Sicurezza</h1>
                             <ComingSoon />
                         </div>

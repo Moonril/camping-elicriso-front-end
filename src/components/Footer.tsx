@@ -2,7 +2,7 @@ import { CiFacebook, CiLinkedin, CiTwitter } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
 import { FaTent } from "react-icons/fa6";
 import { GiFlowers } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = function(){
 
@@ -13,7 +13,7 @@ const Footer = function(){
         })
     }
 
-
+    const location = useLocation()
 
     return (
         <div className="p-4 dark:text-black flex flex-col items-center gap-2 sticky top-[100vh] text-sm bg-orange-50">
@@ -36,22 +36,22 @@ const Footer = function(){
                 </div>
                 <div className="flex flex-col">
                     {/* mappa sito */}
-                    <Link to={'/accommodations'}>Alloggi</Link>
-                    <Link to={'/bookings'}>Prenota</Link>
-                    <Link to={'/news'}>News</Link>
-                    <Link to={'/restaurant'}>Ristorante</Link>
-                    <Link to={'/myBookings'}>My Bookings</Link>
+                    <Link to={'/accommodations'} className={`hover:opacity-80 ${location.pathname === '/accommodations' ? 'underline' : ''}`}>Alloggi</Link>
+                    <Link to={'/bookings'} className={`hover:opacity-80 ${location.pathname === '/bookings' ? 'underline' : ''}`}>Prenota</Link>
+                    <Link to={'/restaurant'} className={`hover:opacity-80 ${location.pathname === '/restaurant' ? 'underline' : ''}`}>Ristorante</Link>
+                    <Link to={'/surroundings'} className={`hover:opacity-80 ${location.pathname === '/surroundings' ? 'underline' : ''}`}>Dintorni</Link>
+                    <Link to={'/myBookings'} className={`hover:opacity-80 ${location.pathname === '/myBookings' ? 'underline' : ''}`}>My Bookings</Link>
                 </div>
                 <div>
                     {/* contattaci */}
-                    <Link to={'/contact'}>Contattaci</Link>
+                    <Link to={'/contact'}  className={`hover:opacity-80 font-medium ${location.pathname === '/contact' ? 'underline' : ''}`}>Contattaci</Link>
                     <p>Reception: +549 5464566</p>
                     <p>Whatsapp: +353 4545345</p>
                     <p>email@email.it</p>
 
                 </div>
                 <div>
-                    <p>Dove siamo:</p> {/* maybe link to maps? */}
+                    <p className="font-medium">Dove siamo:</p> {/* maybe link to maps? */}
                     <Link to={'https://maps.app.goo.gl/HdMdTYLdQhtW1jodA'}>
                         <address>
                             via di rotondo 24, 23745 <br />
@@ -61,7 +61,7 @@ const Footer = function(){
 
                 </div>
             </div>
-            <p>Camping Elicrisi - {new Date().getFullYear()}</p>
+            <p className="font-medium">Camping Elicrisi - {new Date().getFullYear()}</p>
     
         </div>
     )

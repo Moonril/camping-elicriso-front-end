@@ -157,18 +157,24 @@ const HandleBookings = function() {
     /* patch booking status */
 
     const updateBookingStatus = (id: number, newStatus: string) => {
-        const token = localStorage.getItem("token")
+    const token = localStorage.getItem("token");
 
-        axios.patch(`http://localhost:8080/camping/bookings/${id}/status`, {
-            status: newStatus
-        })
+    axios.patch(
+        `http://localhost:8080/camping/bookings/${id}/status`,
+        { status: newStatus }, 
+        {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+        },
+        } 
+    )
         .then((response) => {
-            console.log("Stato aggiornato:", response.data);
-            
-            getBookings()
+        console.log("Stato aggiornato:", response.data);
+        getBookings()
         })
         .catch((error) => {
-            console.error("Errore nell'aggiornamento dello stato:", error)
+        console.error("Errore nell'aggiornamento dello stato:", error)
         })
     }
 

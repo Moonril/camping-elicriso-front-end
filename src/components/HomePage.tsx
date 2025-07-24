@@ -72,13 +72,13 @@ const HomePage = function (){
 
 
                         {/* facilities */}
-                        <div className="w-full max-w-screen-xl mx-auto flex flex-col items-center justify-content gap-8 pb-10">
+                        <div className="w-full mx-auto flex flex-col items-center justify-content gap-8 pb-10">
 
                             
                             <h3 className="text-3xl quicksand-titles font-medium text-shadow-md/20">Le strutture</h3>
                             <p>Goditi una mattina rinfrescante in piscina, riposati nelle nostre amache e goditi un aperitivo nel nostro ristorante</p>
 
-                            <div className="w-full max-w-screen-xl mx-auto">
+                            <div className="w-full mx-auto">
                                 <div className="w-full h-[200px]">
                                     <img
                                     src="https://images.pexels.com/photos/19781912/pexels-photo-19781912.jpeg"
@@ -92,7 +92,7 @@ const HomePage = function (){
                             </div>
 
                             
-                            <div className="w-full max-w-screen-xl mx-auto">
+                            <div className="w-full mx-auto">
                                 <div className="w-full h-[200px]">
                                     <img
                                     src="https://images.pexels.com/photos/1229753/pexels-photo-1229753.jpeg"
@@ -104,7 +104,7 @@ const HomePage = function (){
                                         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Relax</h5>
                                 </div>
                             </div>
-                            <div className="w-full max-w-screen-xl mx-auto">
+                            <div className="w-full mx-auto">
                                 <div className="w-full h-[200px]">
                                     <img
                                     src="https://images.pexels.com/photos/1237073/pexels-photo-1237073.jpeg"
@@ -123,10 +123,10 @@ const HomePage = function (){
                         <div className="flex flex-col justify-between items-center gap-8 px-10 lg:px-20 pb-10">
                             <h3 className="text-3xl quicksand-titles font-medium text-shadow-md/20">I servizi &#128703;</h3>
 
-                            <div className="flex flex-col gap-8">
-                                <div className="flex flex-col sm:flex-row gap-8">
+                            <div className="flex flex-col gap-8 items-center justify-center">
+                                <div className="flex flex-col md:max-w-screen-lg sm:flex-row gap-8">
                                     <div className="flex-1">
-                                        <img src="https://images.pexels.com/photos/17791283/pexels-photo-17791283.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30" />
+                                        <img src="https://images.pexels.com/photos/4989099/pexels-photo-4989099.jpeg" alt="" className="aspect-3/2 object-cover object-[25%_70%] rounded-2xl shadow-lg/30" />
                                         <div className="p-5">
                                             <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-black text-center">Bagni e docce calde</h5>
                                         </div>
@@ -138,7 +138,7 @@ const HomePage = function (){
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex flex-col sm:flex-row gap-8">
+                                <div className="flex flex-col md:max-w-screen-lg sm:flex-row gap-8">
                                     
                                     <div className="flex-1">
                                         <img src="https://images.pexels.com/photos/1309067/pexels-photo-1309067.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30" />

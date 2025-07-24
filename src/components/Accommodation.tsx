@@ -149,7 +149,7 @@ const Accomodation = function (){
 
         {/* hero section */}
 
-        <div id="hero" className="flex flex-col justify-center items-center pt-50 pb-80 bg-[url(glamping-banner.jpg)] bg-cover  text-shadow-md/80 bg-orange-50 dark:bg-green-950">
+        <div id="hero" className="flex flex-col justify-center items-center pt-50 lg:pt-60 xl:pt-100 pb-80 bg-[url(glamping-banner.jpg)] bg-cover text-shadow-md/80 bg-orange-50 dark:bg-green-950">
           <h1 className="text-3xl md:text-5xl text-white0 text-shadow-md/100 font-bold">Scopri i nostri alloggi</h1>
         </div>
 
@@ -238,7 +238,7 @@ const Accomodation = function (){
                       {/* descrizione */}
                       
                         {/* prenota */}
-                      <Link to={`/bookings/${selectedAccommodation}`} className="bg-green-700 self-center p-1 px-4 rounded">Prenota! &#129125;</Link>    
+                      <Link to={`/bookings/${selectedAccommodation}`} className="bg-green-700 self-center p-1 px-4 rounded hover:bg-green-600">Prenota! &#129125;</Link>    
                     </div>
                   </div>
                 ))

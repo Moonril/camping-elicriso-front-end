@@ -57,7 +57,7 @@ const Restaurant = function(){
         additionalNotes: '',
         phoneNumber: '',
         bookingId: 1,
-        })
+    })
 
 
     function postRestaurantReservation() {

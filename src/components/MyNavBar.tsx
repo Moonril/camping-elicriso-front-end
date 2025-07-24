@@ -1,20 +1,20 @@
-import { useState } from "react";
+import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
-import { useAuth } from "../context/AuthContext";
-import { CiHome } from "react-icons/ci";
-import { LuNotebookPen, LuTent } from "react-icons/lu";
-import { IoRestaurantOutline } from "react-icons/io5";
-import { BiWorld } from "react-icons/bi";
-import { MdPermDeviceInformation } from "react-icons/md";
+import { useAuth } from "../context/AuthContext"
+import { CiHome } from "react-icons/ci"
+import { LuNotebookPen, LuTent } from "react-icons/lu"
+import { IoRestaurantOutline } from "react-icons/io5"
+import { BiWorld } from "react-icons/bi"
+import { MdPermDeviceInformation } from "react-icons/md"
 
 
 const MyNavBar = function (){
 
   /* log in check */
-  const { user, logout, isLoggedIn } = useAuth();
+  const { user, logout, isLoggedIn } = useAuth()
 
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleDropdown = () => setIsOpen(prev => !prev);
+  const [isOpen, setIsOpen] = useState(false)
+  const toggleDropdown = () => setIsOpen(prev => !prev)
 
   const location = useLocation()
 

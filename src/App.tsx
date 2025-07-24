@@ -16,6 +16,8 @@ import Backoffice from './components/backoffice/Backoffice'
 import { AuthProvider } from './context/AuthContext'
 import HandleBookings from './components/backoffice/BookingsNavbar'
 import ComingSoon from './components/ComingSoon'
+import CheckOut from './components/CheckOut'
+import { PrivateRoute } from './components/PrivateRoute'
 
 function App() {
 
@@ -33,11 +35,12 @@ function App() {
           <Route path='/restaurant' element={<Restaurant />} />
           <Route path='/bookings' element={<Booking />} />
           <Route path='/bookings/:type' element={<Booking />} />
+          <Route path='/bookings/checkout' element={<CheckOut />} />
           <Route path='/myBookings' element={<MyBookings />} />
           <Route path='/contact' element={<ContactUs />} />
           <Route path='/contact/:bookingId' element={<ContactUs />} />
           <Route path='/surroundings' element={<ComingSoon />} />
-          <Route path='/backoffice' element={<Backoffice />} />
+          <Route path='/backoffice'  element={<PrivateRoute><Backoffice /></PrivateRoute>} />
           <Route path='/handle-bookings' element={<HandleBookings />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
