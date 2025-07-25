@@ -1,7 +1,7 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react"
 import axios from "axios"
-import { useRef, useState } from "react"
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
+import { useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import { FaPerson } from "react-icons/fa6"
@@ -57,15 +57,14 @@ const Booking = function () {
     const APIUrlAccommodations = 'http://localhost:8080/accommodations'
     /* GET http://localhost:8080/accommodations/plots/available?type=PLOT&guests=3&checkInDate=2025-07-20&checkOutDate=2025-07-25 */
 
+    /* accomodation type fetch */
     const accommodationPathMap: Record<string, string> = {
         PLOT: 'plots',
         MOBILEHOME: 'mobilehomes',
         GLAMPING: 'glampings',
     }
 
-    
-
-    const { type } = useParams()
+    const { type } = useParams() /* redirection from accommodation page */
 
     const [availableAccommodations, setAvailableAccommodations] = useState<availableAccommodation[] | null>(null)
 
@@ -85,41 +84,41 @@ const Booking = function () {
         accommodationType: type ? type.toUpperCase() : ''
     })
 
-    /* get */
+    /* get available accommodations */
 
     function getAvailableAccommodations() {
-  const typePath = accommodationPathMap[newBooking.accommodationType]
+    const typePath = accommodationPathMap[newBooking.accommodationType]
 
-  if (!typePath) {
-    console.warn("Tipo di alloggio non valido o non selezionato")
-    return
-  }
+    if (!typePath) {
+        console.warn("Tipo di alloggio non valido o non selezionato")
+        return
+    }
 
-  if (!newBooking.checkInDate || !newBooking.checkOutDate || !newBooking.numberOfCustomers) {
-    console.warn("Dati incomplete: date o numero persone mancanti")
-    return
-  }
+    if (!newBooking.checkInDate || !newBooking.checkOutDate || !newBooking.numberOfCustomers) {
+        console.warn("Dati incomplete: date o numero persone mancanti")
+        return
+    }
 
-  axios.get(`${APIUrlAccommodations}/${typePath}/available`, {
-    params: {
-      guests: newBooking.numberOfCustomers,
-      checkInDate: newBooking.checkInDate,
-      checkOutDate: newBooking.checkOutDate,
-    },
-  })
-    .then((response) => {
-      console.log("Alloggi disponibili:", response.data)
-      setAvailableAccommodations(response.data)
+    axios.get(`${APIUrlAccommodations}/${typePath}/available`, {
+        params: {
+        guests: newBooking.numberOfCustomers,
+        checkInDate: newBooking.checkInDate,
+        checkOutDate: newBooking.checkOutDate,
+        },
     })
-    .catch((error) => {
-      console.error("Errore nel fetch disponibili:", error)
-    })
-}
+        .then((response) => {
+        console.log("Alloggi disponibili:", response.data)
+        setAvailableAccommodations(response.data)
+        })
+        .catch((error) => {
+        console.error("Errore nel fetch disponibili:", error)
+        })
+    }
 
 
     /* post */
 
-    const navigate = useNavigate()
+    /* const navigate = useNavigate() */ /* redirection to payment page coming soon */
     
     const postNewBooking = ()=>{
         axios

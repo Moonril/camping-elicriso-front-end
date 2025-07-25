@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom"
 
 const ContactUs = function () {
 
-    const [newMessage, setNewMessage] = useState()
+    const [newMessage, setNewMessage] = useState() /* messages coming soon */
     const { bookingId } = useParams()
 
 

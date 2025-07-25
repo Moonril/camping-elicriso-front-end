@@ -162,7 +162,7 @@ const HomePage = function (){
 
                         </div>
 
-                        {/* dintorni */}
+                        {/* surroundings */}
                         <div className="flex flex-col justify-between items-center gap-8 center">
                             <h3 className="text-3xl quicksand-titles font-medium text-shadow-md/20">Dintorni</h3>
                             <p className="text-lg">Visita la toscana! da spiagge caraibiche a discoteche a picco sul mare.</p>

@@ -1,4 +1,3 @@
-import axios from "axios"
 import { useState } from "react"
 import { FaPerson } from "react-icons/fa6"
 import { IoIosResize } from "react-icons/io"
