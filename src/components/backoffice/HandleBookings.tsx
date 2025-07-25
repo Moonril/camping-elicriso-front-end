@@ -53,9 +53,9 @@ const HandleBookings = function() {
     /* modal */
 
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false)
  
-    const handleOpen = () => setOpen(!open);
+    const handleOpen = () => setOpen(!open)
 
     const [formData, setFormData] = useState<PatchBooking>({
         checkInDate: "",
@@ -112,7 +112,7 @@ const HandleBookings = function() {
             currentPage: 1,
         })
 
-        console.log(response.data);
+        console.log(response.data)
         })
         .catch((error) => {
             console.error("Errore nella get:", error)
@@ -141,7 +141,7 @@ const HandleBookings = function() {
             currentPage: 1,
         })
 
-        console.log(response.data);
+        console.log(response.data)
         })
         .catch((error) => {
             console.error("Errore nella get:", error)
@@ -157,7 +157,7 @@ const HandleBookings = function() {
     /* patch booking status */
 
     const updateBookingStatus = (id: number, newStatus: string) => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token")
 
     axios.patch(
         `http://localhost:8080/camping/bookings/${id}/status`,
@@ -170,18 +170,30 @@ const HandleBookings = function() {
         } 
     )
         .then((response) => {
-        console.log("Stato aggiornato:", response.data);
+        console.log("Stato aggiornato:", response.data)
         getBookings()
+        Swal.fire({
+                    title: 'Aggiornamento completato!',
+                    text: 'Stato aggiornato con successo!',
+                    icon: 'success',
+                    confirmButtonText: 'Ok',
+                })
         })
         .catch((error) => {
-        console.error("Errore nell'aggiornamento dello stato:", error)
+            Swal.fire({
+                        title: 'Errore nella richiesta',
+                        text: 'Errore nell aggiornamento dello stato',
+                        icon: 'error',
+                        confirmButtonText: 'Riprova',
+                })
+            console.error("Errore nell'aggiornamento dello stato:", error)
         })
     }
 
     /* put booking */
 
     const updateBooking = (id: number, data: any) => {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("token")
         console.log("Token:", token)
 
         axios.put(`http://localhost:8080/camping/bookings/${id}`, data, {
@@ -191,11 +203,23 @@ const HandleBookings = function() {
             },
         })
         .then((response) => {
-            console.log("Prenotazione aggiornata:", response.data);
+            console.log("Prenotazione aggiornata:", response.data)
+            Swal.fire({
+                        title: 'Agiornamento completato!',
+                        text: 'La tua prenotazione è stata aggiornata con successo!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok',
+                    })
             getBookings()
         })
         .catch((error) => {
-            console.error("Errore nella modifica:", error);
+            console.error("Errore nella modifica:", error)
+            Swal.fire({
+                    title: 'Errore nella richiesta',
+                    text: 'Riempi tutti i campi.',
+                    icon: 'error',
+                    confirmButtonText: 'Riprova',
+            })
         })
     }
 
@@ -221,7 +245,7 @@ const HandleBookings = function() {
     /* by date  */
 
     const sortByDate = () => {
-        if (!bookings) return;
+        if (!bookings) return
 
         const sorted = [...bookings].sort((a, b) => {
             const dateA = new Date(a.bookingCreationDate).getTime()
@@ -371,7 +395,7 @@ const HandleBookings = function() {
                                                         setOpen(true)
                                                         }} >Modifica</button>
 
-                                                        <button className="mt-2 px-4 py-1 bg-blue-400 text-white rounded me-1 hover:bg-blue-300" onClick={() => updateBookingStatus(booking.id, "CONFIRMED")}>Cliente</button>
+                                                        {/* <button className="mt-2 px-4 py-1 bg-blue-400 text-white rounded me-1 hover:bg-blue-300" onClick={() => updateBookingStatus(booking.id, "CONFIRMED")}>Cliente</button> */}
                                                     </div>
                                                 </td>
                                                 </tr>
@@ -436,10 +460,10 @@ const HandleBookings = function() {
                                                 <button onClick={() => setOpen(false)} className="px-4 py-2 bg-gray-300 rounded">Annulla</button>
                                                 <button onClick={() => {
                                                         if (selectedBooking) {
-                                                        updateBooking(selectedBooking.id, formData);
+                                                        updateBooking(selectedBooking.id, formData)
                                                         console.log(formData, 'formdata')
                                                         
-                                                        setOpen(false);
+                                                        setOpen(false)
                                                         }
                                                     }} className="px-4 py-2 bg-[#4F772D] text-white rounded">Conferma</button>
                                                 </div>

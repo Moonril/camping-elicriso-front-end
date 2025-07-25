@@ -30,9 +30,9 @@ const HandleRestaurant = function () {
     /* modal */
     
     
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false)
      
-    const handleOpen = () => setOpen(!open);
+    const handleOpen = () => setOpen(!open)
     
     const [formData, setFormData] = useState<PutReservation>({
         name: '',
@@ -57,7 +57,7 @@ const HandleRestaurant = function () {
     })
 
     const getReservations = () => {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("token")
         axios.get(APIUrl, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -97,7 +97,7 @@ const HandleRestaurant = function () {
             currentPage: 1,
         })
 
-        console.log(response.data);
+        console.log(response.data)
         })
         .catch((error) => {
             console.error("Errore nella get:", error)
@@ -114,7 +114,7 @@ const HandleRestaurant = function () {
     /* put reservation */
 
     const updateReservation = (id: number, data: any) => {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("token")
         console.log("Token:", token)
 
         axios.put(`http://localhost:8080/restaurant/reservations/${id}`, data, {
@@ -124,11 +124,11 @@ const HandleRestaurant = function () {
             },
         })
         .then((response) => {
-            console.log("Prenotazione aggiornata:", response.data);
+            console.log("Prenotazione aggiornata:", response.data)
             getReservations()
         })
         .catch((error) => {
-            console.error("Errore nella modifica:", error);
+            console.error("Errore nella modifica:", error)
         })
     }
     
@@ -155,7 +155,7 @@ const HandleRestaurant = function () {
         /* by date  */
     
         const sortByDate = () => {
-            if (!reservations) return;
+            if (!reservations) return
     
             const sorted = [...reservations].sort((a, b) => {
                 const dateA = new Date(a.reservationDate).getTime()
@@ -344,10 +344,10 @@ const HandleRestaurant = function () {
                                                 <button onClick={() => setOpen(false)} className="px-4 py-2 bg-gray-300 rounded">Annulla</button>
                                                 <button onClick={() => {
                                                         if (selectedReservation) {
-                                                        updateReservation(selectedReservation.id, formData);
+                                                        updateReservation(selectedReservation.id, formData)
                                                         console.log(formData, 'formdata')
                                                         
-                                                        setOpen(false);
+                                                        setOpen(false)
                                                         }
                                                     }} className="px-4 py-2 bg-[#4F772D] text-white rounded">Conferma</button>
                                                 </div>

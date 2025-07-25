@@ -29,9 +29,9 @@ const HandleCustomers = function () {
 
     const APIUrl = 'http://localhost:8080/customers'
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false)
      
-    const handleOpen = () => setOpen(!open);
+    const handleOpen = () => setOpen(!open)
     
     const [formData, setFormData] = useState<PatchCustomer>({
             name: "",
@@ -40,9 +40,9 @@ const HandleCustomers = function () {
             phoneNumber: ""
     })
     
-    const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
+    const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null)
     
-    const [selectedCustomerId, setSelectedCustomerId] = useState<number | null>(null);
+    const [selectedCustomerId, setSelectedCustomerId] = useState<number | null>(null)
     
 
     /* get customers */
@@ -94,7 +94,7 @@ const HandleCustomers = function () {
             currentPage: 1,
         })
 
-        console.log(response.data);
+        console.log(response.data)
         })
         .catch((error) => {
             console.error("Errore nella get:", error)
@@ -110,8 +110,8 @@ const HandleCustomers = function () {
     /* put booking */
 
     const updateCustomer = (id: number, data: any) => {
-        const token = localStorage.getItem("token");
-        console.log("Token:", token);
+        const token = localStorage.getItem("token")
+        console.log("Token:", token)
 
         axios.put(`http://localhost:8080/customers/${id}`, data, {
             headers: {
@@ -120,13 +120,13 @@ const HandleCustomers = function () {
             },
         })
         .then((response) => {
-            console.log("Prenotazione aggiornata:", response.data);
+            console.log("Prenotazione aggiornata:", response.data)
             getCustomers()
         })
         .catch((error) => {
-            console.error("Errore nella modifica:", error);
-        });
-    };
+            console.error("Errore nella modifica:", error)
+        })
+    }
 
 
     /* sorting */
@@ -218,7 +218,7 @@ const HandleCustomers = function () {
                                                       <p><strong>Email:</strong> {customer.email}</p>
                                                       <p><strong>Numero di telefono:</strong> {customer.phoneNumber}</p>
                                                     <button className="mt-2 px-4 py-1 bg-yellow-500 text-white rounded me-1 hover:bg-yellow-300"onClick={() => {
-                                                                        setSelectedCustomer(customer);
+                                                                        setSelectedCustomer(customer)
                                                                         setFormData({
                                                                         name: customer.name,
                                                                         surname: customer.surname,
@@ -293,10 +293,10 @@ const HandleCustomers = function () {
                                                                 <button onClick={() => setOpen(false)} className="px-4 py-2 bg-gray-300 rounded">Annulla</button>
                                                                 <button onClick={() => {
                                                                         if (selectedCustomer) {
-                                                                        updateCustomer(selectedCustomer.id, formData);
+                                                                        updateCustomer(selectedCustomer.id, formData)
                                                                         console.log(formData, 'formdata')
                                                                         
-                                                                        setOpen(false);
+                                                                        setOpen(false)
                                                                         }
                                                                     }} className="px-4 py-2 bg-[#4F772D] text-white rounded">Conferma</button>
                                                                 </div>
@@ -316,4 +316,4 @@ const HandleCustomers = function () {
     ) 
 }
 
-export default HandleCustomers;
+export default HandleCustomers

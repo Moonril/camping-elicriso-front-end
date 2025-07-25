@@ -24,7 +24,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Product Name Screen Shot][![banner](image.png)]
+![banner](image.png)
 
 # Camping Elicrisi –  Campeggio sul Mare 🏕️🌊
 
@@ -70,25 +70,10 @@ Area riservata alla gestione delle funzionalità principali:
 - Visualizzazione e modifica delle prenotazioni del ristorante
 - Aggiornamento dei contenuti del sito (in sviluppo)
 
-⚠️ **Nota:** Il backoffice non è attualmente disponibile online tramite deploy. Per accedervi è necessario:
+⚠️ **Nota:** Il backoffice non è attualmente disponibile online tramite deploy. Per accedervi consultare la guida all'istallazione
 - Creare manualmente un utente admin direttamente dal **database**
 - Oppure tramite una richiesta API con **Postman**
-⚠️ **Passi per la creazione dell'admin:**
-- Rotta su Postman per la creazione di un utente: http://localhost:8080/auth/register
-- Body: 
-```sh
-{
-    "name": "string",
-    "surname": "string",
-    "email": "string", //necessario @
-    "username": "string",
-    "password": "string"
-}
-```
-- Cambiare il tipo di utente da STAFF a ADMIN su pdAdmin 4
-
-![alt text](image-8.png)
-- ⚠️ **Nota 2:** Il server purtroppo al momento della creazione non avrà nessun dato oltre alle cartelle vuote. Ho intenzione di creare dei @Bean per popolare almeno gli alloggi in futuro
+⚠️ **Nota 2:** Il server purtroppo al momento della creazione non avrà nessun dato oltre alle cartelle vuote. Ho intenzione di creare dei @Bean per popolare almeno gli alloggi in futuro
 
 
 
@@ -119,7 +104,7 @@ Questo progetto è stato sviluppato come sintesi delle competenze acquisite nel 
 
 Scaricare entrambe le repository, far partire il back-end per poter effettuare le richieste.
 
-### Prerequisites
+### Prerequisiti
 
 Non dimenticarsi di installare tutti i pacchetti del front-end
 * npm
@@ -182,8 +167,26 @@ gmail.from=
 
 ![alt text](image-10.png)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
+⚠️ **Passi per la creazione dell'admin:**
+- Rotta su Postman per la creazione di un utente: http://localhost:8080/auth/register
+- Body: 
+```sh
+{
+    "name": "string",
+    "surname": "string",
+    "email": "string", //necessario @
+    "username": "string",
+    "password": "string"
+}
+```
+- Cambiare il tipo di utente da STAFF a ADMIN su pdAdmin 4
+
+![alt text](image-8.png)
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- USAGE EXAMPLES -->

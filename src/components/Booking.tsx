@@ -50,6 +50,18 @@ const Booking = function () {
     /* date */
     const formatDate = (iso: string) => iso ? new Date(iso).toLocaleDateString("it-IT") : "..."
 
+    /* how many days - price calculation */
+
+    const getTotalPrice = (checkInDate: string, checkOutDate: string, pricePerDay: number) => {
+    const checkIn = new Date(checkInDate)
+    const checkOut = new Date(checkOutDate)
+
+    const diffTime = checkOut.getTime() - checkIn.getTime()
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+
+    return diffDays > 0 ? diffDays * pricePerDay : 0
+    }
+
 
     /* fetch */
     
@@ -423,7 +435,7 @@ const Booking = function () {
                                                     <p><IoPricetagOutline /></p>
                                                     <p>Prezzo gg/pp {acc.price}€</p> 
                                                 </div>
-                                                <p className="font-medium">Totale per le date scelte: {acc.price}€</p>
+                                                <p className="font-medium">Totale per pp per le date scelte:  {getTotalPrice(newBooking.checkInDate, newBooking.checkOutDate, acc.price)}€</p>
                                             </div>
                                             {/* prenota */}
                                             <button className="bg-[#e77c29] p-2 px-4 text-white rounded-xl self-center hover:bg-[#e77b29b2]" onClick={() => {
