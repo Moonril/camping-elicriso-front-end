@@ -20,46 +20,19 @@
 
 
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][![banner](image.png)]](https://example.com)
+![Product Name Screen Shot][![banner](image.png)]
 
-# Camping Elicrisi – Piattaforma di Gestione per Campeggio sul Mare 🏕️🌊
+# Camping Elicrisi –  Campeggio sul Mare 🏕️🌊
 
 Camping Elicrisi è una piattaforma web pensata per la gestione completa di un campeggio situato a pochi passi dal mare. Il progetto integra competenze sia di **Front-End** che di **Back-End**, ed è stato sviluppato come esercizio completo di progettazione, sviluppo e organizzazione di un'applicazione reale.
 
 Il sito è suddiviso in due principali sezioni:
-- **Area pubblica** dedicata ai clienti
-- **Area privata** (backoffice) dedicata agli amministratori
+- **Area pubblica:** dedicata ai clienti
+- **Area privata:** (backoffice) dedicata agli amministratori
 
 ---
 
@@ -92,9 +65,10 @@ Il sito è suddiviso in due principali sezioni:
 
 Area riservata alla gestione delle funzionalità principali:
 - Visualizzazione e modifica delle prenotazioni
-- Gestione degli alloggi disponibili
+- Gestione degli alloggi disponibili (in sviluppo)
 - Anagrafica dei clienti
-- Aggiornamento dei contenuti del sito
+- Visualizzazione e modifica delle prenotazioni del ristorante
+- Aggiornamento dei contenuti del sito (in sviluppo)
 
 ⚠️ **Nota:** Il backoffice non è attualmente disponibile online tramite deploy. Per accedervi è necessario:
 - Creare manualmente un utente admin direttamente dal **database**
@@ -112,7 +86,9 @@ Area riservata alla gestione delle funzionalità principali:
 }
 ```
 - Cambiare il tipo di utente da STAFF a ADMIN su pdAdmin 4
-⚠️ **Nota 2:** Il server purtroppo al momento della creazione non avrà nessun dato oltre alle cartelle vuote. Ho intenzione di creare dei @Bean per popolare almeno gli alloggi in futuro
+
+![alt text](image-8.png)
+- ⚠️ **Nota 2:** Il server purtroppo al momento della creazione non avrà nessun dato oltre alle cartelle vuote. Ho intenzione di creare dei @Bean per popolare almeno gli alloggi in futuro
 
 
 
@@ -137,25 +113,15 @@ Questo progetto è stato sviluppato come sintesi delle competenze acquisite nel 
 
 
 
-### Built With
-
-
-* [![React][React.js]][React-url]
-* [![TailwindCSS][TailwindCSS]][[Tailwind-url](https://tailwindcss.com/)]
-* [![SpringBoot][SpringBoot]][[Spring-url](https://spring.io/projects/spring-boot)]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Scaricare entrambe le repository, far partire il back end per poter effettuare le richieste.
+Scaricare entrambe le repository, far partire il back-end per poter effettuare le richieste.
 
 ### Prerequisites
 
-Installare tutti i pacchetti del front-end
+Non dimenticarsi di installare tutti i pacchetti del front-end
 * npm
   ```sh
   npm install
@@ -164,6 +130,8 @@ Installare tutti i pacchetti del front-end
 ### Installation
 
 Per il back-end è necessario avere un file 'application.properties' nella cartella 'resources' con questa struttura qua:
+
+
 
 ```sh
 spring.application.name=camping-elicriso-progetto-finale-back-end
@@ -197,6 +165,8 @@ jwt.duration=86400000
 jwt.secret=azchefyhijulmkopqrsiuvxyzahcqefx
 ```
 
+![alt text](image-9.png)
+
 Inoltre è necessario un file 'env.properties' nella cartella principale, con questa struttura (inserire i pro):
 
 ```sh
@@ -210,6 +180,8 @@ gmail.password=
 gmail.from=
 ```
 
+![alt text](image-10.png)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -218,21 +190,23 @@ gmail.from=
 ## Usage
 
 Tutto il sito è accessibile senza bisogno di login, eccetto la parte back office, raggiungibile cliccando la voce 'Admin' nella navbar:
-- ![alt text](image-1.png)
+ ![alt text](image-1.png)
 
 - e in seguito al login:
 
-- ![alt text](image-2.png)
+ ![alt text](image-2.png)
 
 - tramite Backoffice:
 ![alt text](image-3.png)
 
-**Previes** in caso ci fossero problemi nel creare un admin ecco una piccola preview del Backoffice:
+## Previews
+ In caso ci fossero problemi nel creare un admin ecco una piccola preview del Backoffice:
 
-Le pagine complete del backoffice sono tre: **Prenotazioni - Clienti** è possibile visualizzare tutte le prenotazioni/clienti, cercare per numero/nome, ordinare per nome, stato, data di creazione e data del check-in
+- Le pagine del backoffice sono tre: **Prenotazioni - Clienti -Ristorante** è possibile visualizzare tutte le prenotazioni/clienti, cercare per numero/nome, ordinare per nome, stato, data di creazione e data del check-in
 ![alt text](image-4.png)
 ![alt text](image-6.png)
-è possibbile modificare lo stato della prenotazione, aggiornare la prenotazione e i clienti
+
+- è possibile modificare lo stato della prenotazione, aggiornare la prenotazione e i clienti
 ![alt text](image-5.png)
 ![alt text](image-7.png)
 
@@ -254,8 +228,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     - [ ] English
     - [ ] Spanish
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -263,13 +235,13 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 
 
 <!-- CONTACT -->
-## Contact
+## Contatti
 
-Vincenza Fumarulo - [LinkedIn](https://www.linkedin.com/in/vincenza-fumarulo-486a235a/) - vinni2690@hotmail.com
- [LinkGitHubedIn](https://github.com/moonril/)
+Vincenza Fumarulo - [LinkedIn](https://www.linkedin.com/in/vincenza-fumarulo-486a235a/) - vinni2690@hotmail.com - [LinkGitHubedIn](https://github.com/moonril/)
 
-Project Link - Frontend: [https://github.com/Moonril/camping-elicriso-front-end](https://github.com/Moonril/camping-elicriso-front-end)
-Project Link - Backend: [https://github.com/Moonril/camping-elicriso-progetto-finale-back-end](https://github.com/Moonril/camping-elicriso-progetto-finale-back-end)
+**Progect Link:**
+- Frontend: [https://github.com/Moonril/camping-elicriso-front-end](https://github.com/Moonril/camping-elicriso-front-end)
+- Backend: [https://github.com/Moonril/camping-elicriso-progetto-finale-back-end](https://github.com/Moonril/camping-elicriso-progetto-finale-back-end)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
