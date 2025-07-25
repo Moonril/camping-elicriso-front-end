@@ -21,14 +21,14 @@ const MyNavBar = function (){
 
   console.log("Navbar render:", isLoggedIn, user)
     return(
-      <header className='relative px-5 py-2 absolute top-0 left-0 right-0 z-101 font-sans bg-orange-50'>          
+      <header className='relative px-5 top-0 left-0 right-0 z-101 pt-1 font-sans bg-orange-50'>          
         <section className="flex items-center justify-between xl:py-3">
             <h1 className="text-3xl font-medium">
-              <Link to={"/"} className={location.pathname === '/accommodations' ? 'underline' : ''}><img src="tent-night-.svg" alt="" className="w-10"/> </Link>
+              <Link to={"/"} className={location.pathname === '/accommodations' ? 'underline' : ''}> <img src="logo-prova-2.png" alt="" className="w-50 md:w-45 lg:w-60 max-h-24"/></Link>
               <a id="top"></a>
             </h1>
             <div>
-              <nav className="hidden md:block space-x-4 text-xl" aria-label="main">
+              <nav className="hidden md:block space-x-4 md:text-sm lg:text-xl" aria-label="main">
                   <Link to={"/accommodations"} className={`hover:opacity-80 text-green-700 ${location.pathname === '/accommodations' ? 'underline' : ''}`}>Alloggi</Link>
 
                   <Link to={"/bookings"} className={`hover:opacity-80 text-green-700 ${location.pathname === '/bookings' ? 'underline' : ''}`}>Prenota</Link>
@@ -63,7 +63,7 @@ const MyNavBar = function (){
               </button>
           </section>
 
-          <img src="painted-edge-cream.png" className="absolute inset-9 md:inset-0 w-full  z-[-10] -bottom-16 left-0 right-0" alt="paint-banner" /> 
+          <img src="painted-edge-cream.png" className="absolute  md:inset-0 w-full top-5  z-[-10] left-0 right-0" alt="paint-banner" /> 
 
 
           {/* dropdown menu mobile */}

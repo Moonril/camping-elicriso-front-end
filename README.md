@@ -5,15 +5,12 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  <!-- <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="Camping-Elicrisi.png" alt="Logo" width="80" height="80">
+  </a> -->
 
   <h3 align="center">Camping Elicrisi</h3>
 
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
     
   </p>
 </div>
@@ -72,8 +69,14 @@ Area riservata alla gestione delle funzionalità principali:
 
 ⚠️ **Nota:** Il backoffice non è attualmente disponibile online tramite deploy. Per accedervi consultare la guida all'istallazione
 - Creare manualmente un utente admin direttamente dal **database**
-- Oppure tramite una richiesta API con **Postman**
-⚠️ **Nota 2:** Il server purtroppo al momento della creazione non avrà nessun dato oltre alle cartelle vuote. Ho intenzione di creare dei @Bean per popolare almeno gli alloggi in futuro
+- Oppure tramite una richiesta API con **Postman**.
+⚠️ **Nota 2:** Il server purtroppo al momento della creazione non avrà nessun dato oltre alle cartelle vuote. Ho intenzione di creare dei @Bean per popolare almeno gli alloggi in futuro.
+
+Qualche screenshot del funzionamento della pagina **Prenota**:
+
+![alt text](image-11.png)
+
+![alt text](image-12.png)
 
 
 
@@ -213,7 +216,6 @@ Tutto il sito è accessibile senza bisogno di login, eccetto la parte back offic
 ![alt text](image-5.png)
 ![alt text](image-7.png)
 
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
