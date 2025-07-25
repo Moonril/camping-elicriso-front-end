@@ -134,22 +134,22 @@ const Accomodation = function (){
 
 
 
-  /* clicking statuses */
-  const [selectedAccommodation, setSelectedAccommodation] = useState<string | null>(null)
-  const [selectedType, setSelectedType] = useState<string | null>(null)
-  
-  const currentAccommodation = accommodations.find((a) => a.id === selectedAccommodation);
-  const currentType = currentAccommodation?.types.find((t) => t.id === selectedType);
-  
+    /* clicking statuses */
+    const [selectedAccommodation, setSelectedAccommodation] = useState<string | null>(null)
+    const [selectedType, setSelectedType] = useState<string | null>(null)
+    
+    const currentAccommodation = accommodations.find((a) => a.id === selectedAccommodation)
+    const currentType = currentAccommodation?.types.find((t) => t.id === selectedType)
+    
 
-  console.log(selectedAccommodation, 'selected accomdation')
+    console.log(selectedAccommodation, 'selected accomdation')
 
     return (
-      <section className="bg-orange-50 dark:bg-green-950 text-black dark:text-white min-h-screen" >
+      <section className=" bg-green-950  text-white min-h-screen" >
 
         {/* hero section */}
 
-        <div id="hero" className="flex flex-col justify-center items-center pt-50 lg:pt-60 xl:pt-100 pb-80 bg-[url(glamping-banner.jpg)] bg-cover text-shadow-md/80 bg-orange-50 dark:bg-green-950">
+        <div id="hero" className="flex flex-col justify-center items-center pt-50 lg:pt-60 xl:pt-100 pb-80 bg-[url(glamping-banner.jpg)] bg-cover text-shadow-md/80 bg-green-950">
           <h1 className="text-3xl md:text-5xl text-white0 text-shadow-md/100 font-bold">Scopri i nostri alloggi</h1>
         </div>
 
@@ -161,12 +161,12 @@ const Accomodation = function (){
                   <h2 className="text-3xl md:text-4xl text-center sm:text-5xl mb-6 text-black font-semibold">
                   Dove il tuo viaggio trova casa
                 </h2>
-                <p className="mb-5 text-xl">Scopri di più, clicca sugli alloggi per vedere più info</p>
+                <p className="mb-5 text-xl">Scopri di più, clicca sugli alloggi per vedere più informazioni</p>
                 <div className="flex flex-col sm:flex-row gap-8">
                     {accommodations.map((acc) => (
                       <div key={acc.id} className="flex-1 cursor-pointer">
                       
-                          <img src={acc.image} alt={acc.title} className="aspect-3/2 object-cover object-bottom rounded-2xl border border-solid border-slate-900 dark:border-gray-100 bg-white dark:bg-black opacity-85 shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={() => setSelectedAccommodation(acc.id)} />
+                          <img src={acc.image} alt={acc.title} className="aspect-3/2 object-cover object-bottom rounded-2xl border border-solid border-gray-100 bg-black opacity-85 shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={() => setSelectedAccommodation(acc.id)} />
                         <div className="p-5">
                               <h5 className="mb-2 text-xl tracking-tight text-gray-900 text-center">{acc.title}</h5>
                           </div>
@@ -192,17 +192,17 @@ const Accomodation = function (){
               <div className="flex flex-col sm:flex-row gap-8">
                 {currentAccommodation?.types.map((type) => (
                   <div key={type.id} className="flex-1" onClick={() => setSelectedType(type.id)}>
-                    <img src={type.images[0]} alt={type.title} className="aspect-3/2 object-cover object- rounded-2xl border border-solid border-slate-900 dark:border-gray-100 bg-white dark:bg-black opacity-85 shadow-lg/30 " />
+                    <img src={type.images[0]} alt={type.title} className="aspect-3/2 object-cover object- rounded-2xl border border-solid border-gray-100 bg-black opacity-85 shadow-lg/30 " />
 
                     <div className="p-5 flex flex-col gap-3">
                       {/* titolo */}
                       <h5 className="mb-2 text-xl font-semibold tracking-tight text-black text-center">{type.title}</h5>
                       
-                      <div><p className="text-sm text-black">{type.description}</p></div>
+                      <div><p className="text-lg text-black">{type.description}</p></div>
                       
                       {/* dettagli */}
 
-                      <div className="flex flex-col gap-2 text-sm">
+                      <div className="flex flex-col gap-2">
                         <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-3 gap-2">
                             <p><FaPerson /></p>
                             <p>Max. {type.guests} persone</p> 
@@ -238,7 +238,7 @@ const Accomodation = function (){
                       {/* descrizione */}
                       
                         {/* prenota */}
-                      <Link to={`/bookings/${selectedAccommodation}`} className="bg-green-700 self-center p-1 px-4 rounded hover:bg-green-600">Prenota! &#129125;</Link>    
+                      <Link to={`/bookings/${selectedAccommodation}`} className="bg-green-700 self-center p-1 px-4 rounded hover:bg-green-600 text-lg">Prenota! &#129125;</Link>    
                     </div>
                   </div>
                 ))

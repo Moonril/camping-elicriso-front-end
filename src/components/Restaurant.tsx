@@ -1,5 +1,5 @@
-import axios from "axios";
-import { useState } from "react";
+import axios from "axios"
+import { useState } from "react"
 import Swal from 'sweetalert2'
 
 interface RestaurantReservation {
@@ -38,6 +38,8 @@ interface NewReservationObject {
 
 const Restaurant = function(){
 
+    /* tabs */
+
     const [activeTab, setActiveTab] = useState("daily")
     const tabs = [
         { id: 'daily', label: 'Oggi'},
@@ -45,8 +47,7 @@ const Restaurant = function(){
         { id: 'sabato', label: 'Sabato'}
     ]
 
-
-
+    /* new reservation */
 
     const APIUrl = 'http://localhost:8080/restaurant/reservations'
 
@@ -109,15 +110,15 @@ const Restaurant = function(){
 
                 <div className=" text-black flex-1 rounded-2xl md:p-10"> {/* bg-red-300/75 */}
 
-                    <ul className="flex text-sm font-medium text-center text-gray-500  dark:text-gray-400 bg-red-100 rounded-t-2xl">
+                    <ul className="flex text-sm font-medium text-center text-gray-400 bg-red-100 rounded-t-2xl">
                         {tabs.map((tab) => (
                         <li key={tab.id} className="me-2">
                             <button
                             onClick={() => setActiveTab(tab.id)}
                             className={`inline-block p-4 rounded-t-lg ${
                                 activeTab === tab.id
-                                ? "text-black bg-gray-100 dark:bg-red-300 dark:text-black"
-                                : "hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-red-200 dark:hover:text-black"
+                                ? "text-black bg-red-300 "
+                                : "hover:bg-red-200 hover:text-black"
                             }`}
                             >
                             {tab.label}
@@ -131,78 +132,78 @@ const Restaurant = function(){
                         <div> 
 
                             <h4 className="text-xl font-medium">Antipasti</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800 pb-4">Lorem ipsum dolor sit amet? <span>prezzo</span></p>
+                            <p className="text-slate-800">Bruschette al pomodoro</p>
+                            <p className="text-slate-800 pb-4">Tagliere di affettati</p>
                             
 
                             <h4 className="text-xl font-medium">Primi</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800 pb-4">Lorem ipsum dolor sit amet?</p>
+                            <p className="text-slate-800">Risotto ai porcini</p>
+                            <p className="text-slate-800">Tagliatelle al sugo</p>
+                            <p className="text-slate-800 pb-4">Primo di mare</p>
 
                             <h4 className="text-xl font-medium">Secondi</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800 pb-4">Lorem ipsum dolor sit amet?</p>
+                            <p className="text-slate-800">Pesce al forno</p>
+                            <p className="text-slate-800 pb-4">Verdure gratinate</p>
 
                             <h4 className="text-xl font-medium">Contorni</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800 pb-4">Lorem ipsum dolor sit amet?</p>
+                            <p className="text-slate-800">Patate arrosto</p>
+                            <p className="text-slate-800 pb-4">Insalata di campo</p>
 
                             <h4 className="text-xl font-medium">Dolce</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
+                            <p className="text-slate-800">Tiramisù</p>
+                            <p className="text-slate-800">Torta della nonna</p>
                         </div>
                         )}
                         {activeTab === "venerdi" && (
-                        <div>
+                        <div> 
 
                             <h4 className="text-xl font-medium">Antipasti</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800 pb-4">Lorem ipsum dolor sit amet? <span>prezzo</span></p>
+                            <p className="text-slate-800">Bruschette al pomodoro</p>
+                            <p className="text-slate-800 pb-4">Tagliere di affettati</p>
                             
 
                             <h4 className="text-xl font-medium">Primi</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800 pb-4">Lorem ipsum dolor sit amet?</p>
+                            <p className="text-slate-800">Risotto ai porcini</p>
+                            <p className="text-slate-800">Tagliatelle al sugo</p>
+                            <p className="text-slate-800 pb-4">Primo di mare</p>
 
                             <h4 className="text-xl font-medium">Secondi</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800 pb-4">Lorem ipsum dolor sit amet?</p>
+                            <p className="text-slate-800">Pesce al forno</p>
+                            <p className="text-slate-800 pb-4">Verdure gratinate</p>
 
                             <h4 className="text-xl font-medium">Contorni</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800 pb-4">Lorem ipsum dolor sit amet?</p>
+                            <p className="text-slate-800">Patate arrosto</p>
+                            <p className="text-slate-800 pb-4">Insalata di campo</p>
 
                             <h4 className="text-xl font-medium">Dolce</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
+                            <p className="text-slate-800">Tiramisù</p>
+                            <p className="text-slate-800">Torta della nonna</p>
                         </div>
                         )}
                         {activeTab === "sabato" && (
-                        <div>
+                        <div> 
 
                             <h4 className="text-xl font-medium">Antipasti</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800 pb-4">Lorem ipsum dolor sit amet? <span>prezzo</span></p>
+                            <p className="text-slate-800">Bruschette al pomodoro</p>
+                            <p className="text-slate-800 pb-4">Tagliere di affettati</p>
                             
 
                             <h4 className="text-xl font-medium">Primi</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800 pb-4">Lorem ipsum dolor sit amet?</p>
+                            <p className="text-slate-800">Risotto ai porcini</p>
+                            <p className="text-slate-800">Tagliatelle al sugo</p>
+                            <p className="text-slate-800 pb-4">Primo di mare</p>
 
                             <h4 className="text-xl font-medium">Secondi</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800 pb-4">Lorem ipsum dolor sit amet?</p>
+                            <p className="text-slate-800">Pesce al forno</p>
+                            <p className="text-slate-800 pb-4">Verdure gratinate</p>
 
                             <h4 className="text-xl font-medium">Contorni</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800 pb-4">Lorem ipsum dolor sit amet?</p>
+                            <p className="text-slate-800">Patate arrosto</p>
+                            <p className="text-slate-800 pb-4">Insalata di campo</p>
 
                             <h4 className="text-xl font-medium">Dolce</h4>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
-                            <p className="text-slate-800">Lorem ipsum dolor sit amet?</p>
+                            <p className="text-slate-800">Tiramisù</p>
+                            <p className="text-slate-800">Torta della nonna</p>
                         </div>
                         )}
                     </div>
@@ -236,65 +237,65 @@ const Restaurant = function(){
                         }}>
                             <h4 className="text-2xl text-center">Prenota</h4>
                     <div className="relative z-0 w-full mb-5 group">
-                        <input type="text" name="floating_name" id="floating_name" className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value={newReservation.name} required onChange={(e) => {
+                        <input type="text" name="floating_name" id="floating_name" className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2  appearance-none  border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " value={newReservation.name} required onChange={(e) => {
                                         setNewReservation({
                                             ...newReservation,
                                             name: e.target.value,
                                         })
                                     }} />
-                        <label className="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nome</label>
+                        <label className="peer-focus:font-medium absolute text-md text-gray-400 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nome</label>
                     </div>
                     <div className="relative z-0 w-full mb-5 group">
-                        <input type="number" name="floating_number" id="floating_number" className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required value={newReservation.numberOfPeople === 0 ? '' : newReservation.numberOfPeople} onChange={(e) => {
+                        <input type="number" name="floating_number" id="floating_number" className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2  appearance-none  border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " required value={newReservation.numberOfPeople === 0 ? '' : newReservation.numberOfPeople} onChange={(e) => {
                                         setNewReservation({
                                             ...newReservation,
                                             numberOfPeople: Number(e.target.value),
                                         })
                                     }} />
-                        <label className="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Quante persone?</label>
+                        <label className="peer-focus:font-medium absolute text-md text-gray-400 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Quante persone?</label>
                     </div>
                     <div className="relative z-0 w-full mb-5 group">
-                        <textarea name="floating_number" id="floating_number" className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value={newReservation.additionalNotes} onChange={(e) => {
+                        <textarea name="floating_number" id="floating_number" className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2  appearance-none  border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " value={newReservation.additionalNotes} onChange={(e) => {
                                         setNewReservation({
                                             ...newReservation,
                                             additionalNotes: e.target.value,
                                         })
                                     }}/>
-                        <label className="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Preferenze, allergie...</label>
+                        <label className="peer-focus:font-medium absolute text-md text-gray-400 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Preferenze, allergie...</label>
                     </div>
                     
                     
                     <div className="relative z-0 w-full mb-5 group">
-                        <input type="datetime-local" name="floating_first_name" id="floating_first_name" className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required value={newReservation.reservationDate} onChange={(e) => {
+                        <input type="datetime-local" name="floating_first_name" id="floating_first_name" className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2  appearance-none  border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " required value={newReservation.reservationDate} onChange={(e) => {
                                             setNewReservation({
                                                 ...newReservation,
                                                 reservationDate: e.target.value,
                                             })
                                         }}/>
-                        <label className="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Giorno e ora</label>
+                        <label className="peer-focus:font-medium absolute text-md text-gray-400 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Giorno e ora</label>
                     </div>
                         
                         <div className="grid md:grid-cols-2 md:gap-6">
                             <div className="relative z-0 w-full mb-5 group">
-                                <input type="tel" pattern="^\+?[0-9]{6,15}$" name="floating_phone" id="floating_phone" className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required value={newReservation.phoneNumber} onChange={(e) => {
+                                <input type="tel" pattern="^\+?[0-9]{6,15}$" name="floating_phone" id="floating_phone" className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2  appearance-none  border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " required value={newReservation.phoneNumber} onChange={(e) => {
                                             setNewReservation({
                                                 ...newReservation,
                                                 phoneNumber: e.target.value,
                                             })
                                         }}/>
-                                <label className="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Telefono</label>
+                                <label className="peer-focus:font-medium absolute text-md text-gray-400 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Telefono</label>
                             </div>
                             <div className="relative z-0 w-full mb-5 group">
-                                <input type="text" name="floating_phone" id="floating_phone" className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value={newReservation.bookingId} onChange={(e) => {
+                                <input type="text" name="floating_phone" id="floating_phone" className="block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2  appearance-none  border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " value={newReservation.bookingId} onChange={(e) => {
                                             setNewReservation({
                                                 ...newReservation,
                                                 bookingId: Number(e.target.value),
                                             })
                                         }}/>
-                                <label className="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Numero prenotazione</label>
+                                <label className="peer-focus:font-medium absolute text-md text-gray-400 font-bold duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Numero prenotazione</label>
                             </div>
                         </div>
-                    <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Prenota</button>
+                    <button type="submit" className="text-white  focus:ring-4 focus:outline-none font-medium rounded-lg text-md sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">Prenota</button>
                 </form>
         </section>
     )

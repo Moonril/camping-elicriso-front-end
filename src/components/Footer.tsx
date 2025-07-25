@@ -1,8 +1,8 @@
-import { CiFacebook, CiLinkedin, CiTwitter } from "react-icons/ci";
-import { FaInstagram } from "react-icons/fa";
-import { FaTent } from "react-icons/fa6";
-import { GiFlowers } from "react-icons/gi";
-import { Link, useLocation } from "react-router-dom";
+import { CiFacebook, CiLinkedin, CiTwitter } from "react-icons/ci"
+import { FaInstagram } from "react-icons/fa"
+import { FaTent } from "react-icons/fa6"
+import { GiFlowers } from "react-icons/gi"
+import { Link, useLocation } from "react-router-dom"
 
 const Footer = function(){
 
@@ -45,16 +45,16 @@ const Footer = function(){
                 <div>
                     {/* contattaci */}
                     <Link to={'/contact'}  className={`hover:opacity-80 font-medium ${location.pathname === '/contact' ? 'underline' : ''}`}>Contattaci</Link>
-                    <p>Reception: +549 5464566</p>
+                    <p>Reception: +39 5464566</p>
                     <p>Whatsapp: +353 4545345</p>
-                    <p>email@email.it</p>
+                    <p>elicrisi@email.it</p>
 
                 </div>
                 <div>
                     <p className="font-medium">Dove siamo:</p> {/* maybe link to maps? */}
                     <Link to={'https://maps.app.goo.gl/HdMdTYLdQhtW1jodA'}>
                         <address>
-                            via di rotondo 24, 23745 <br />
+                            Via di rotondo 24, 23745 <br />
                             Paesello, PA
                         </address>
                     </Link>
@@ -67,4 +67,4 @@ const Footer = function(){
     )
 }
 
-export default Footer;
+export default Footer
