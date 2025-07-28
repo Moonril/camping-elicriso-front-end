@@ -58,9 +58,9 @@ const MyBookings = function (){
             </div>
             
             {/* search section */}
-            <div className="bg-green-950 py-[160px] md:py-[200px] px-[20px] md:px-30 xl:px-50 relative">
+            <div className="bg-green-950 py-[350px] md:py-[350px] px-[20px] md:px-30 xl:px-50 relative">
                 
-                <div className="w-full max-w-xs md:max-w-md lg:max-w-xl bg-orange-50 flex flex-col items-center justify-center self-center p-5 md:p-15 text-black absolute left-1/2 -top-20 transform -translate-x-1/2 rounded-2xl shadow-xl5">
+                <div className="w-full max-w-sm md:max-w-lg lg:max-w-xl bg-orange-50 flex flex-col items-center justify-center self-center p-5 md:p-15 text-black absolute left-1/2 -top-20 transform -translate-x-1/2 rounded-2xl shadow-xl5">
                     <h4 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl  text-center mb-3">
                                 Cerca prenotazione
                     </h4>
@@ -84,15 +84,12 @@ const MyBookings = function (){
                                 <button type="submit" className="w-50 text-white  hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-teal-600 hover:bg-primary-700 focus:ring-primary-800">Cerca</button>
                             
                     </form>
-                    
-                </div>
-            
 
-                    {/* prenotazione */}
+
                     {booking && (
-                        <div className="flex flex-col items-center justify-center p-8 mx-auto text-black ">
+                        
                             
-                            <div className="w-full bg-orange-50 rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0  border-gray-700">
+                            <div className="w-full bg-orange-50 rounded-lg shadow border mt-10 md:mt-20 sm:max-w-md  border-gray-700">
                                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                                     <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl ">
                                         La tua prenotazione:
@@ -118,8 +115,13 @@ const MyBookings = function (){
                                         <p>C'è qualcosa che non va nella tua prenotazione? <Link to={`/contact/${booking.id}`} className="text-blue-600" >contattaci!</Link> </p>
                                 </div>
                             </div>
-                        </div>
+                        
                     )}
+                    
+                </div>
+            
+
+                    {/* prenotazione */}
             </div>       
                     
         </section>

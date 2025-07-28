@@ -5,6 +5,10 @@ import { IoBedOutline } from "react-icons/io5"
 import { MdOutlineBedroomParent } from "react-icons/md"
 import { PiFanLight } from "react-icons/pi"
 import { Link } from "react-router-dom"
+import "slick-carousel/slick/slick.css" 
+import "slick-carousel/slick/slick-theme.css"
+import Slider from "react-slick"
+
 
 /* accomodation types */
 
@@ -36,7 +40,7 @@ const accommodations: Accommodation[] = [
       {
         id: 'standard',
         title: 'Standard Plot',
-        images: ['https://images.pexels.com/photos/2582818/pexels-photo-2582818.jpeg', 'url2', 'url3'],
+        images: ['https://images.pexels.com/photos/2582818/pexels-photo-2582818.jpeg', 'https://images.pexels.com/photos/33104820/pexels-photo-33104820.jpeg'],
         description: 'Piazzola standard in mezzo alla natura...',
         size: "75m-80m",
         guests: 6,
@@ -143,6 +147,16 @@ const Accomodation = function (){
 
     console.log(selectedAccommodation, 'selected accomdation')
 
+    /* Slider settings */
+
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    }
+
     return (
       <section className=" bg-green-950  text-white min-h-screen" >
 
@@ -191,7 +205,9 @@ const Accomodation = function (){
               <div className="flex flex-col sm:flex-row gap-8">
                 {currentAccommodation?.types.map((type) => (
                   <div key={type.id} className="flex-1" onClick={() => setSelectedType(type.id)}>
-                    <img src={type.images[0]} alt={type.title} className="aspect-3/2 object-cover object- rounded-2xl border border-solid border-gray-100 bg-black opacity-85 shadow-lg/30 " />
+
+                      <img src={type.images[0]} alt={type.title} className="aspect-3/2 object-cover object- rounded-2xl border border-solid border-gray-100 bg-black opacity-85 shadow-lg/30 " />
+                      
 
                     <div className="p-5 flex flex-col gap-3">
                       {/* titolo */}

@@ -6,9 +6,11 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import { FaPerson } from "react-icons/fa6"
 import { IoIosResize } from "react-icons/io"
-import { LuTent } from "react-icons/lu"
-import { IoPricetagOutline } from "react-icons/io5"
+import { LuTent, LuTypeOutline } from "react-icons/lu"
+import { IoBedOutline, IoPricetagOutline } from "react-icons/io5"
 import Swal from 'sweetalert2'
+import { PiFanLight } from "react-icons/pi"
+import { MdOutlineBedroomParent } from "react-icons/md"
 
 /* available accommodation */
 
@@ -20,6 +22,7 @@ interface availableAccommodation {
   dimentions: string,
   price: number,
   accomodationStatus: string,
+  img: string,
   plotType?: string,
   numberOfBeds?: number,
   numberOfBedrooms?: number,
@@ -359,7 +362,13 @@ const Booking = function () {
                         </div>
                     </div>
                     <p className="mt-2 text-sm text-gray-600">
-                        Hai selezionato: <strong>{newBooking.accommodationType}</strong> per <strong>{newBooking.numberOfCustomers}</strong> persona{newBooking.numberOfCustomers > 1 ? 'e' : ''} dal dal <strong>{formatDate(newBooking.checkInDate)}</strong> al <strong>{formatDate(newBooking.checkOutDate)}</strong>
+                        Hai selezionato: <strong>{newBooking.accommodationType === "PLOT"
+                                    ? "Piazzole"
+                                    : newBooking.accommodationType === "GLAMPING"
+                                    ? "Glamping"
+                                    : newBooking.accommodationType === "MOBILEHOME"
+                                    ? "Bungalows"
+                                    : "..."}</strong> per <strong>{newBooking.numberOfCustomers}</strong> person{newBooking.numberOfCustomers > 1 ? 'e' : 'a'} dal dal <strong>{formatDate(newBooking.checkInDate)}</strong> al <strong>{formatDate(newBooking.checkOutDate)}</strong>
                     </p>
 
                     {/* submit fetch */}
@@ -381,7 +390,7 @@ const Booking = function () {
                                     : newBooking.accommodationType === "GLAMPING"
                                     ? "Glamping disponibili"
                                     : newBooking.accommodationType === "MOBILEHOME"
-                                    ? "Bungalows"
+                                    ? "Bungalows disponibili"
                                     : "Tipologia disponibili"}
                             </h2>
 
@@ -393,7 +402,7 @@ const Booking = function () {
                                             <h4 className="text-lg">
                                                 {acc.name}
                                             </h4>
-                                            <img className="aspect-3/2 object-cover object-bottom rounded-2xl" src="https://images.pexels.com/photos/2123285/pexels-photo-2123285.jpeg" alt="" />
+                                            <img className="aspect-3/2 object-cover object-bottom rounded-2xl" src={acc.img} alt="accommodation image" />
                                             {/* dettagli */}
                                             <div className="flex flex-col gap-2 text-sm">
                                                 <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
@@ -413,29 +422,56 @@ const Booking = function () {
                                                     </div>
                                                 )}
                                                 {acc.mobileType && (
-                                                    <div className=" flex flex-col items-center bg-gray-200 text-black rounded p-1 gap-2">
-                                                        <p>Tipo Bungalow: {acc.mobileType.toLowerCase()}</p>
-                                                        <p>Camere: {acc.numberOfBedrooms}</p>
-                                                        <p>Letti: {acc.numberOfBeds}</p>
-                                                        {acc.airConditioning &&(
-                                                            <p>AirCon: si</p>
-                                                        )}
+                                                    <div className=" flex flex-col bg-gray-200 text-black rounded p-1 gap-2 ">
+                                                        <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                            <p><LuTypeOutline /></p>
+                                                            <p>Tipo Bungalow: {acc.mobileType.toLowerCase()}</p>
+                                                        </div>
+                                                        <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                            <p><MdOutlineBedroomParent /></p>
+                                                            <p>Camere: {acc.numberOfBedrooms}</p>
+                                                        </div>
+
+                                                        <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                            <p><IoBedOutline /></p>
+                                                            <p>Letti: {acc.numberOfBeds}</p>
+                                                        </div>
+
+                                                            {acc.airConditioning &&(
+                                                                <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                                    <p><PiFanLight /></p>
+                                                                    <p>AirCon: si</p>
+                                                                </div>
+                                                            )}
+
+
                                                     </div>
                                                 )}
                                                 {acc.glampingType && (
-                                                    <div className=" flex flex-col items-center bg-gray-200 text-black rounded p-1 gap-2">
-                                                        <p>Tipo Bungalow: {acc.glampingType.toLowerCase()}</p>
-                                                        <p>Letti: {acc.numberOfBeds}</p>
-                                                        {acc.airConditioning &&(
-                                                            <p>AirCon: si</p>
-                                                        )}
+                                                    <div className="flex flex-col gap-2">
+                                                        <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                            <p><LuTypeOutline /></p>
+                                                            <p>Tipo Bungalow: {acc.glampingType.toLowerCase()}</p>
+
+                                                        </div>
+                                                        <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                            <p><IoBedOutline /></p>
+                                                            <p>Letti: {acc.numberOfBeds}</p>
+                                                            
+                                                        </div>
+                                                            {acc.airConditioning &&(
+                                                                <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                                    <p><PiFanLight /></p>
+                                                                    <p> AirCon: si</p>
+                                                                </div>    
+                                                            )}
                                                     </div>
                                                 )}
                                                 <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
                                                     <p><IoPricetagOutline /></p>
-                                                    <p>Prezzo gg/pp {acc.price}€</p> 
+                                                    <p>Prezzo gg/pp: {acc.price}€</p> 
                                                 </div>
-                                                <p className="font-medium">Totale per pp per le date scelte:  {getTotalPrice(newBooking.checkInDate, newBooking.checkOutDate, acc.price)}€</p>
+                                                <p className="text-lg font-medium">Totale per le date scelte:  {getTotalPrice(newBooking.checkInDate, newBooking.checkOutDate, acc.price)}€</p>
                                             </div>
                                             {/* prenota */}
                                             <button className="bg-[#e77c29] p-2 px-4 text-white rounded-xl self-center hover:bg-[#e77b29b2]" onClick={() => {
