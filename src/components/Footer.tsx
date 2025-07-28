@@ -20,7 +20,7 @@ const Footer = function(){
             <div className="flex flex-row gap-8 md:gap-20">
                 <div className="flex flex-col items-center">
                     {/* logo */}
-                    <p><FaTent /> logo <GiFlowers /></p>
+                    <Link to={'/'}><img className="w-15" src="mini-logo.png" alt="" /></Link>
                     <div className="flex flex-row">
                         {/* link to social media */}
                         <Link to={''}><FaInstagram /></Link>
