@@ -380,7 +380,18 @@ const Booking = function () {
 
 
                 {/* available accommodations - risultato fetch */}
-                    {availableAccommodations && (
+                
+                {availableAccommodations && availableAccommodations?.length === 0 && (
+                    <div className="flex flex-col justify-start items-center gap-8 py-5 pt-10 px-1 bg-[#f3f4f6] rounded-2xl shadow-xl text-white bg-[url(https://images.pexels.com/photos/963486/pexels-photo-963486.jpeg)] h-96 bg-cover bg-center">
+                        <p className="text-md md:text-xl xl:text-4xl font-bold text-shadow-md/50">
+                            Non ci sono alloggi disponibili nel periodo scelto,
+                        </p>
+                        <p className="text-md md:text-xl xl:text-4xl font-bold text-shadow-md/50"> prova con altre date.</p>
+                    </div>
+                )}
+
+
+                    {availableAccommodations && availableAccommodations?.length > 0 && (
                         
                         <div className="flex flex-col justify-center items-center gap-8 py-5 bg-[#f3f4f6] rounded-2xl shadow-xl text-black">
                             <h2 className="font-bold text-3xl md:text-4xl text-center sm:text-5x">
@@ -414,7 +425,7 @@ const Booking = function () {
                                                     <p>Size {acc.dimentions}</p> 
                                                 </div>
                                                 {acc.plotType && (
-                                                    <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
+                                                    <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2 justify-center">
                                                         <p>
                                                             <LuTent />
                                                         </p>
@@ -423,22 +434,22 @@ const Booking = function () {
                                                 )}
                                                 {acc.mobileType && (
                                                     <div className=" flex flex-col bg-gray-200 text-black rounded p-1 gap-2 ">
-                                                        <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                        <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
                                                             <p><LuTypeOutline /></p>
                                                             <p>Tipo Bungalow: {acc.mobileType.toLowerCase()}</p>
                                                         </div>
-                                                        <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                        <div className=" flex flex-row  items-center bg-gray-200 text-black rounded p-1 gap-2">
                                                             <p><MdOutlineBedroomParent /></p>
                                                             <p>Camere: {acc.numberOfBedrooms}</p>
                                                         </div>
 
-                                                        <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                        <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
                                                             <p><IoBedOutline /></p>
                                                             <p>Letti: {acc.numberOfBeds}</p>
                                                         </div>
 
                                                             {acc.airConditioning &&(
-                                                                <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                                <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
                                                                     <p><PiFanLight /></p>
                                                                     <p>AirCon: si</p>
                                                                 </div>
@@ -449,18 +460,18 @@ const Booking = function () {
                                                 )}
                                                 {acc.glampingType && (
                                                     <div className="flex flex-col gap-2">
-                                                        <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                        <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
                                                             <p><LuTypeOutline /></p>
                                                             <p>Tipo Bungalow: {acc.glampingType.toLowerCase()}</p>
 
                                                         </div>
-                                                        <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                        <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
                                                             <p><IoBedOutline /></p>
                                                             <p>Letti: {acc.numberOfBeds}</p>
                                                             
                                                         </div>
                                                             {acc.airConditioning &&(
-                                                                <div className=" flex flex-row justify-start items-start bg-gray-200 text-black rounded p-1 gap-2">
+                                                                <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
                                                                     <p><PiFanLight /></p>
                                                                     <p> AirCon: si</p>
                                                                 </div>    

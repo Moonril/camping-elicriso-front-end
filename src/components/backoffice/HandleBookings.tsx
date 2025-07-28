@@ -316,8 +316,9 @@ const HandleBookings = function() {
 
             </div>
             {/* booking list */}
-            <div className="">            
-                    {bookings && (
+            <div className=""> 
+                          
+                    {bookings && bookings.length > 0 && (
                         <div className="flex flex-col text-white">
                             <div className="overflow-x-auto w-full rounded-md">
                                 

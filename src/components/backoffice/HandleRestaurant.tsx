@@ -191,7 +191,10 @@ const HandleRestaurant = function () {
                     </form>
             </div>
             <div>
-                <div className="">            
+                <div className=""> 
+
+                
+
                     {reservations && (
                         <div className="flex flex-col text-white">
                             <div className="overflow-x-auto w-full rounded-md">

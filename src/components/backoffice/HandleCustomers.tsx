@@ -176,6 +176,10 @@ const HandleCustomers = function () {
 
             {/* Customers' list */}
             <div>
+
+                
+
+
                 {customers && (
                         <div className="flex flex-col text-white">
                             <div className="overflow-x-auto w-full rounded-md">
