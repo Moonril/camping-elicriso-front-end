@@ -350,7 +350,8 @@ const Booking = function () {
                             onChange={(date) =>
                                 setNewBooking(prev => ({
                                     ...prev,
-                                    checkOutDate: date?.toISOString().split("T")[0] || ""
+                                    checkOutDate: date ? date.toLocaleDateString("en-CA")
+                                        : ""
                                 }))}
                             selectsEnd
                             startDate={newBooking.checkInDate ? new Date(newBooking.checkInDate) : null}
@@ -413,7 +414,7 @@ const Booking = function () {
                                             <h4 className="text-lg">
                                                 {acc.name}
                                             </h4>
-                                            <img className="aspect-3/2 object-cover object-bottom rounded-2xl" src={acc.img} alt="accommodation image" />
+                                            <img className="aspect-3/2 object-cover object-center rounded-2xl" src={acc.img} alt="accommodation image" />
                                             {/* dettagli */}
                                             <div className="flex flex-col gap-2 text-sm">
                                                 <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
@@ -422,10 +423,10 @@ const Booking = function () {
                                                 </div>
                                                 <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
                                                     <p><IoIosResize /></p>
-                                                    <p>Size {acc.dimentions}</p> 
+                                                    <p>Dimensioni {acc.dimentions} {acc.plotType ? 'm' : '㎡'}</p> 
                                                 </div>
                                                 {acc.plotType && (
-                                                    <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2 justify-center">
+                                                    <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
                                                         <p>
                                                             <LuTent />
                                                         </p>
@@ -451,7 +452,7 @@ const Booking = function () {
                                                             {acc.airConditioning &&(
                                                                 <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
                                                                     <p><PiFanLight /></p>
-                                                                    <p>AirCon: si</p>
+                                                                    <p>Aria Condizionata: si</p>
                                                                 </div>
                                                             )}
 
@@ -473,7 +474,7 @@ const Booking = function () {
                                                             {acc.airConditioning &&(
                                                                 <div className=" flex flex-row items-center bg-gray-200 text-black rounded p-1 gap-2">
                                                                     <p><PiFanLight /></p>
-                                                                    <p> AirCon: si</p>
+                                                                    <p>Aria Condizionata: si</p>
                                                                 </div>    
                                                             )}
                                                     </div>
@@ -621,7 +622,7 @@ const Booking = function () {
                             </div> */}
 
                             <div className="relative z-0 w-full mb-5 group">
-                                <textarea name="floating_number" id="floating_number" className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2  appearance-none border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " value={newBooking.preference} required onChange={(e) => {
+                                <textarea name="floating_number" id="floating_number" className="block py-2.5 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2  appearance-none border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-0 peer" placeholder=" " value={newBooking.preference} onChange={(e) => {
                                 
                                                 setNewBooking({
                                                     ...newBooking,

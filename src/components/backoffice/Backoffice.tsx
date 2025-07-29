@@ -121,7 +121,9 @@ const Backoffice = function(){
                             {tabs.map((tab) => (
                             <li key={tab.id} className="">
                                 <button
-                                onClick={() => setActiveTab(tab.id)}
+                                onClick={() => {setActiveTab(tab.id)
+                                    setIsSidebarOpen(false)}
+                                }
                                 className={`inline-block p-3 w-full text-start ps-5 ${
                                     activeTab === tab.id
                                     ? "text-black bg-gray-100 dark:bg-stone-900 dark:text-white"

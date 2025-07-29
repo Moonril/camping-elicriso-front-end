@@ -18,9 +18,12 @@ const HomePage = function (){
                 <div className="flex flex-col justify-center items-center gap-8 py-20 px-10 md:px-20"> {/* big container */}
                     
                     {/* about us */}
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-8 pb-15">
+                    <div className="flex flex-col lg:flex-row justify-between items-center gap-8 pb-15">
 
-                        <h2 className="text-4xl quicksand-titles font-medium md:self-start text-center flex-1 text-shadow-md/30">About Us</h2>
+                        <div className="">
+                            <h2 className="text-4xl quicksand-titles font-medium md:self-start text-center flex-1 text-shadow-md/30 pb-5">About Us</h2>
+                            <img src="Elicriso.jpg" alt="helichrysum" className="w-88 rounded-2xl" />
+                        </div>
 
                         <p className=" flex-2 text-lg">Nato dal desiderio di vivere a contatto con la natura e accogliere viaggiatori da ogni angolo del mondo, il nostro campeggio è il frutto di un sogno condiviso da due amici di lunga data, Luca e Martina. Amanti del mare, dell’avventura e delle serate sotto le stelle, hanno trasformato la loro passione in un luogo in cui semplicità, relax e autenticità si incontrano ogni giorno.
                             <br />
