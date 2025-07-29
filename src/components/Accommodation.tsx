@@ -35,12 +35,12 @@ const accommodations: Accommodation[] = [
   {
     id: 'plots',
     title: 'Piazzole',
-    image: 'https://images.pexels.com/photos/2123285/pexels-photo-2123285.jpeg',
+    image: 'small-tent.jpeg',
     types: [
       {
         id: 'standard',
         title: 'Standard Plot',
-        images: ['https://images.pexels.com/photos/2582818/pexels-photo-2582818.jpeg', 'https://images.pexels.com/photos/33104820/pexels-photo-33104820.jpeg'],
+        images: ['standard-plot.jpeg', 'standard-plot2.jpeg'],
         description: 'Piazzola standard in mezzo alla natura',
         size: "75m-80m",
         guests: 6,
@@ -51,7 +51,7 @@ const accommodations: Accommodation[] = [
       {
         id: 'deluxe',
         title: 'Deluxe Plot',
-        images: ['https://plus.unsplash.com/premium_photo-1682500051076-9b4119f644b1?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'url2', 'url3'],
+        images: ['deluxe-plot.avif', 'standard-plot2.jpeg'],
         description: 'Piazzola deluxe con più spazio e ombra e bagno privato',
         size: "100m-120m",
         guests: 8,
@@ -64,12 +64,12 @@ const accommodations: Accommodation[] = [
   {
     id: 'mobile',
     title: 'Bungalows',
-    image: 'https://images.pexels.com/photos/2174992/pexels-photo-2174992.jpeg',
+    image: 'small-bung.jpeg',
     types: [
       {
         id: 'small',
         title: 'Small Bungalow',
-        images: ['https://images.pexels.com/photos/749231/pexels-photo-749231.jpeg', 'https://images.pexels.com/photos/751546/pexels-photo-751546.jpeg'],
+        images: ['small-bung2.jpeg', 'https://images.pexels.com/photos/751546/pexels-photo-751546.jpeg'],
         description: 'Perfetto per famiglie, con angolo cottura',
         size: "20m",
         bedrooms: 1,
@@ -80,7 +80,7 @@ const accommodations: Accommodation[] = [
       {
         id: 'medium',
         title: 'Medium Bungalow',
-        images: ['https://images.unsplash.com/photo-1582719388123-e03e25d06d51?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'https://images.pexels.com/photos/1144694/pexels-photo-1144694.jpeg'],
+        images: ['medium-bung.avif', 'https://images.pexels.com/photos/1144694/pexels-photo-1144694.jpeg'],
         description: 'Con patio e comfort moderni',
         size: "25m",
         bedrooms: 2,
@@ -91,7 +91,7 @@ const accommodations: Accommodation[] = [
       {
         id: 'deluxe',
         title: 'Deluxe Bungalow',
-        images: ['https://images.unsplash.com/photo-1642612374066-afa81e251991?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'https://plus.unsplash.com/premium_photo-1686090450488-48ce19426bbe?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
+        images: ['deluxe-bung.avif', 'https://plus.unsplash.com/premium_photo-1686090450488-48ce19426bbe?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
         description: 'Con patio, comfort moderni e giardino personale',
         size: "30m",
         bedrooms: 3,
@@ -104,12 +104,12 @@ const accommodations: Accommodation[] = [
   {
     id: 'glamping',
     title: 'Glamping',
-    image: 'https://images.pexels.com/photos/17396037/pexels-photo-17396037.jpeg',
+    image: 'small-glamp.jpeg',
     types: [
       {
         id: 'medium',
         title: 'Medium Tent',
-        images: ['https://images.pexels.com/photos/2376989/pexels-photo-2376989.jpeg', 'https://images.unsplash.com/photo-1638939674892-5c6d84eec463?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'url3'],
+        images: ['medium-glamp.jpeg', 'https://images.unsplash.com/photo-1638939674892-5c6d84eec463?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'url3'],
         description: 'Tenda glamour immersa nel verde',
         size: "10m",
         bedrooms: 0,
@@ -120,7 +120,7 @@ const accommodations: Accommodation[] = [
       {
         id: 'deluxe',
         title: 'Luxury Tent',
-        images: ['https://images.unsplash.com/photo-1624254495476-db6cc8b77e98?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'url2', 'url3'],
+        images: ['deluxe-glamp.avif', 'url2', 'url3'],
         description: 'Ancora più glamour, ancora più lusso',
         size: "15m",
         bedrooms: 0,
@@ -133,7 +133,6 @@ const accommodations: Accommodation[] = [
 ]
 
 const Accomodation = function (){
-
 
 
 
@@ -179,7 +178,9 @@ const Accomodation = function (){
                     {accommodations.map((acc) => (
                       <div key={acc.id} className="flex-1 cursor-pointer">
                       
-                          <img src={acc.image} alt={acc.title} className="aspect-3/2 object-cover object-bottom rounded-2xl border border-solid border-gray-100 bg-black opacity-85 shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={() => setSelectedAccommodation(acc.id)} />
+                          <img src={acc.image} alt={acc.title} className="aspect-3/2 object-cover object-bottom rounded-2xl border border-solid border-gray-100 bg-black opacity-85 shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" onClick={() => {setSelectedAccommodation(acc.id)
+                            window.scrollBy({ top: 400, behavior: 'smooth' })
+                          }} />
                         <div className="p-5">
                               <h5 className="mb-2 text-xl tracking-tight text-gray-900 text-center">{acc.title}</h5>
                           </div>

@@ -374,7 +374,9 @@ const Booking = function () {
 
                     {/* submit fetch */}
                     <div className="py-4">
-                        <button className="bg-[#e77c29] p-2 px-4 text-white rounded-2xl hover:bg-[#e77b29b2]" onClick={getAvailableAccommodations}>Continua</button>
+                        <button className="bg-[#e77c29] p-2 px-4 text-white rounded-2xl hover:bg-[#e77b29b2]" onClick={() =>{getAvailableAccommodations()
+                            window.scrollBy({ top: 400, behavior: 'smooth' })
+                        }}>Continua</button>
                     </div>
 
                 </div>
@@ -496,6 +498,7 @@ const Booking = function () {
                                                 console.log("newBooking aggiornato:", updated)
                                                 return updated
                                                 })
+                                                window.scrollBy({ top: 400, behavior: 'smooth' })
                                             }}>
                                                 seleziona &#129125;
                                             </button>   

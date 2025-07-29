@@ -7,7 +7,7 @@ const HomePage = function (){
 
         <section className="min-h-screen bg-slate-50  text-white ">
             {/* hero */}
-            <div id="hero" className="flex flex-col justify-center py-80 2xl:py-80 px-5 items-center gap-8 h-screen bg-[url(https://images.pexels.com/photos/388303/pexels-photo-388303.jpeg)] bg-cover">
+            <div id="hero" className="flex flex-col justify-center py-80 2xl:py-80 px-5 items-center gap-8 h-screen bg-[url(hero-main.jpeg)] bg-cover">
                 <h3 id="hero-welcome" className="text-2xl md:text-3xl delius-regular xl:text-5xl text-white text-shadow-md/80">Welcome to</h3>
                 <h1 className="text-4xl md:text-6xl xl:text-8xl delius-regular text-white0 text-shadow-md/80">Camping Elicrisi</h1>
             </div>
@@ -48,7 +48,7 @@ const HomePage = function (){
                             <div className="flex flex-col sm:flex-row gap-8">
                                 <div className="flex-1">
                                     <Link to={'/accommodations'}>
-                                        <img src="https://images.pexels.com/photos/2123285/pexels-photo-2123285.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
+                                        <img src="small-tent.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
                                     </Link>
                                     <div className="p-5">
                                         <h5 className="mb-2 text-xl font-bold tracking-tight text-black text-center">Le nostre piazzole</h5>
@@ -57,7 +57,7 @@ const HomePage = function (){
                                 </div>
                                 <div className="flex-1">
                                     <Link to={'/accommodations'}>
-                                        <img src="https://images.pexels.com/photos/2174992/pexels-photo-2174992.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
+                                        <img src="small-bung.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
                                     </Link>
                                     <div className="p-5">
                                         <h5 className="mb-2 text-xl font-bold tracking-tighttext-black text-center">I nostri bungalows</h5>
@@ -66,7 +66,7 @@ const HomePage = function (){
                                 </div>
                                 <div className="flex-1">
                                     <Link to={'/accommodations'}>
-                                        <img src="https://images.pexels.com/photos/17396037/pexels-photo-17396037.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
+                                        <img src="small-glamp.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
                                     </Link>
                                     <div className="p-5">
                                         <h5 className="mb-2 text-xl font-bold tracking-tighttext-black text-center">Le nostre tende lussuose</h5>
@@ -88,7 +88,7 @@ const HomePage = function (){
                             <div className="w-full mx-auto">
                                 <div className="w-full h-[200px]">
                                     <img
-                                    src="https://images.pexels.com/photos/19781912/pexels-photo-19781912.jpeg"
+                                    src="swimmingpool.jpeg"
                                     alt="swimming pool"
                                     className="w-full h-full object-cover object-[25%_70%] rounded-2xl  shadow-lg/30"
                                     />
@@ -102,8 +102,8 @@ const HomePage = function (){
                             <div className="w-full mx-auto">
                                 <div className="w-full h-[200px]">
                                     <img
-                                    src="https://images.pexels.com/photos/1229753/pexels-photo-1229753.jpeg"
-                                    alt="swimming pool"
+                                    src="relax.jpeg"
+                                    alt="hammock"
                                     className="w-full h-full object-cover object-[25%_70%] rounded-2xl  shadow-lg/30"
                                     />
                                 </div>
@@ -114,8 +114,8 @@ const HomePage = function (){
                             <div className="w-full mx-auto">
                                 <div className="w-full h-[200px]">
                                     <img
-                                    src="https://images.pexels.com/photos/1237073/pexels-photo-1237073.jpeg"
-                                    alt="swimming pool"
+                                    src="restaurant.jpeg"
+                                    alt="restaurant"
                                     className="w-full h-full object-cover object-[25%_70%] rounded-2xl  shadow-lg/30"
                                     />
                                 </div>
@@ -133,13 +133,13 @@ const HomePage = function (){
                             <div className="flex flex-col gap-8 items-center justify-center">
                                 <div className="flex flex-col md:max-w-screen-lg sm:flex-row gap-8">
                                     <div className="flex-1">
-                                        <img src="https://images.pexels.com/photos/4989099/pexels-photo-4989099.jpeg" alt="" className="aspect-3/2 object-cover object-[25%_70%] rounded-2xl shadow-lg/30" />
+                                        <img src="showers.jpeg" alt="" className="aspect-3/2 object-cover object-[25%_70%] rounded-2xl shadow-lg/30" />
                                         <div className="p-5">
                                             <h5 className="mb-2 text-xl font-bold tracking-tight text-black text-center">Bagni e docce calde</h5>
                                         </div>
                                     </div>
                                     <div className="flex-1">
-                                        <img src="https://images.pexels.com/photos/67184/pexels-photo-67184.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30" />
+                                        <img src="sinks.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30" />
                                         <div className="p-5">
                                             <h5 className="mb-2 text-xl font-bold tracking-tight text-black text-center">Lavandini all'aperto</h5>
                                         </div>
@@ -148,13 +148,13 @@ const HomePage = function (){
                                 <div className="flex flex-col md:max-w-screen-lg sm:flex-row gap-8">
                                     
                                     <div className="flex-1">
-                                        <img src="https://images.pexels.com/photos/1309067/pexels-photo-1309067.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30" />
+                                        <img src="barbecue.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30" />
                                         <div className="p-5">
                                             <h5 className="mb-2 text-xl font-bold tracking-tight text-black text-center">Barbecue</h5>
                                         </div>
                                     </div>
                                     <div className="flex-1">
-                                        <img src="https://images.pexels.com/photos/1061640/pexels-photo-1061640.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30" />
+                                        <img src="bonfire.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30" />
                                         <div className="p-5">
                                             <h5 className="mb-2 text-xl font-bold tracking-tight text-black text-center">Falò</h5>
                                         </div>
@@ -172,7 +172,7 @@ const HomePage = function (){
                             <div className="flex flex-col sm:flex-row gap-8">
                                 <div className="flex-1">
                                     <Link to={'/surroundings'}>
-                                        <img src="https://images.pexels.com/photos/2049422/pexels-photo-2049422.jpeg" alt="" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
+                                        <img src="sea.jpeg" alt="seascape" className="aspect-3/2 object-cover object-bottom rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
                                     </Link>
                                         <div className="p-2">
                                             <h5 className="mb-2 text-xl font-bold tracking-tight text-black text-center">Mare</h5>
@@ -181,7 +181,7 @@ const HomePage = function (){
                                 </div>
                                 <div className="flex-1">
                                     <Link to={'/surroundings'}>
-                                        <img src="https://images.pexels.com/photos/2629233/pexels-photo-2629233.jpeg" alt="" className="aspect-3/2 object-cover object-center rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
+                                        <img src="hiking.jpeg" alt="hiking scene" className="aspect-3/2 object-cover object-center rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
                                     </Link>
                                         <div className="p-2">
                                             <h5 className="mb-2 text-xl font-bold tracking-tight text-black text-center">Trekking</h5>
@@ -190,7 +190,7 @@ const HomePage = function (){
                                 </div>
                                 <div className="flex-1">
                                     <Link to={'/surroundings'}>
-                                        <img src="https://images.pexels.com/photos/4430307/pexels-photo-4430307.jpeg" alt="" className="aspect-3/2 object-cover object-center rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
+                                        <img src="nightlife.jpeg" alt="nightlife" className="aspect-3/2 object-cover object-center rounded-2xl shadow-lg/30 transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110" />
                                     </Link>
                                         <div className="p-2">
                                             <h5 className="mb-2 text-xl font-bold tracking-tight text-black text-center">Vita notturna</h5>

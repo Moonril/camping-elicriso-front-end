@@ -70,6 +70,7 @@ const MyBookings = function (){
                             e.preventDefault() 
                             //fetch
                             getBooking()
+                            window.scrollBy({ top: 300, behavior: 'smooth' })
                         }} >
                             
                                 <input type="text" name="username" id="username" className=" border  text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500" placeholder="Numero prenotazione" required value={inputValues.bookingNumber} onChange={(e) => {
