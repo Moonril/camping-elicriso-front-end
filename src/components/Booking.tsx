@@ -485,7 +485,7 @@ const Booking = function () {
                                                     <p><IoPricetagOutline /></p>
                                                     <p>Prezzo gg/pp: {acc.price}€</p> 
                                                 </div>
-                                                <p className="text-lg font-medium">Totale per le date scelte:  {getTotalPrice(newBooking.checkInDate, newBooking.checkOutDate, acc.price)}€</p>
+                                                <p className="text-lg font-medium">Totale per le date scelte:  {getTotalPrice(newBooking.checkInDate, newBooking.checkOutDate, acc.price)}€</p> {/* add per person */}
                                             </div>
                                             {/* prenota */}
                                             <button className="bg-[#e77c29] p-2 px-4 text-white rounded-xl self-center hover:bg-[#e77b29b2]" onClick={() => {

@@ -14,6 +14,7 @@ interface Booking {
   numberOfCustomers: number,
   preference: string,
   bookingStatus: string,
+  paymentStatus: string,
   customer: {
     id: number,
     name: string,
@@ -332,9 +333,11 @@ const HandleBookings = function() {
                                             <th className="cursor-pointer" onClick={sortByDate}>Creata il {sortOrder === 'asc' ? '↑' : '↓'}</th>
                                             <th className="cursor-pointer" onClick={sortByName}>Nome {sortOrder === 'asc' ? '↑' : '↓'}</th>
                                             <th>Persone</th>
+                                            <th>Note</th>
                                             <th className="cursor-pointer" onClick={sortByDate}>Check-in {sortOrder === 'asc' ? '↑' : '↓'}</th>
                                             <th>Check-Out</th>
                                             <th className="cursor-pointer" onClick={sortByStatus}>Stato {sortOrder === 'asc' ? '↑' : '↓'}</th>
+                                            <th className="px-1">Pagamento</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -356,9 +359,11 @@ const HandleBookings = function() {
                                                 })}</td>
                                                 <td className="ps-2">{booking.customer.name} {booking.customer.surname}</td>
                                                 <td className="ps-2">{booking.numberOfCustomers}</td>
+                                                <td className="ps-2">{booking.preference}</td>
                                                 <td className="ps-2">{new Date(booking.checkInDate).toLocaleDateString('it-IT')}, 12:00</td>
                                                 <td className="ps-2">{new Date(booking.checkOutDate).toLocaleDateString('it-IT')}, 11:00</td>
                                                 <td className="ps-2">{booking.bookingStatus}</td>
+                                                <td className="ps-2">{booking.paymentStatus}</td>
                                             </tr>
 
                                             {selectedBookingId === booking.id && (
