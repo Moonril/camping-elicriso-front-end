@@ -6,6 +6,7 @@ import RestaurantNavbar from "./RestaurantNavbar"
 import ComingSoon from "../ComingSoon"
 import { useAuth } from "../../context/AuthContext"
 import { useNavigate } from "react-router-dom"
+import AccommodationsNavbar from "./AccommodationsNavbar"
 
 
 
@@ -77,7 +78,7 @@ const Backoffice = function(){
                     {activeTab === "alloggi" && (
                         <div className="flex flex-col py-40 px-2">
                             <h1 className="font-bold text-4xl pb-3">Alloggi</h1>
-                            <ComingSoon />
+                            <AccommodationsNavbar />
                         </div>
                         
                     )}

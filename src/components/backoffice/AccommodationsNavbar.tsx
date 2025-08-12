@@ -2,19 +2,21 @@
 import { useState } from "react"
 import HandleCustomers from "./HandleCustomers"
 import NewCustomer from "./NewCustomer"
+import HandleAccommodations from "./HandleAccommodations"
+import NewAccommodations from "./NewAcccommodations"
 
 
 
 
-const CustomersNavbar = function () {
+const AccommodationsNavbar = function () {
 
     /* tabs */
 
     const [activeTab, setActiveTab] = useState("elenco")
 
     const tabs = [
-        { id: "elenco", label: "Elenco Clienti" },
-        { id: "nuova", label: "Nuovo Cliente" }
+        { id: "elenco", label: "Elenco Alloggi" },
+        { id: "nuovo", label: "Nuovo Alloggio" }
     ]
 
 
@@ -44,10 +46,10 @@ const CustomersNavbar = function () {
 
                 <div className="">
                     {activeTab === "elenco" && (
-                        <HandleCustomers />
+                        <HandleAccommodations />
                     )}
-                    {activeTab === "nuova" && (
-                        <NewCustomer />
+                    {activeTab === "nuovo" && (
+                        <NewAccommodations />
                     )}
                 </div> 
 
@@ -58,4 +60,4 @@ const CustomersNavbar = function () {
     )
 }
 
-export default CustomersNavbar
+export default AccommodationsNavbar
