@@ -39,11 +39,11 @@ interface NewBookingObject {
   numberOfCustomers: number,
   preference: string,
   customer: {
-  name: string,
-  surname: string,
-  email: string,
-  phoneNumber: string,
-},
+    name: string,
+    surname: string,
+    email: string,
+    phoneNumber: string,
+    },
   accommodationId: number,
   accommodationType: string
 }

@@ -56,8 +56,7 @@ const Restaurant = function(){
         numberOfPeople: 1,
         reservationDate: '',
         additionalNotes: '',
-        phoneNumber: '',
-        bookingId: 1,
+        phoneNumber: ''
     })
 
 
@@ -70,8 +69,7 @@ const Restaurant = function(){
             numberOfPeople: 1,
             reservationDate: '',
             additionalNotes: '',
-            phoneNumber: '',
-            bookingId: 1,
+            phoneNumber: ''
         })
       console.log("Prenotazione salvata: ", response.data)
       Swal.fire({
