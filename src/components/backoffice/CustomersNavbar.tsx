@@ -2,6 +2,7 @@
 import { useState } from "react"
 import HandleCustomers from "./HandleCustomers"
 import ComingSoon from "../ComingSoon"
+import NewCustomer from "./NewCustomer"
 
 
 
@@ -47,7 +48,7 @@ const CustomersNavbar = function () {
                         <HandleCustomers />
                     )}
                     {activeTab === "nuova" && (
-                        <ComingSoon />
+                        <NewCustomer />
                     )}
                 </div> 
 
