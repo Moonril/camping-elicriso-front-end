@@ -131,9 +131,10 @@ const Booking = function () {
     }
 
 
-    /* post */
+    /* post NEW BOOKING */
 
     /* const navigate = useNavigate() */ /* redirection to payment page coming soon */
+    const navigate = useNavigate()
     
     const postNewBooking = ()=>{
         axios
@@ -159,7 +160,9 @@ const Booking = function () {
             text: 'La tua prenotazione è stata salvata con successo!',
             icon: 'success',
             confirmButtonText: 'Effettua il pagamento',
-        })/* .then(function(){navigate("/bookings/checkout")}) */
+        }).then(() => {
+        navigate("/bookings/checkout", { state: { booking: response.data } })
+      })
 
         })
         .catch((err) => {
