@@ -161,7 +161,7 @@ const Accomodation = function (){
 
         {/* hero section */}
 
-        <div id="hero" className="flex flex-col justify-center items-center pt-50 lg:pt-60 xl:pt-100 pb-80 bg-[url(glamping-banner.jpg)] bg-cover text-shadow-md/80 bg-green-950">
+        <div id="hero" className="flex flex-col justify-center items-center pt-50 lg:pt-60 xl:pt-100 pb-80 bg-[url('/glamping-banner.jpg')] bg-cover text-shadow-md/80 bg-green-950">
           <h1 className="text-3xl md:text-5xl text-white0 text-shadow-md/100 font-bold">Scopri i nostri alloggi</h1>
         </div>
 

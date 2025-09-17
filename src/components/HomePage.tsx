@@ -7,7 +7,7 @@ const HomePage = function (){
 
         <section className="min-h-screen bg-slate-50  text-white ">
             {/* hero */}
-            <div id="hero" className="flex flex-col justify-center py-80 2xl:py-80 px-5 items-center gap-8 h-screen bg-[url(hero-main.jpeg)] bg-cover">
+            <div id="hero" className="flex flex-col justify-center py-80 2xl:py-80 px-5 items-center gap-8 h-screen bg-[url('/hero-main.jpeg')] bg-cover">
                 <h3 id="hero-welcome" className="text-2xl md:text-3xl delius-regular xl:text-5xl text-white text-shadow-md/80">Welcome to</h3>
                 <h1 className="text-4xl md:text-6xl xl:text-8xl delius-regular text-white0 text-shadow-md/80">Camping Elicrisi</h1>
             </div>
