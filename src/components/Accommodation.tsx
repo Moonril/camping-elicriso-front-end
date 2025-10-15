@@ -7,7 +7,6 @@ import { PiFanLight } from "react-icons/pi"
 import { Link } from "react-router-dom"
 import "slick-carousel/slick/slick.css" 
 import "slick-carousel/slick/slick-theme.css"
-import Slider from "react-slick"
 
 
 /* accomodation types */

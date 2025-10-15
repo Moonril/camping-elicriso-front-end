@@ -1,6 +1,5 @@
 import { useState } from "react"
 import HandleRestaurant from "./HandleRestaurant"
-import ComingSoon from "../ComingSoon"
 import NewRestaurantReservation from "./NewRestaurantReservation"
 
 

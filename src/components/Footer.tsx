@@ -1,7 +1,5 @@
 import { CiFacebook, CiLinkedin, CiTwitter } from "react-icons/ci"
 import { FaInstagram } from "react-icons/fa"
-import { FaTent } from "react-icons/fa6"
-import { GiFlowers } from "react-icons/gi"
 import { Link, useLocation } from "react-router-dom"
 
 const Footer = function(){
