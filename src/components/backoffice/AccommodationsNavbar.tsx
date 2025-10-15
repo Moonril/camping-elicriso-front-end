@@ -1,7 +1,5 @@
 
 import { useState } from "react"
-import HandleCustomers from "./HandleCustomers"
-import NewCustomer from "./NewCustomer"
 import HandleAccommodations from "./HandleAccommodations"
 import NewAccommodations from "./NewAcccommodations"
 

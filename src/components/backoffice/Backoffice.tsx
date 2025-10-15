@@ -4,8 +4,6 @@ import { FiSidebar } from "react-icons/fi"
 import CustomersNavbar from "./CustomersNavbar"
 import RestaurantNavbar from "./RestaurantNavbar"
 import ComingSoon from "../ComingSoon"
-import { useAuth } from "../../context/AuthContext"
-import { useNavigate } from "react-router-dom"
 import AccommodationsNavbar from "./AccommodationsNavbar"
 
 

@@ -21,11 +21,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![banner](image.png)
+![banner](/public/readmeimgs/image.png)
 
 # Camping Elicrisi –  Campeggio sul Mare 🏕️🌊
 
 Camping Elicrisi è una piattaforma web pensata per la gestione completa di un campeggio situato a pochi passi dal mare. Il progetto integra competenze sia di **Front-End** che di **Back-End**, ed è stato sviluppato come esercizio completo di progettazione, sviluppo e organizzazione di un'applicazione reale.
+Visita la demo della parte front-end -> https://camping-elicriso-front-end.vercel.app/
 
 Il sito è suddiviso in due principali sezioni:
 - **Area pubblica:** dedicata ai clienti
@@ -74,9 +75,9 @@ Area riservata alla gestione delle funzionalità principali:
 
 Qualche screenshot del funzionamento della pagina **Prenota**:
 
-![alt text](image-11.png)
+![alt text](/public/readmeimgs/image-11.png)
 
-![alt text](image-12.png)
+![alt text](/public/readmeimgs/image-12.png)
 
 
 
@@ -153,7 +154,7 @@ jwt.duration=86400000
 jwt.secret=azchefyhijulmkopqrsiuvxyzahcqefx
 ```
 
-![alt text](image-9.png)
+![alt text](/public/readmeimgs/image-9.png)
 
 Inoltre è necessario un file 'env.properties' nella cartella principale, con questa struttura (inserire i pro):
 
@@ -168,7 +169,7 @@ gmail.password=
 gmail.from=
 ```
 
-![alt text](image-10.png)
+![alt text](/public/readmeimgs/image-10.png)
 
 
 
@@ -186,7 +187,7 @@ gmail.from=
 ```
 - Cambiare il tipo di utente da STAFF a ADMIN su pdAdmin 4
 
-![alt text](image-8.png)
+![alt text](/public/readmeimgs/image-8.png)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -196,25 +197,25 @@ gmail.from=
 ## Usage
 
 Tutto il sito è accessibile senza bisogno di login, eccetto la parte back office, raggiungibile cliccando la voce 'Admin' nella navbar:
- ![alt text](image-1.png)
+ ![alt text](/public/readmeimgs/image-1.png)
 
 - e in seguito al login:
 
- ![alt text](image-2.png)
+ ![alt text](/public/readmeimgs/image-2.png)
 
 - tramite Backoffice:
-![alt text](image-3.png)
+![alt text](/public/readmeimgs/image-3.png)
 
 ## Previews
  In caso ci fossero problemi nel creare un admin ecco una piccola preview del Backoffice:
 
 - Le pagine del backoffice sono tre: **Prenotazioni - Clienti -Ristorante** è possibile visualizzare tutte le prenotazioni/clienti, cercare per numero/nome, ordinare per nome, stato, data di creazione e data del check-in
-![alt text](image-4.png)
-![alt text](image-6.png)
+![alt text](/public/readmeimgs/image-4.png)
+![alt text](/public/readmeimgs/image-6.png)
 
 - è possibile modificare lo stato della prenotazione, aggiornare la prenotazione e i clienti
-![alt text](image-5.png)
-![alt text](image-7.png)
+![alt text](/public/readmeimgs/image-5.png)
+![alt text](/public/readmeimgs/image-7.png)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

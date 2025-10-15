@@ -1,8 +1,7 @@
 import axios from "axios"
 import React, { useState } from "react"
-import { FaEye, FaMagnifyingGlass } from "react-icons/fa6"
+import { FaEye } from "react-icons/fa6"
 import Modal from "react-modal"
-import Swal from "sweetalert2"
 Modal.setAppElement("#root")
 
 interface AccommodationObject {
