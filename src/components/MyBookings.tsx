@@ -53,7 +53,7 @@ const MyBookings = function (){
     return(
         <section className="bg-green-950 text-black min-h-screen">
 
-            <div id="hero" className="flex flex-col justify-center items-center pt-50 pb-80 bg-[url(https://images.pexels.com/photos/388303/pexels-photo-388303.jpeg)] bg-cover  text-shadow-md/80 bg-green-950">
+            <div id="hero" className="flex flex-col justify-center items-center pt-50 pb-80 bg-[url('/hero-main.jpg')] bg-cover  text-shadow-md/80 bg-green-950">
                 <h1 className="text-2xl md:text-5xl text-white text-shadow-md/100 font-bold text-center">Hai già una prenotazione? controlla i dettagli!</h1>
             </div>
             

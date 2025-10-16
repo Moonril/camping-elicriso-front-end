@@ -1,11 +1,11 @@
-import { useState } from "react"
+//import { useState } from "react"
 import { CiFacebook, CiLinkedin, CiTwitter } from "react-icons/ci"
 import { FaInstagram } from "react-icons/fa"
 import { Link, useParams } from "react-router-dom"
 
 const ContactUs = function () {
 
-    const [newMessage, setNewMessage] = useState() /* messages coming soon */
+    //const [newMessage, setNewMessage] = useState() /* messages coming soon */
     const { bookingId } = useParams()
 
 

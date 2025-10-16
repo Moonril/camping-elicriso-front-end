@@ -24,7 +24,7 @@ interface Booking {
   },
 }
 
-interface BookingPage {
+/* interface BookingPage {
   content: Booking[],
   totalPages: number,
   totalElements: number,
@@ -39,7 +39,7 @@ interface BookingPage {
   first: boolean,
   number: number,
   size: number,
-}
+} */
 
 interface PatchBooking {
   checkInDate: string,
@@ -56,7 +56,7 @@ const HandleBookings = function() {
 
     const [open, setOpen] = useState(false)
  
-    const handleOpen = () => setOpen(!open)
+    //const handleOpen = () => setOpen(!open)
 
     const [formData, setFormData] = useState<PatchBooking>({
         checkInDate: "",
@@ -76,10 +76,10 @@ const HandleBookings = function() {
     const APIUrl = 'http://localhost:8080/camping/bookings'
 
     const [bookings, setBookings] = useState<Booking[] | null>([])
-    const [pagination, setPagination] = useState<{ totalPages: number, currentPage: number }>({
+    /* const [pagination, setPagination] = useState<{ totalPages: number, currentPage: number }>({
         totalPages: 0,
         currentPage: 0,
-    })
+    }) */
 
     /* get bookings */
 

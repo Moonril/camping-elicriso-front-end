@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-interface NewAccommodationObject {
+/* interface NewAccommodationObject {
     id: number,
     name: string,
     maxNumberOfPeople: number,
@@ -14,12 +14,12 @@ interface NewAccommodationObject {
     airConditioning?: boolean,
     mobileType?: string,
     glampingType?: string 
-}
+} */
 
 
 const NewAccommodations = function (){
 
-    const [accommodationTypeSelected, setAccommodationTypeSelected] = useState()
+    //const [accommodationTypeSelected, setAccommodationTypeSelected] = useState()
 
 
     return(

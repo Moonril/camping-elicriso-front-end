@@ -32,7 +32,7 @@ const HandleRestaurant = function () {
     
     const [open, setOpen] = useState(false)
      
-    const handleOpen = () => setOpen(!open)
+    //const handleOpen = () => setOpen(!open)
     
     const [formData, setFormData] = useState<PutReservation>({
         name: '',
@@ -51,10 +51,10 @@ const HandleRestaurant = function () {
     /* get reservations */
 
     const [reservations, setReservations] = useState<Reservation[] | null>([])
-    const [pagination, setPagination] = useState<{ totalPages: number, currentPage: number }>({
+    /* const [pagination, setPagination] = useState<{ totalPages: number, currentPage: number }>({
             totalPages: 0,
             currentPage: 0,
-    })
+    }) */
 
     const getReservations = () => {
         const token = localStorage.getItem("token")

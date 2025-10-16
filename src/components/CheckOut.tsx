@@ -6,7 +6,7 @@ const CheckOut = function (){
 
     const location = useLocation()
     const booking = location.state?.booking
-    const [selectedMethod, setSelectedMethod] = useState("paypal")
+    //const [selectedMethod, setSelectedMethod] = useState("paypal")
 
 
 

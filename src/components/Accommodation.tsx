@@ -34,12 +34,12 @@ const accommodations: Accommodation[] = [
   {
     id: 'plots',
     title: 'Piazzole',
-    image: 'small-tent.jpeg',
+    image: 'small-tent.jpg',
     types: [
       {
         id: 'standard',
         title: 'Standard Plot',
-        images: ['standard-plot.jpeg', 'standard-plot2.jpeg'],
+        images: ['standard-plot.jpg', 'standard-plot2.jpeg'],
         description: 'Piazzola standard in mezzo alla natura',
         size: "75m-80m",
         guests: 6,
@@ -63,12 +63,12 @@ const accommodations: Accommodation[] = [
   {
     id: 'mobile',
     title: 'Bungalows',
-    image: 'small-bung.jpeg',
+    image: 'small-bung.jpg',
     types: [
       {
         id: 'small',
         title: 'Small Bungalow',
-        images: ['small-bung2.jpeg', 'https://images.pexels.com/photos/751546/pexels-photo-751546.jpeg'],
+        images: ['small-bung2.jpg', 'https://images.pexels.com/photos/751546/pexels-photo-751546.jpeg'],
         description: 'Perfetto per famiglie, con angolo cottura',
         size: "20m",
         bedrooms: 1,
@@ -108,7 +108,7 @@ const accommodations: Accommodation[] = [
       {
         id: 'medium',
         title: 'Medium Tent',
-        images: ['medium-glamp.jpeg', 'https://images.unsplash.com/photo-1638939674892-5c6d84eec463?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'url3'],
+        images: ['medium-glamp.jpg', 'https://images.unsplash.com/photo-1638939674892-5c6d84eec463?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'url3'],
         description: 'Tenda glamour immersa nel verde',
         size: "10m",
         bedrooms: 0,
@@ -140,20 +140,20 @@ const Accomodation = function (){
     const [selectedType, setSelectedType] = useState<string | null>(null)
     
     const currentAccommodation = accommodations.find((a) => a.id === selectedAccommodation)
-    const currentType = currentAccommodation?.types.find((t) => t.id === selectedType)
+    //const currentType = currentAccommodation?.types.find((t) => t.id === selectedType)
     
 
     console.log(selectedAccommodation, 'selected accomdation')
 
     /* Slider settings */
 
-    const settings = {
+    /* const settings = {
       dots: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1
-    }
+    } */
 
     return (
       <section className=" bg-green-950  text-white min-h-screen" >

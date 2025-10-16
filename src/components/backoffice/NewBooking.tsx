@@ -45,7 +45,7 @@ const NewBooking = function (){
 
     const APIUrlNewBooking = 'http://localhost:8080/camping/bookings'
 
-    const postNewBooking = ()=>{
+ /*    const postNewBooking = ()=>{
         axios
         .post<NewBookingObject>(APIUrlNewBooking, newBooking)
         .then((response) => {
@@ -69,7 +69,7 @@ const NewBooking = function (){
             text: 'La tua prenotazione è stata salvata con successo!',
             icon: 'success',
             confirmButtonText: 'Effettua il pagamento',
-        })/* .then(function(){navigate("/bookings/checkout")}) */
+        })
 
         })
         .catch((err) => {
@@ -83,7 +83,7 @@ const NewBooking = function (){
         })
         })
 
-    }
+    } */
 
 
 
