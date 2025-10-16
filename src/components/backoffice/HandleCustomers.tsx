@@ -48,10 +48,10 @@ const HandleCustomers = function () {
     /* get customers */
 
     const [customers, setCustomers] = useState<Customer[] | null>([])
-    /* const [pagination, setPagination] = useState<{ totalPages: number, currentPage: number }>({
+    const [pagination, setPagination] = useState<{ totalPages: number, currentPage: number }>({
             totalPages: 0,
             currentPage: 0,
-    }) */
+    })
 
     const getCustomers = () => {
         const token = localStorage.getItem("token")

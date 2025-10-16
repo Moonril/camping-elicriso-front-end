@@ -51,10 +51,10 @@ const HandleRestaurant = function () {
     /* get reservations */
 
     const [reservations, setReservations] = useState<Reservation[] | null>([])
-    /* const [pagination, setPagination] = useState<{ totalPages: number, currentPage: number }>({
+    const [pagination, setPagination] = useState<{ totalPages: number, currentPage: number }>({
             totalPages: 0,
             currentPage: 0,
-    }) */
+    })
 
     const getReservations = () => {
         const token = localStorage.getItem("token")
