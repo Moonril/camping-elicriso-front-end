@@ -71,7 +71,7 @@ const MyNavBar = function (){
             {isOpen && (
               <section id="mobile-menu" className={`fixed top-0 left-0 h-screen w-full bg-green-950 opacity-90 text-5xl text-white transform transition-transform duration-300 ease-in-put ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 <button onClick={toggleDropdown} className="text-4xl self-end px-6">&times;</button>
-                  <nav className="flex flex-col items-left justify-center gap-6 h-full text-3xl ps-15" aria-label="mobile">
+                  <nav className="flex flex-col items-left justify-center gap-6 h-full text-3xl ps-12" aria-label="mobile">
                         <Link to={"/"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 flex flex-row gap-2 ${location.pathname === '/' ? 'underline text-green-100' : 'text-green-600'}`}><CiHome /> Home</Link>
                         <Link to={"/accommodations"} onClick={() => setIsOpen(false)} className={`hover:opacity-80 flex flex-row gap-2 ${location.pathname === '/accommodations' ? 'underline text-green-100' : 'text-green-300'}`}><LuTent /> Alloggi</Link>
                         <Link to={"/bookings"} onClick={() => setIsOpen(false)} className={`hover:opacity-90 flex flex-row gap-2 ${location.pathname === '/bookings' ? 'underline text-green-100' : 'text-green-300'}`}><LuNotebookPen /> Prenota</Link>

@@ -16,13 +16,13 @@ const ContactUs = function () {
                 <h1 className=" text-4xl">CONTATTI</h1>
             </div>
             {/* details */}
-            <div className="flex flex-col w-full md:flex-row gap-8 items-center justify-center lg:p-10 px-10">
+            <div className="flex flex-col w-full md:flex-row gap-8 items-center justify-center lg:p-10 px-1 md:px-10">
                 {/* form */}
 
                 <div className="flex flex-col w-full items-center justify-center">
                     <h3>Mandaci un messaggio!</h3>
                     {/* form */}
-                    <form className="max-w-md mx-auto w-full px-10 md:px-0" onSubmit={(e)=>{
+                    <form className="max-w-md mx-auto w-full px-0" onSubmit={(e)=>{
                         e.preventDefault() 
                         
                         
@@ -86,7 +86,7 @@ const ContactUs = function () {
             </div>
             {/* where + map */}
 
-            <div className="flex flex-col w-full items-center justify-center gap-8 p-6">
+            <div className="flex flex-col w-full items-center justify-center gap-8 p-3 md:p-6">
                 <h3 className="text-3xl">Come trovarci:</h3>
                 <p>Aeroporto più vicino: Aeroporto di pisa</p>
                 <p>Uscita Autostrada Genova - Grosseto: 92</p>
