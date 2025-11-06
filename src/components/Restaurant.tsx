@@ -156,33 +156,33 @@ const Restaurant = function(){
                         <div> 
 
                             <h4 className="text-xl font-medium">Antipasti</h4>
-                            <p className="text-slate-800">Bruschette al pomodoro</p>
-                            <p className="text-slate-800 pb-4">Tagliere di affettati</p>
+                            <p className="text-slate-800">Crostini Neri</p>
+                            <p className="text-slate-800 pb-4">Tagliere di formaggi</p>
                             
 
                             <h4 className="text-xl font-medium">Primi</h4>
-                            <p className="text-slate-800">Risotto ai porcini</p>
-                            <p className="text-slate-800">Tagliatelle al sugo</p>
-                            <p className="text-slate-800 pb-4">Primo di mare</p>
+                            <p className="text-slate-800">Risotto alla zucca</p>
+                            <p className="text-slate-800">Gnocchi ricotta e spinaci</p>
+                            <p className="text-slate-800 pb-4">Spaghetti alle vongole</p>
 
                             <h4 className="text-xl font-medium">Secondi</h4>
-                            <p className="text-slate-800">Pesce al forno</p>
-                            <p className="text-slate-800 pb-4">Verdure gratinate</p>
+                            <p className="text-slate-800">Pollo alla cacciatora</p>
+                            <p className="text-slate-800 pb-4">Tortino di funghi</p>
 
                             <h4 className="text-xl font-medium">Contorni</h4>
                             <p className="text-slate-800">Patate arrosto</p>
                             <p className="text-slate-800 pb-4">Insalata di campo</p>
 
                             <h4 className="text-xl font-medium">Dolce</h4>
+                            <p className="text-slate-800">Torta di mele</p>
                             <p className="text-slate-800">Tiramisù</p>
-                            <p className="text-slate-800">Torta della nonna</p>
                         </div>
                         )}
                         {activeTab === "sabato" && (
                         <div> 
 
                             <h4 className="text-xl font-medium">Antipasti</h4>
-                            <p className="text-slate-800">Bruschette al pomodoro</p>
+                            <p className="text-slate-800">Bruschette ricotta e pomodori secchi</p>
                             <p className="text-slate-800 pb-4">Tagliere di affettati</p>
                             
 
