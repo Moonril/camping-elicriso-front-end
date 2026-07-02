@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { useAuth } from "../context/AuthContext"
 import { useNavigate } from "react-router-dom"
+import Swal from "sweetalert2"
 
 const LogIn = function (){
 
@@ -33,6 +34,12 @@ const LogIn = function (){
         })
         .catch((err) => {
             console.log("Errore nel login: ", err)
+            Swal.fire({
+                                title: 'Errore nella richiesta',
+                                text: 'Errore durante il login. (Contact me for a backend demo!)',
+                                icon: 'error',
+                                confirmButtonText: 'Riprova',
+                        })
         })
     }
 

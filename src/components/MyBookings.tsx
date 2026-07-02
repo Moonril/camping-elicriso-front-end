@@ -38,7 +38,7 @@ const MyBookings = function (){
             console.error("Errore nella get:", error)
             Swal.fire({
                     title: 'Errore nella richiesta',
-                    text: 'Controlla il numero di prenotazione o riprova più tardi.',
+                    text: 'Controlla il numero di prenotazione o riprova più tardi. (Contact me for a backend demo!)',
                     icon: 'error',
                     confirmButtonText: 'Riprova',
             })

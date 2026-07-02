@@ -129,7 +129,7 @@ const Booking = function () {
         console.error("Errore nella fetch:", error)
         Swal.fire({
                     title: 'Errore nella richiesta',
-                    text: 'Alloggi non disponibili per le date scelte.',
+                    text: 'Alloggi non disponibili per le date scelte. (Contact me for a backend demo)',
                     icon: 'error',
                     confirmButtonText: 'Riprova',
                 })
